@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginStatusPrimitiveChooser" parent="AdwBin">
+    <property name="child">
+      <object class="GtkDropDown" id="chooser">
+        <property name="factory">
+          <object class="GtkBuilderListItemFactory">
+            <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkImage">
+            <binding name="icon-name">
+              <closure type="gchararray" function="pidgin_status_primitive_chooser_icon_name_cb">
+                <lookup name="item">GtkListItem</lookup>
+              </closure>
+            </binding>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="xalign">0</property>
+            <binding name="label">
+              <closure type="gchararray" function="pidgin_status_primitive_chooser_label_cb">
+                <lookup name="item">GtkListItem</lookup>
+              </closure>
+            </binding>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+            </property>
+          </object>
+        </property>
+        <property name="model">
+          <object class="GtkStringList">
+            <items>
+              <item>offline</item>
+              <item>available</item>
+              <item>unavailable</item>
+              <item>invisible</item>
+              <item>away</item>
+              <item>extended-away</item>
+            </items>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

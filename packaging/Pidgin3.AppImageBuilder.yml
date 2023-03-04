@@ -1,0 +1,74 @@
+---
+version: 1
+AppDir:
+  path: ./AppDir
+  app_info:
+    id: im.pidgin.Pidgin3
+    name: Pidgin3
+    icon: im.pidgin.Pidgin3
+    version: !ENV ${VERSION}
+    exec: usr/bin/pidgin3
+  apt:
+    arch: amd64
+    sources:
+      - sourceline: 'deb [arch=amd64] http://deb.debian.org/debian/ bookworm main'
+        key_url: 'https://ftp-master.debian.org/keys/archive-key-11.asc'
+    include:
+      - dictionaries-common
+      - gir1.2-gdkpixbuf-2.0
+      - gir1.2-gtk-3.0
+      - gir1.2-soup-2.4
+      - gstreamer1.0-gl
+      # - gstreamer1.0-plugins-bad # 100mb-ish only if we really **REALLY** need it
+      - gstreamer1.0-plugins-good
+      - gstreamer1.0-x
+      - libavahi-client3
+      - libavahi-glib1
+      - libcanberra0
+      - libcmark0.30.2
+      - libfarstream-0.2-5
+      - libfontconfig1
+      - libfreetype6
+      - libgadu3
+      - libgirepository-1.0-1
+      - libglib-object-introspection-perl
+      - libglib-perl
+      - libgspell-1-2
+      - libgstreamer-plugins-base1.0-0
+      - libgstreamer1.0-0
+      - libgtk-3-0
+      - libgumbo1
+      - libhandy-1-0
+      - libidn12
+      - libidn2-0
+      - libjson-glib-1.0-0
+      # - libkf5wallet5 # 57mb
+      - liblua5.3-0
+      - libpython3.8
+      - libsecret-1-0
+      - libsoup2.4-1
+      - libxss1
+      - lua-lgi
+      - perl
+      - python3-gi
+    exclude:
+      - adwaita-icon-theme
+  files:
+    exclude:
+      - usr/share/man
+      - usr/share/doc/*/README.*
+      - usr/share/doc/*/changelog.*
+      - usr/share/doc/*/NEWS.*
+      - usr/share/doc/*/TODO.*
+      - usr/include
+  runtime:
+    path_mappings:
+      - /usr/lib/x86_64-linux-gnu/gplugin:$APPDIR/usr/lib/x86_64-linux-gnu/gplugin/
+      - /usr/lib/x86_64-linux-gnu/purple-3:$APPDIR/usr/lib/x86_64-linux-gnu/purple-3/
+      - /usr/lib/x86_64-linux-gnu/pidgin-3:$APPDIR/usr/lib/x86_64-linux-gnu/pidgin-3/
+      - /usr/share/pidgin/:$APPDIR/usr/share/pidgin/
+      - /usr/share/pixmaps/pidgin/:$APPDIR/usr/share/pixmaps/pidgin/
+    env:
+      XDG_DATA_DIRS: $APPDIR/share:$XDG_DATA_DIRS
+AppImage:
+  arch: x86_64

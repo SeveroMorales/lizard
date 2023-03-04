@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2022 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="Talkatu" version="0.0"/>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <object class="TalkatuBuffer" id="buffer"/>
+  <template class="TalkatuEditor" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="TalkatuToolbar" id="toolbar"/>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="vexpand">1</property>
+        <property name="spacing">4</property>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hexpand">1</property>
+            <property name="focusable">1</property>
+            <property name="hscrollbar_policy">never</property>
+            <child>
+              <object class="TalkatuInput" id="input">
+                <property name="can_focus">1</property>
+                <property name="wrap_mode">word</property>
+                <property name="buffer">buffer</property>
+                <signal name="notify::buffer" handler="talkatu_editor_view_buffer_changed_handler" object="TalkatuEditor" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="send_button">
+            <property name="visible">0</property>
+            <property name="label" translatable="yes">Send</property>
+            <property name="focusable">1</property>
+            <property name="receives_default">1</property>
+            <signal name="clicked" handler="talkatu_editor_send_button_clicked_cb" object="TalkatuEditor" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

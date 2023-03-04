@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the talkatu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Любомир Василев, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: talkatu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-19 13:19-0500\n"
+"PO-Revision-Date: 2019-07-19 18:19+0000\n"
+"Last-Translator: Любомир Василев, 2019\n"
+"Language-Team: Bulgarian (https://www.transifex.com/pidgin/teams/6323/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: demo/data/demo.ui:13
+msgid "Alice"
+msgstr "Алис"
+
+#: demo/data/demo.ui:24
+msgid "Bob"
+msgstr "Боб"
+
+#: demo/data/demo.ui:35
+msgid "Carlos"
+msgstr "Карлос"
+
+#: demo/data/demo.ui:46
+msgid "Eve"
+msgstr "Ив"
+
+#: demo/data/demo.ui:57
+msgid "David"
+msgstr "Дейвид"
+
+#: demo/data/demo.ui:68
+msgid "Mallory"
+msgstr "Малори"
+
+#: demo/data/demo.ui:141
+msgid "Use a TalkatuBuffer"
+msgstr "Използване на TalkatuBuffer"
+
+#: demo/data/demo.ui:142
+msgid "Plain"
+msgstr "Обикновено"
+
+#: demo/data/demo.ui:157
+msgid "Use a TalkatuWholeBuffer"
+msgstr "Използване на TalkatuWholeBuffer"
+
+#: demo/data/demo.ui:158
+msgid "Whole"
+msgstr "Цяло"
+
+#: demo/data/demo.ui:173
+msgid "Use a TalkatuHTMLBuffer"
+msgstr "Използване на TalkatuHTMLBuffer"
+
+#: demo/data/demo.ui:174
+msgid "HTML"
+msgstr "HTML"
+
+#: demo/data/demo.ui:189
+msgid "Use a TalkatuMarkdownBuffer"
+msgstr "Използване на TalkatuMarkdownBuffer"
+
+#: demo/data/demo.ui:190
+msgid "Markdown"
+msgstr "Markdown"
+
+#: demo/data/demo.ui:215
+msgid "Insert HTML from a file"
+msgstr "Вмъкване на HTML от файл"
+
+#: demo/data/demo.ui:216
+msgid "Insert HTML"
+msgstr "Вмъкване на HTML"
+
+#: demo/data/demo.ui:230
+msgid "Insert Markdown from a file"
+msgstr "Вмъкване на Markdown от файл"
+
+#: demo/data/demo.ui:231
+msgid "Insert Markdown"
+msgstr "Вмъкване на Markdown"
+
+#: demo/data/demo.ui:255
+msgid "Author"
+msgstr "Автор"
+
+#: demo/data/demo.ui:278
+msgid "Toogle toolbar visibility"
+msgstr "Превключване на лентата с инструменти"
+
+#: demo/data/demo.ui:279
+msgid "Toolbar"
+msgstr "Лента с инструменти"
+
+#: demo/data/demo.ui:291
+msgid "Toggle send button visibility"
+msgstr "Превключване на видимостта на бутона за изпращане"
+
+#: demo/data/demo.ui:292
+msgid "Send Button"
+msgstr "Бутон за изпращане"
+
+#: demo/talkatudemo.c:57
+msgid "Talkatu Demo"
+msgstr "Демонстрационна версия на Talkatu"
+
+#: demo/talkatudemowindow.c:60
+msgid "insert html..."
+msgstr "Вмъкване на HTML…"
+
+#: demo/talkatudemowindow.c:103
+msgid "insert markdown..."
+msgstr "Вмъкване на Markdown…"
+
+#: talkatu/data/editor.ui:55
+msgid "Send"
+msgstr "Изпращане"
+
+#: talkatu/data/linkdialog.ui:7 talkatu/data/toolbar.ui:148
+msgid "Insert Link"
+msgstr "Вмъкване на връзка"
+
+#: talkatu/data/linkdialog.ui:24
+msgid "Cancel"
+msgstr "Отказ"
+
+#: talkatu/data/linkdialog.ui:38
+msgid "Insert"
+msgstr "Вмъкване"
+
+#: talkatu/data/linkdialog.ui:69
+msgid "<span font-size=\"large\" font-weight=\"bold\">Insert Link</span>"
+msgstr "<span font-size=\"large\" font-weight=\"bold\">Вмъкване на връзка</span>"
+
+#: talkatu/data/linkdialog.ui:82
+msgid ""
+"Please enter the URL and optional display text you would like to insert."
+msgstr "Моля, въведете адреса и (ако желаете) някакъв описателен текст."
+
+#: talkatu/data/linkdialog.ui:101
+msgid "URL:"
+msgstr "Адрес:"
+
+#: talkatu/data/linkdialog.ui:140
+msgid "Display Text:"
+msgstr "Описателен текст:"
+
+#: talkatu/data/toolbar.ui:13
+msgid "Bold"
+msgstr "Получер"
+
+#: talkatu/data/toolbar.ui:26
+msgid "Italic"
+msgstr "Курсив"
+
+#: talkatu/data/toolbar.ui:39
+msgid "Underline"
+msgstr "Подчертан"
+
+#: talkatu/data/toolbar.ui:52
+msgid "Strikethrough"
+msgstr "Зачертан"
+
+#: talkatu/data/toolbar.ui:75
+msgid "Increase Font Size"
+msgstr "Увеличаване на размера на шрифта"
+
+#: talkatu/data/toolbar.ui:88
+msgid "Decrease Font Size"
+msgstr "Намаляване на размера на шрифта"
+
+#: talkatu/data/toolbar.ui:111
+msgid "Clear Formatting"
+msgstr "Изчистване на форматирането"
+
+#: talkatu/data/toolbar.ui:134
+msgid "Insert Image"
+msgstr "Вмъкване на изображение"
+
+#: talkatu/data/toolbar.ui:162
+msgid "Insert File"
+msgstr "Вмъкване на файл"
+
+#: talkatu/data/toolbar.ui:175
+msgid "Insert Code"
+msgstr "Вмъкване на код"
+
+#: talkatu/data/toolbar.ui:189
+msgid "Insert Emoji"
+msgstr "Вмъкване на емоджи"
+
+#: talkatu/data/toolbar.ui:213
+msgid "Get Attention"
+msgstr "Привличане на вниманието"
+
+#: talkatu/talkatuactiongroup.c:182
+#, c-format
+msgid "activating action %s"
+msgstr "включване на действието %s"
+
+#: talkatu/talkatuactiongroup.c:193
+#, c-format
+msgid "toggling action %s"
+msgstr "превключване на действието %s"
+
+#: talkatu/talkatubuffer.c:143
+#, c-format
+msgid "failed to find action for tag %s"
+msgstr "не може да бъде открито действие за етикета %s"
+
+#: talkatu/talkatubuffer.c:154
+#, c-format
+msgid "failed to find action %s"
+msgstr "не може да бъде открито действието %s"
+
+#: talkatu/talkatuview.c:180
+msgid "Open Link"
+msgstr "Отваряне на връзката"
+
+#: talkatu/talkatuview.c:204
+msgid "Copy Link"
+msgstr "Копиране на връзката"
+
+#: talkatu/talkatuview.c:329
+msgid "Send message"
+msgstr "Изпращане на съобщение"

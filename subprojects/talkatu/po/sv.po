@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the talkatu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Sebastian Rasmussen <sebras@gmail.com>, 2020
+# Anders Jonsson <transifex@norsjovallen.se>, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: talkatu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-19 13:19-0500\n"
+"PO-Revision-Date: 2019-07-19 18:19+0000\n"
+"Last-Translator: Anders Jonsson <transifex@norsjovallen.se>, 2021\n"
+"Language-Team: Swedish (https://www.transifex.com/pidgin/teams/6323/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: demo/data/demo.ui:13
+msgid "Alice"
+msgstr "Alice"
+
+#: demo/data/demo.ui:24
+msgid "Bob"
+msgstr "Bob"
+
+#: demo/data/demo.ui:35
+msgid "Carlos"
+msgstr "Carlos"
+
+#: demo/data/demo.ui:46
+msgid "Eve"
+msgstr "Eve"
+
+#: demo/data/demo.ui:57
+msgid "David"
+msgstr "David"
+
+#: demo/data/demo.ui:68
+msgid "Mallory"
+msgstr "Mallory"
+
+#: demo/data/demo.ui:141
+msgid "Use a TalkatuBuffer"
+msgstr "Använd en TalkatuBuffer"
+
+#: demo/data/demo.ui:142
+msgid "Plain"
+msgstr "Vanlig"
+
+#: demo/data/demo.ui:157
+msgid "Use a TalkatuWholeBuffer"
+msgstr "Använd en TalkatuWholeBuffer"
+
+#: demo/data/demo.ui:158
+msgid "Whole"
+msgstr "Hel"
+
+#: demo/data/demo.ui:173
+msgid "Use a TalkatuHTMLBuffer"
+msgstr "Använd en TalkatuHTMLBuffer"
+
+#: demo/data/demo.ui:174
+msgid "HTML"
+msgstr "HTML"
+
+#: demo/data/demo.ui:189
+msgid "Use a TalkatuMarkdownBuffer"
+msgstr "Använd en TalkatuMarkdownBuffer"
+
+#: demo/data/demo.ui:190
+msgid "Markdown"
+msgstr "Markdown"
+
+#: demo/data/demo.ui:215
+msgid "Insert HTML from a file"
+msgstr "Infoga HTML från en fil"
+
+#: demo/data/demo.ui:216
+msgid "Insert HTML"
+msgstr "Infoga HTML"
+
+#: demo/data/demo.ui:230
+msgid "Insert Markdown from a file"
+msgstr "Infoga Markdown från en fil"
+
+#: demo/data/demo.ui:231
+msgid "Insert Markdown"
+msgstr "Infoga Markdown"
+
+#: demo/data/demo.ui:255
+msgid "Author"
+msgstr "Skribent"
+
+#: demo/data/demo.ui:278
+msgid "Toogle toolbar visibility"
+msgstr "Växla synlighet för verktygsfält"
+
+#: demo/data/demo.ui:279
+msgid "Toolbar"
+msgstr "Verktygsfält"
+
+#: demo/data/demo.ui:291
+msgid "Toggle send button visibility"
+msgstr "Växla synlighet för skickaknapp"
+
+#: demo/data/demo.ui:292
+msgid "Send Button"
+msgstr "Skickaknapp"
+
+#: demo/talkatudemo.c:57
+msgid "Talkatu Demo"
+msgstr "Talkatu-demo"
+
+#: demo/talkatudemowindow.c:60
+msgid "insert html..."
+msgstr "infoga html…"
+
+#: demo/talkatudemowindow.c:103
+msgid "insert markdown..."
+msgstr "infoga markdown…"
+
+#: talkatu/data/editor.ui:55
+msgid "Send"
+msgstr "Skicka"
+
+#: talkatu/data/linkdialog.ui:7 talkatu/data/toolbar.ui:148
+msgid "Insert Link"
+msgstr "Infoga länk"
+
+#: talkatu/data/linkdialog.ui:24
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: talkatu/data/linkdialog.ui:38
+msgid "Insert"
+msgstr "Infoga"
+
+#: talkatu/data/linkdialog.ui:69
+msgid "<span font-size=\"large\" font-weight=\"bold\">Insert Link</span>"
+msgstr "<span font-size=\"large\" font-weight=\"bold\">Infoga länk</span>"
+
+#: talkatu/data/linkdialog.ui:82
+msgid ""
+"Please enter the URL and optional display text you would like to insert."
+msgstr "Mata in URL:en och valfri visningstext som du vill infoga."
+
+#: talkatu/data/linkdialog.ui:101
+msgid "URL:"
+msgstr "URL:"
+
+#: talkatu/data/linkdialog.ui:140
+msgid "Display Text:"
+msgstr "Visningstext:"
+
+#: talkatu/data/toolbar.ui:13
+msgid "Bold"
+msgstr "Fet"
+
+#: talkatu/data/toolbar.ui:26
+msgid "Italic"
+msgstr "Kursiv"
+
+#: talkatu/data/toolbar.ui:39
+msgid "Underline"
+msgstr "Understruket"
+
+#: talkatu/data/toolbar.ui:52
+msgid "Strikethrough"
+msgstr "Genomstruket"
+
+#: talkatu/data/toolbar.ui:75
+msgid "Increase Font Size"
+msgstr "Öka typsnittsstorlek"
+
+#: talkatu/data/toolbar.ui:88
+msgid "Decrease Font Size"
+msgstr "Minska typsnittsstorlek"
+
+#: talkatu/data/toolbar.ui:111
+msgid "Clear Formatting"
+msgstr "Rensa formatering"
+
+#: talkatu/data/toolbar.ui:134
+msgid "Insert Image"
+msgstr "Infoga bild"
+
+#: talkatu/data/toolbar.ui:162
+msgid "Insert File"
+msgstr "Infoga fil"
+
+#: talkatu/data/toolbar.ui:175
+msgid "Insert Code"
+msgstr "Infoga kod"
+
+#: talkatu/data/toolbar.ui:189
+msgid "Insert Emoji"
+msgstr "Infoga emoji"
+
+#: talkatu/data/toolbar.ui:213
+msgid "Get Attention"
+msgstr "Få uppmärksamhet"
+
+#: talkatu/talkatuactiongroup.c:182
+#, c-format
+msgid "activating action %s"
+msgstr "aktiverar åtgärd %s"
+
+#: talkatu/talkatuactiongroup.c:193
+#, c-format
+msgid "toggling action %s"
+msgstr "växlar åtgärd %s"
+
+#: talkatu/talkatubuffer.c:143
+#, c-format
+msgid "failed to find action for tag %s"
+msgstr "misslyckades med att hitta åtgärd för tagg %s"
+
+#: talkatu/talkatubuffer.c:154
+#, c-format
+msgid "failed to find action %s"
+msgstr "misslyckades med att hitta åtgärd %s"
+
+#: talkatu/talkatuview.c:180
+msgid "Open Link"
+msgstr "Öppna länk"
+
+#: talkatu/talkatuview.c:204
+msgid "Copy Link"
+msgstr "Kopiera länk"
+
+#: talkatu/talkatuview.c:329
+msgid "Send message"
+msgstr "Skicka meddelande"

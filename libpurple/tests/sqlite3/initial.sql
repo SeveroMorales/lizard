@@ -1,0 +1,2 @@
+CREATE TABLE foo(a TEXT);
+CREATE TABLE bar(b TEXT);

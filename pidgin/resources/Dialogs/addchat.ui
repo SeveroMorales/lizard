@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginAddChatDialog" parent="GtkDialog">
+    <property name="title" translatable="1">Add Chat</property>
+    <property name="resizable">0</property>
+    <signal name="response" handler="pidgin_add_chat_dialog_response_cb" swapped="no"/>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="margin-bottom">24</property>
+        <property name="margin-end">24</property>
+        <property name="margin-start">24</property>
+        <property name="margin-top">24</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">24</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="css-classes">title-1</property>
+            <property name="label" translatable="1">Add a chat</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">5</property>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="label" translatable="1">A_ccount:</property>
+                <property name="use-underline">1</property>
+                <property name="mnemonic-widget">account</property>
+                <property name="xalign">0</property>
+              </object>
+            </child>
+            <child>
+              <object class="PidginAccountChooser" id="account">
+                <property name="hexpand">1</property>
+                <property name="filter">
+                  <object class="GtkEveryFilter">
+                    <child>
+                      <object class="GtkCustomFilter" id="filter"/>
+                    </child>
+                    <child>
+                      <object class="PidginAccountFilterConnected"/>
+                    </child>
+                  </object>
+                </property>
+                <signal name="notify::account" handler="pidgin_add_chat_dialog_account_changed_cb" swapped="no"/>
+                <accessibility>
+                  <relation name="labelled-by">label1</relation>
+                </accessibility>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup" id="dynamic_group">
+            <property name="title" translatable="1">Chat information</property>
+            <property name="description" translatable="1">Please enter the appropriate information about the chat you would like to add to your buddy list.</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="1">Local information</property>
+            <child>
+              <object class="AdwEntryRow" id="alias">
+                <property name="title" translatable="1">A_lias</property>
+                <property name="use-underline">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="activatable-widget">group</property>
+                <property name="focusable">0</property>
+                <property name="title" translatable="1">_Group</property>
+                <property name="use-underline">1</property>
+                <child>
+                  <object class="GtkComboBoxText" id="group">
+                    <property name="hexpand">1</property>
+                    <property name="has-entry">1</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="activatable-widget">autojoin</property>
+                <property name="focusable">0</property>
+                <property name="title" translatable="1">Automatically _join when account connects</property>
+                <property name="use-underline">1</property>
+                <child>
+                  <object class="GtkSwitch" id="autojoin">
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="activatable-widget">persistent</property>
+                <property name="focusable">0</property>
+                <property name="title" translatable="1">_Remain in chat after window is closed</property>
+                <property name="use-underline">1</property>
+                <child>
+                  <object class="GtkSwitch" id="persistent">
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button3">
+        <property name="label" translatable="1">Room List</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button1">
+        <property name="label" translatable="1">_Cancel</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button2">
+        <property name="label" translatable="1">_Add</property>
+        <property name="sensitive">0</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="1">button3</action-widget>
+      <action-widget response="cancel">button1</action-widget>
+      <action-widget response="ok">button2</action-widget>
+    </action-widgets>
+  </template>
+</interface>

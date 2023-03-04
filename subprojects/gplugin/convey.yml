@@ -1,0 +1,196 @@
+environment:
+  - BUILD_NUMBER
+  - REPOSITORY=gplugin/builders
+  - REGISTRY=docker.io
+  - REGISTRY_USERNAME
+  - REGISTRY_PASSWORD
+  - DOCS_BUILD_IMAGE=${REGISTRY}/${REPOSITORY}:debian-bookworm-amd64
+
+tasks:
+  clean:
+    type: convey/clean
+    files:
+      - alpine-edge-amd64
+      - debian-bookworm-amd64
+      - debian-bookworm-arm64
+      - debian-bookworm-armhf
+      - dist
+      - fedora-36-amd64
+      - fedora-rawhide-amd64
+      - i18n
+      - opensuse-tumbleweed-amd64
+      - scanbuild
+      - ubuntu-jammy-amd64
+      - valgrind
+      - gplugin-docs
+      - gplugin-gtk4-docs
+
+  import:
+    type: docker/import
+    files: .:.
+
+  import-artifacts:
+    type: docker/import
+    files: ${DISTRO}-${VERSION}-${ARCH}
+
+  build:
+    type: docker/run
+    image: ${REGISTRY}/${REPOSITORY}:${TARGET}
+
+  export:
+    type: docker/export
+    files: ${TARGET}
+
+  login:
+    type: docker/login
+    server: ${REGISTRY}
+    username: ${REGISTRY_USERNAME}
+    password: ${REGISTRY_PASSWORD}
+
+  logout:
+    type: docker/logout
+    server: ${REGISTRY}
+
+  docs-clean:
+    type: convey/clean
+    files:
+      - gplugin-docs
+      - gplugin-gtk-docs
+  docs-build:
+    type: docker/run
+    image: ${DOCS_BUILD_IMAGE}
+    workdir: ${CONVEY_WORKSPACE}
+    script:
+      - set -ex
+      - meson build-docs
+      - ninja -C build-docs doc
+  docs-export:
+    type: docker/export
+    files:
+      - build-docs/gplugin/reference/gplugin:gplugin-docs
+      - build-docs/gplugin-gtk4/reference/gplugin-gtk4:gplugin-gtk4-docs
+
+plans:
+  clean:
+    stages:
+      - tasks: clean
+
+  alpine-edge-amd64:
+    environment: TARGET=alpine-edge-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  clang-format:
+    environment: TARGET=clang-format
+    stages:
+      - tasks: [import, build]
+
+  debian-bookworm-amd64:
+    environment: TARGET=debian-bookworm-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+  debian-bookworm-arm64:
+    environment: TARGET=debian-bookworm-arm64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+  debian-bookworm-armhf:
+    environment: TARGET=debian-bookworm-armhf
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  dist:
+    environment: TARGET=dist
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  docs:
+    stages:
+      - tasks: [docs-clean, import, docs-build, docs-export]
+
+  fedora-36-amd64:
+    environment: TARGET=fedora-36-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+  fedora-rawhide-amd64:
+    environment: TARGET=fedora-rawhide-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  i18n:
+    environment: TARGET=i18n
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  opensuse-tumbleweed-amd64:
+    environment: TARGET=opensuse-tumbleweed-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  scanbuild:
+    environment: TARGET=scanbuild
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  simple:
+    environment: TARGET=simple
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  ubuntu-jammy-amd64:
+    environment: TARGET=ubuntu-jammy-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  valgrind:
+    environment: TARGET=valgrind
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+meta-plans:
+  all:
+    plans:
+      - alpine-edge-amd64
+      - debian-bookworm-amd64
+      - dist
+      - fedora-34-amd64
+      - fedora-rawhide-amd64
+      - opensuse-tumbleweed-amd64
+      - ubuntu-jammy-amd64
+  tools:
+    plans:
+      - clang-format
+      - i18n
+      - scanbuild
+      - valgrind
+      - simple
+  qemu-user-static:
+    plans:
+      - debian-bookworm-arm64
+      - debian-bookworm-armhf
+

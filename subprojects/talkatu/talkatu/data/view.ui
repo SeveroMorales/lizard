@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <menu id="model">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Open Link</attribute>
+        <attribute name="action">link.open</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Copy Link</attribute>
+        <attribute name="action">link.copy</attribute>
+      </item>
+    </section>
+  </menu>
+  <template class="TalkatuView" parent="GtkTextView">
+    <property name="has-tooltip">1</property>
+    <property name="wrap-mode">3</property>
+
+    <signal name="notify::buffer" handler="talkatu_view_buffer_set_cb"/>
+    <child>
+      <object class="GtkPopoverMenu" id="menu">
+        <property name="has-arrow">0</property>
+        <property name="menu-model">model</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkGestureClick">
+        <property name="button">0</property>
+        <signal name="pressed" handler="talkatu_view_pressed_cb"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEventControllerMotion">
+        <signal name="motion" handler="talkatu_view_motion_cb"/>
+      </object>
+    </child>
+  </template>
+</interface>

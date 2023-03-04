@@ -1,0 +1,77 @@
+environment:
+  - REGISTRY_HOST=docker.io
+  - REPOSITORY=libgnt/builders
+  - DOCS_BUILD_IMAGE=${REGISTRY_HOST}/${REPOSITORY}:debian-bullseye-amd64
+
+tasks:
+  build:
+    type: docker/run
+    image: ${REGISTRY_HOST}/${REPOSITORY}:${TARGET}
+
+  clean:
+    type: convey/clean
+    files:
+      - debian-bookworm-amd64
+      - debian-bullseye-amd64
+      - fedora-34-amd64
+      - libgnt-docs
+
+  docs-clean:
+    type: convey/clean
+    files:
+      - libgnt-docs
+  docs-build:
+    type: docker/run
+    image: ${DOCS_BUILD_IMAGE}
+    workdir: ${CONVEY_WORKSPACE}
+    script:
+      - set -ex
+      - meson build-docs
+      - ninja -C build-docs doc
+  docs-export:
+    type: docker/export
+    files:
+      - build-docs/doc/libgnt:libgnt-docs
+
+  export:
+    type: docker/export
+    files: ${TARGET}:.
+
+  import:
+    type: docker/import
+    files: .:.
+
+plans:
+  docs:
+    stages:
+      - tasks:
+         - docs-clean
+         - import
+         - docs-build
+         - docs-export
+
+  clean:
+    stages:
+      - tasks: clean
+
+  debian-bullseye-amd64:
+    environment: TARGET=debian-bullseye-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: export
+        run: always
+
+  debian-bookworm-amd64:
+    environment: TARGET=debian-bookworm-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: export
+        run: always
+
+  fedora-34-amd64:
+    environment: TARGET=fedora-34-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: export
+        run: always
+

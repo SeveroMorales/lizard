@@ -1,0 +1,8 @@
+option('devenv-config-dir', type : 'string', yield : true,
+       description : 'config directory for running a devenv (defaults to a subdirectory of buildroot)')
+
+option('doc', type : 'boolean', value : true, yield : true,
+       description : 'build documentation with gtk-doc')
+
+option('introspection', type : 'boolean', value : true, yield : true,
+       description : 'build introspection data')

@@ -1,0 +1,235 @@
+GNT: The GLib Ncurses Toolkit
+=============================
+
+Please see notes about versioning in README.md.
+
+version 3.0.0 (????/??/??):
+	* Fix a use after free when using Python. (PR #357 kdex)
+
+version 2.14.1 (2021/02/04):
+	* Bump the minimum meson version from 0.37.0 to 0.41.0 (Richard Laager)
+	* Fix a buffer size in gntwm.c.  (Richard Laager)
+
+version 2.14.0 (2020/06/10):
+	* Split libgnt out of the Pidgin repository. (Elliott Sales de Andrade)
+	* Switched build system to Meson. (Elliott Sales de Andrade)
+	* Fixed a build issue on FreeBSD. (Steve Wills)
+
+version 2.13.0 (2018/03/08):
+	* Fixed build against curses 6.0 with opaque structs set. (#16764 dimstar)
+	  (PR #268 Daniel Kamil Kozar)
+	* Fixed a crash when resizing the window. (#16680 marcus) (PR #269 Daniel Kamil Kozar)
+
+version 2.12.0 (2017/03/09):
+	No changes.
+
+version 2.11.0 (2016/06/21):
+	No changes.
+
+version 2.10.12 (2015/12/31):
+	No changes.
+
+version 2.10.11 (2014/11/23):
+	No changes.
+
+version 2.10.10 (2014/10/22):
+	* Fix build against Python 3. (Ed Catmur) (#15969)
+
+version 2.10.9 (2014/02/02):
+	No changes.
+
+version 2.10.8 (2014/01/28):
+	No changes.
+
+version 2.10.7 (2013/02/13):
+	Alien hatchery:
+	* No changes
+
+version 2.10.6 (2012/07/06):
+	No changes.
+
+version 2.10.5 (2012/07/05):
+	No changes.
+
+version 2.10.4 (2012/05/06):
+	No changes.
+
+version 2.10.3 (2012/03/26):
+	No changes.
+
+version 2.10.2 (2012/03/14):
+	No changes.
+
+version 2.10.1 (2011/12/06):
+	* Fix compilation on OpenBSD.
+
+version 2.10.0 (2011/08/18):
+	No changes.
+
+version 2.9.0 (2011/06/23):
+	No changes.
+
+version 2.8.0 (2011/06/07):
+	No changes.
+
+version 2.7.11 (2011/03/10):
+	No changes.
+
+version 2.7.10 (2011/02/06):
+	No changes.
+
+version 2.7.9 (2010/12/26):
+	No changes.
+
+version 2.7.8 (2010/12/19):
+	No changes.
+
+version 2.7.7 (2010/11/23):
+	No changes.
+
+version 2.7.6 (2010/11/21):
+	No changes.
+
+version 2.7.5 (2010/10/31):
+	No changes.
+
+version 2.7.4 (2010/10/20):
+	No changes.
+
+version 2.7.3 (2010/08/10):
+	* Rebindable 'suggest-next-page' and 'suggest-prev-page' actions for
+	  textboxes (GntEntry) to scroll through list of suggestions.
+	* Rebindable 'dropdown' action for comboboxes (GntComboBox) to show the
+	  dropdown list of options.
+
+version 2.7.2 (2010/07/21):
+	No changes.
+
+version 2.7.1 (2010/05/29):
+	No changes.
+
+version 2.7.0 (2010/05/12):
+	* Changed GLib minimum version requirement to 2.12.0.
+	* Fix autoconf detection of Python.  (Brad Smith)
+	* New action 'history-search', with default binding ctrl+r, to search
+	  the entered string in the input history.
+
+version 2.6.6 (2010/02/18):
+	* Fix CVE-2010-0420, a possible remote crash when handling chat room
+	  buddy names.
+	* Rebindable 'move-first' and 'move-last' actions for tree widgets. So
+	  it is possible to jump to the first or last entry in the buddy list
+	  (and other such lists) by pressing home or end key (defaults)
+	  respectively.
+
+version 2.6.5 (2010/01/08):
+	* Build-time fixes for Solaris.  (Paul Townsend)
+
+version 2.6.4 (2009/11/29):
+	* Fix displaying umlauts etc. in non-utf8 locale.
+
+version 2.6.3 (2009/10/16):
+	No changes.
+
+version 2.6.2 (2009/09/05):
+	* Properly detect libpanel on OpenBSD.  (Brad Smith)
+	* Remove IO watches in gnt_quit.  (Tomasz Mon)
+
+version 2.6.1 (2009/08/18):
+	No changes.
+
+version 2.6.0 (2009/08/18):
+	* The hardware cursor is updated correctly. This will be useful
+	  especially for users of braille terminals, screen readers etc.
+	* Fixed UTF-8 compatibility problems which could cause exits or other
+	  unrequested behaviour.
+	* Add a new progress bar widget.  (Saleem Abdulrasool)
+
+version 2.5.9 (2009/08/18):
+	No changes.
+
+version 2.5.8 (2009/06/27):
+	No changes.
+
+version 2.5.7 (2009/06/20):
+	No changes.
+
+version 2.5.6 (2009/05/19):
+	No changes.
+
+version 2.5.5 (2009/03/01):
+	* Allow rebinding keys to change the focused widget (details in the
+	  man-page, look for GntBox::binding)
+
+version 2.5.4 (2009/01/12):
+	* Fix rebinding actions with the arrow-keys and tab.
+
+version 2.5.3 (2008/12/20):
+	* Allow binding meta+arrow keys for actions.
+	* Added default meta+erase binding for delete previous word.
+
+version 2.5.2 (2008/10/19):
+	* A bug was fixed where some key-bindings wouldn't work with some TERMs
+	  (e.g. xterm-color, screen-linux etc.)
+
+version 2.5.1 (2008/08/30):
+	No changes.
+
+version 2.5.0 (2008/08/18):
+	No changes.
+
+version 2.4.2 (2008/05/17):
+	* New default binding ctrl+x to open context menus.
+	* Menu triggers and other bindings will no longer conflict.
+	* Middle click pastes the internal clipboard (when mouse support is
+	  enabled).
+
+version 2.4.1 (2008/03/31):
+	* Fix compiling with Glib older than 2.6
+
+version 2.4.0 (2008/02/29):
+	* The default keybinding for dump-screen is now M-D and uses a file
+	  request dialog. M-d will properly delete-forward-word, and M-f has been
+	  fixed to imitate readline's behavior.
+	* New bindings alt+tab and alt+shift+tab to help navigating between the
+	  highlighted windows (details on the man page).
+
+version 2.3.0 (2007/11/24):
+	* It's possible to bind key-strokes to specific menuitems in the windows.
+	  Read the 'Menus' section in the man-page for details.
+	* 'transpose-chars' operation for the entry boxes. The default key-binding
+	  is ctrl+t.
+	* 'yank' operation for the entry boxes. The default binding is ctrl+y.
+
+version 2.2.2 (2007/10/23):
+	* Various bug and memory leak fixes
+
+version 2.2.1 (2007/09/29):
+	No changes.
+
+version 2.2.0 (2007/09/13):
+	No changes.
+
+version 2.1.1 (2007/08/20):
+	No changes.
+
+version 2.1.0 (2007/07/28):
+	* There's support for workspaces now (details in the manpage)
+	* There's a new custom window manager, Irssi
+	* Some improvements for tab-completion, tooltip and the password entries
+	* Some bugs regarding search results fixed
+
+version 2.0.2 (2007/06/14):
+	No changes.
+
+version 2.0.1 (2007/05/24):
+	* Improved tab completion support
+	* Ctrl+c prompts with a dialog before exiting
+	* Work around an ncurses bug which appears when half of a multi-cell
+	  character is covered by an upper-level window
+	* Nicer HTML screendumps
+
+version 2.0.0 (2007/05/03):
+	Build Changes:
+	* A new ncurses-based console UI called Finch is now available
+	  (Sadrul Habib Chowdhury, Google Summer of Code)

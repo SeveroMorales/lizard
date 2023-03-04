@@ -1,0 +1,24 @@
+syntax: glob
+*.pyc
+*.ui~
+\#*.ui\#
+
+syntax: regexp
+^artifacts\/
+^build.*\/
+^debian\/?
+^fedora\/?
+^packaging\/debian\/tmp\/
+^packaging\/debian\/(.+\.)?(substvars|debhelper\.log)$
+^packaging\/debian\/build.*\/
+^packaging\/debian\/\.debhelper\/
+^packaging\/debian\/debhelper-build-stamp
+^packaging\/debian\/gir1.2-talkatu-0.0\/
+^packaging\/debian\/libtalkatu0?(-.+)?\/
+^packaging\/debian\/talkatu-demo\/
+^packaging\/debian\/files$
+^po\/.+\.pot$
+^obj-.+\/
+^scanbuild\/
+^subprojects\/.+\/
+^valgrind\/

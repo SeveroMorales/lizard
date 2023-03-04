@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/plugins/notification-sound/" id="im.pidgin.Purple.plugin.NotificationSound">
+    <key name="muted" type="b">
+      <default>false</default>
+      <summary>Mute sounds</summary>
+      <description>
+        Whether notification sounds should be muted.
+      </description>
+    </key>
+
+    <key name="mute-until" type="s">
+      <default>''</default>
+      <summary>Mute sounds until date</summary>
+      <description>
+        If notification sounds are muted, then they will be muted until the date
+        in this setting. The string must be a date in ISO8601 format, and will be
+        assumed in UTC if no time zone is specified.
+      </description>
+    </key>
+  </schema>
+</schemalist>

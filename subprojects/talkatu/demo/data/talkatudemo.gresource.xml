@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/imfreedom/keep/talkatu/talkatu/ui/demo">
+    <file compressed="true" preprocess="xml-stripblanks">demo.ui</file>
+  </gresource>
+</gresources>

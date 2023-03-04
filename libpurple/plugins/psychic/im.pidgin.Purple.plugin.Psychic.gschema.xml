@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/plugins/psychic/" id="im.pidgin.Purple.plugin.Psychic">
+    <key name="buddies-only" type="b">
+      <default>false</default>
+      <summary>Buddies only</summary>
+      <description>
+        Only enable for users on the buddy list.
+      </description>
+    </key>
+
+    <key name="show-notice" type="b">
+      <default>true</default>
+      <summary>Show notice in conversations</summary>
+      <description>
+        Display notification message in conversations.
+      </description>
+    </key>
+
+    <key name="activate-online" type="b">
+      <default>true</default>
+      <summary>Online only</summary>
+      <description>
+        Disable when away.
+      </description>
+    </key>
+
+    <key name="raise-conv" type="b">
+      <default>false</default>
+      <summary>Raise conversation</summary>
+      <description>
+        Raise psychic conversations when opened.
+      </description>
+    </key>
+  </schema>
+</schemalist>

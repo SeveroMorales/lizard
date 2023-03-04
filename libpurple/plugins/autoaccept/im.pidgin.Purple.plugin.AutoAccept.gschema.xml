@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <enum id="im.pidgin.Purple.plugin.AutoAccept.Setting">
+    <value nick="Ask" value="0"/>
+    <value nick="Auto Accept" value="1"/>
+    <value nick="Auto Reject" value="2"/>
+  </enum>
+
+  <schema path="/plugins/autoaccept/" id="im.pidgin.Purple.plugin.AutoAccept">
+    <key name="path" type="s">
+      <default>""</default>
+      <summary>File save path</summary>
+      <description>
+        Path to save the files in (should be the full path.) If this is empty,
+        it will default to the user's Downloads directory.
+      </description>
+    </key>
+
+    <key name="stranger" enum="im.pidgin.Purple.plugin.AutoAccept.Setting">
+      <default>"Ask"</default>
+      <summary>Default reply for strangers</summary>
+      <description>
+        The default reply when a file-transfer request arrives from a user who
+        is *not* on your buddy list.
+      </description>
+    </key>
+
+    <key name="notify" type="b">
+      <default>true</default>
+      <summary>Notify on file transfer completion</summary>
+      <description>
+        Notify with a popup when an autoaccepted file transfer is complete (only
+        when there's no conversation with the sender.)
+      </description>
+    </key>
+
+    <key name="newdir" type="b">
+      <default>true</default>
+      <summary>New directory per user</summary>
+      <description>
+        Create a new directory for each user.
+      </description>
+    </key>
+
+    <key name="escape" type="b">
+      <default>true</default>
+      <summary>Escape the filenames</summary>
+    </key>
+  </schema>
+</schemalist>

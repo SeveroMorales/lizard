@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1
+
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Talkatu -->
+  <!-- interface-description GTK widgets for chat applications -->
+  <!-- interface-copyright Gary Kramlich <grim@reaperworld.com> -->
+  <template class="TalkatuAttachmentDialog" parent="GtkDialog">
+    <property name="modal">1</property>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkImage" id="preview">
+            <property name="pixel_size">256</property>
+            <property name="icon_name">text-x-generic-template</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="filename">
+            <property name="label" translatable="yes">&lt;filename&gt;</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="comment">
+            <property name="activates_default">1</property>
+            <property name="focusable">1</property>
+            <property name="placeholder_text" translatable="yes">Comment (optional)</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="-6">cancel</action-widget>
+      <action-widget response="-3">upload</action-widget>
+    </action-widgets>
+    <child type="action">
+      <object class="GtkButton" id="cancel">
+        <property name="label" translatable="yes">Cancel</property>
+        <property name="focusable">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="upload">
+        <property name="label" translatable="yes">Upload</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+      </object>
+    </child>
+  </template>
+</interface>

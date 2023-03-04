@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <!-- n-columns=3 n-rows=4 -->
+  <template class="PidginKeypad" parent="GtkGrid">
+    <property name="row-homogeneous">1</property>
+    <property name="column-homogeneous">1</property>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">49</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">1</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[1]"/>
+            </child>
+          </object>
+        </child>
+        <style>
+          <class name="image-button"/>
+        </style>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">50</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">2</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[2]">
+                <!-- Translators: These are the letters on the '2' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">ABC</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">1</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">51</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">3</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[3]">
+                <!-- Translators: These are the letters on the '3' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">DEF</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">2</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">52</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">4</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[4]">
+                <!-- Translators: These are the letters on the '4' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">GHI</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">53</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">5</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[5]">
+                <!-- Translators: These are the letters on the '5' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">JKL</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">1</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">54</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">6</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[6]">
+                <!-- Translators: These are the letters on the '6' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">MNO</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">2</property>
+          <property name="row">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">55</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">7</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[7]">
+                <!-- Translators: These are the letters on the '7' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">PQRS</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">56</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">8</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[8]">
+                <!-- Translators: These are the letters on the '8' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">TUV</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">1</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">57</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">9</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[9]">
+                <!-- Translators: These are the letters on the '9' key of a numeric
+                  keypad; translate according to the tables in §7 of ETSI ES 202 130:
+                  http://webapp.etsi.org/WorkProgram/Report_WorkItem.asp?WKI_ID=11730
+                -->
+                <property name="label" translatable="1">WXYZ</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">2</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">42</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">*</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="asterisk">
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">0</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">48</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">0</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="secondary_labels[0]">
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">1</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="margin-start">2</property>
+        <property name="margin-end">2</property>
+        <property name="margin-top">2</property>
+        <property name="margin-bottom">2</property>
+        <property name="action-name">keypad.dtmf</property>
+        <property name="action-target">35</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="homogeneous">1</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">#</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="2"></attribute>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="octothorpe">
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <layout>
+          <property name="column">2</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+  </template>
+</interface>

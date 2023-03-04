@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/im/pidgin/libpurple/gg">
+    <file>icons/16x16/apps/im-gadu-gadu.png</file>
+    <file>icons/16x16/apps/scalable/im-gadu-gadu.svg</file>
+    <file>icons/22x22/apps/im-gadu-gadu.png</file>
+    <file>icons/22x22/apps/scalable/im-gadu-gadu.svg</file>
+    <file>icons/48x48/apps/im-gadu-gadu.png</file>
+    <file>icons/scalable/apps/im-gadu-gadu.svg</file>
+  </gresource>
+</gresources>

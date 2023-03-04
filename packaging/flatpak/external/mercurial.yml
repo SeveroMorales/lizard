@@ -1,0 +1,11 @@
+---
+name: mercurial
+buildsystem: simple
+build-commands:
+  - make install PREFIX=/app PYTHON=python3
+sources:
+  - type: archive
+    url: https://www.mercurial-scm.org/release/mercurial-5.5.tar.gz
+    sha256: c1ed28e1534304a7a4981ed59905286d1c56acd5b75755eedd184171a4a782b4
+modules:
+  - python-docutils.yml

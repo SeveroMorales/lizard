@@ -1,0 +1,14 @@
+---
+name: gspell-1
+config-opts:
+  - --disable-gtk-doc
+  - --disable-introspection
+sources:
+  - type: archive
+    url: https://download.gnome.org/sources/gspell/1.8/gspell-1.8.3.tar.xz
+    sha256: 5ae514dd0216be069176accf6d0049d6a01cfa6a50df4bc06be85f7080b62de8
+cleanup:
+  - /bin
+  - /include
+  - /lib/pkgconfig
+  - /lib/*.la

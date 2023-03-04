@@ -1,0 +1,12 @@
+---
+name: libgnt
+buildsystem: meson
+sources:
+  - type: archive
+    url: https://keep.imfreedom.org/libgnt/libgnt/archive/23e34422bea8.tar.gz
+    sha256: 3c9b65fea2723f15326997f14299044c8fd0c387a1bbf861d38a4e944b54f7a8
+cleanup:
+  - /bin
+  - /include
+  - /lib/pkgconfig
+  - /share/man

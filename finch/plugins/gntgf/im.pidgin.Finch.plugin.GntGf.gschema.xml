@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+
+  <schema path="/finch/plugins/gntgf/" id="im.pidgin.Finch.plugin.GntGf">
+    <key name="event-sign-on-off" type="b">
+      <default>true</default>
+      <summary>Notify buddy sign on/off</summary>
+      <description>
+        Notify with a toaster when a buddy signs on/off.
+      </description>
+    </key>
+
+    <key name="event-im-message" type="b">
+      <default>true</default>
+      <summary>Notify IM message</summary>
+      <description>
+        Notify with a toaster when you receive an IM.
+      </description>
+    </key>
+
+    <key name="event-chat-message" type="b">
+      <default>true</default>
+      <summary>Notify chat message</summary>
+      <description>
+        Notify with a toaster when someone speaks in a chat.
+      </description>
+    </key>
+
+    <key name="event-chat-nick" type="b">
+      <default>true</default>
+      <summary>Notify your nick in chat</summary>
+      <description>
+        Notify with a toaster when someone says your name in a chat.
+      </description>
+    </key>
+
+    <key name="beep" type="b">
+      <default>true</default>
+      <summary>Beep</summary>
+      <description>
+        Also beep when notifying.
+      </description>
+    </key>
+
+    <key name="urgent" type="b">
+      <default>false</default>
+      <summary>Set URGENT flag</summary>
+      <description>
+        Set URGENT flag for the terminal window if X11 is supported.
+      </description>
+    </key>
+  </schema>
+</schemalist>

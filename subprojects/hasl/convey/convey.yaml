@@ -1,0 +1,61 @@
+---
+environment:
+  - REPO=rwgrim/hasl-builders
+  - REGISTRY=docker.io
+  - REGISTRY_USERNAME
+  - REGISTRY_PASSWORD
+tasks:
+  build:
+    type: docker/build
+    dockerfile: Dockerfile.${TARGET}
+    tag: ${REGISTRY}/${REPO}:${TARGET}
+    files: .:.
+    labels:
+      - COMMIT=${HG_COMMIT}
+
+  clean:
+    type: docker/remove
+    quiet: true
+    images:
+      - ${REGISTRY}/${REPO}/${TARGET}
+
+  import:
+    type: docker/import
+    files:
+      - .:.
+
+  login:
+    type: docker/login
+    username: ${REGISTRY_USERNAME}
+    password: ${REGISTRY_PASSWORD}
+    server: ${REGISTRY}
+
+  logout:
+    type: docker/logout
+    server: ${REGISTRY}
+
+  publish:
+    type: docker/push
+    image: ${REGISTRY}/${REPO}:${TARGET}
+
+plans:
+  clean:
+    stages:
+      - tasks: clean
+
+  build:
+    stages:
+      - tasks: [import, build]
+
+  publish:
+    environment: [REGISTRY_USERNAME, REGISTRY_PASSWORD]
+    stages:
+      - tasks: [login, publish]
+      - tasks: [logout]
+        run: always
+
+  debian-bookworm-amd64:
+    environment:
+      - TARGET=debian-bookworm-amd64
+    stages:
+      - tasks: [import, build]

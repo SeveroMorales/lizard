@@ -1,0 +1,13 @@
+---
+name: libpurple-common
+buildsystem: simple
+build-commands:
+  - true
+modules:
+  - external/avahi.yml
+  - external/cyrus-sasl2.yml
+  - external/farstream.yml
+  - external/libgadu.yml
+  - external/libidn.yml
+  - external/mercurial.yml
+  - gplugin.yml

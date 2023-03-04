@@ -1,0 +1,45 @@
+###############################################################################
+# Options
+###############################################################################
+option(
+	'nls',
+	type : 'boolean', value : true,
+	description : 'Install translation files'
+)
+
+option(
+	'doc',
+	type : 'boolean', value : true, yield : true,
+	description : 'build documentation with gtk-doc'
+)
+
+option(
+	'help2man',
+	type : 'boolean', value : true,
+	description : 'Whether or not to build man pages from --help output'
+)
+
+option(
+	'install-demo',
+	type : 'boolean', value : true,
+	description : 'Whether or not to install demo application'
+)
+
+option(
+	'introspection',
+	type : 'boolean', value : true, yield : true,
+	description : 'build gobject-introspection support'
+)
+
+option(
+    'tests',
+    type : 'boolean', value : true,
+    description : 'run unit tests'
+)
+
+option(
+    'vapi',
+    type : 'boolean', value : true,
+    description : 'Whether or not to build vapi files for gplugin'
+)
+

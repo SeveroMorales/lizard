@@ -1,0 +1,65 @@
+GG_SOURCES = [
+	'avatar.c',
+	'avatar.h',
+	'blist.c',
+	'blist.h',
+	'chat.c',
+	'chat.h',
+	'edisc.c',
+	'edisc.h',
+	'gg.c',
+	'gg.h',
+	'html.c',
+	'html.h',
+	'image-prpl.c',
+	'image-prpl.h',
+	'keymapper.c',
+	'keymapper.h',
+	'libgadu-events.c',
+	'libgadu-events.h',
+	'libgaduw.c',
+	'libgaduw.h',
+	'message-prpl.c',
+	'message-prpl.h',
+	'multilogon.c',
+	'multilogon.h',
+	'pubdir-prpl.c',
+	'pubdir-prpl.h',
+	'purplew.c',
+	'purplew.h',
+	'resolver-purple.c',
+	'resolver-purple.h',
+	'roster.c',
+	'roster.h',
+	'servconn.c',
+	'servconn.h',
+	'status.c',
+	'status.h',
+	'tcpsocket.c',
+	'tcpsocket.h',
+	'utils.c',
+	'utils.h',
+	'validator.c',
+	'validator.h',
+	'xml.c',
+	'xml.h',
+	'oauth/oauth.c',
+	'oauth/oauth.h',
+	'oauth/oauth-purple.c',
+	'oauth/oauth-purple.h'
+]
+
+if DYNAMIC_GG
+	gg_resources = gnome.compile_resources('ggresource',
+		'resources/gg.gresource.xml',
+		source_dir : 'resources',
+		c_name : 'gg')
+	GG_SOURCES += gg_resources
+
+	gg_prpl = shared_library('gg', GG_SOURCES,
+	    c_args : ['-DG_LOG_USE_STRUCTURED', '-DG_LOG_DOMAIN="Purple-GaduGadu"'],
+	    dependencies : [libgadu, json, libpurple_dep, libsoup, glib],
+	    install : true, install_dir : PURPLE_PLUGINDIR)
+
+	devenv.append('PURPLE_PLUGIN_PATH', meson.current_build_dir())
+endif

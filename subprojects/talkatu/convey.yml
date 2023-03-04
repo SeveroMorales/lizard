@@ -1,0 +1,94 @@
+environment:
+  - BUILD_NUMBER
+  - REGISTRY_HOST=docker.io
+  - REPOSITORY=talkatu/builders
+  - DOCS_BUILD_IMAGE=docker.io/talkatu/builders:debian-bookworm-amd64
+
+tasks:
+  import:
+    type: docker/import
+    files: .:.
+
+  clean:
+    type: convey/clean
+    files:
+      - debian-bookworm-amd64
+      - debian-bookworm-arm64
+      - debian-bookworm-armhf
+      - debian-bookworm-i386
+      - fedora-36-amd64
+      - fedora-rawhide-amd64
+      - scanbuild
+      - valgrind
+      - talkatu-docs
+
+  build:
+    type: docker/run
+    image: ${REGISTRY_HOST}/${REPOSITORY}:${TARGET}
+
+  export:
+    type: docker/export
+    files: ${TARGET}
+
+  docs-clean:
+    type: convey/clean
+    files: talkatu-docs
+  docs-build:
+    type: docker/run
+    image: ${DOCS_BUILD_IMAGE}
+    workdir: ${CONVEY_WORKSPACE}
+    script:
+      - set -ex
+      - meson build-docs
+      - ninja -C build-docs doc
+  docs-export:
+    type: docker/export
+    files: build-docs/talkatu/reference/talkatu:talkatu-docs
+
+plans:
+  debian-bookworm-i386:
+    environment: TARGET=debian-bookworm-i386
+    stages:
+      - tasks: [import, build, export]
+  debian-bookworm-amd64:
+    environment: TARGET=debian-bookworm-amd64
+    stages:
+      - tasks: [import, build, export]
+  debian-bookworm-arm64:
+    environment: TARGET=debian-bookworm-arm64
+    stages:
+      - tasks: [import, build, export]
+  debian-bookworm-armhf:
+    environment: TARGET=debian-bookworm-armhf
+    stages:
+      - tasks: [import, build, export]
+
+  docs:
+    stages:
+      - tasks: [docs-clean, import, docs-build, docs-export]
+
+  fedora-36-amd64:
+    environment: TARGET=fedora-36-amd64
+    stages:
+      - tasks: [import, build, export]
+  fedora-rawhide-amd64:
+    environment: TARGET=fedora-rawhide-amd64
+    stages:
+      - tasks: [import, build, export]
+
+  scanbuild:
+    environment: TARGET=scanbuild
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  valgrind:
+    environment: TARGET=valgrind
+    stages:
+      - tasks: [import, build, export]
+
+  clean:
+    stages:
+      - tasks: clean
+

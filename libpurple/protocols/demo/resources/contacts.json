@@ -1,0 +1,64 @@
+{
+	"Family": [{
+		"alias": "Grim",
+		"buddies": [{
+			"name": "Gary",
+			"status": {
+				"id": "available",
+				"message": "💤 Sleeping... 😴",
+				"idle": 1337
+			}
+		}]
+	}],
+	"Friends": [{
+		"buddies": [{
+			"name": "John",
+			"alias": "Rekkanoryo",
+			"status": {
+				"id": "away"
+			}
+		}]
+	}],
+	"Work": [{
+		"buddies": [{
+			"name": "Elliott",
+			"status": {
+				"id": "away",
+				"message": "Coding..."
+			}
+		}]
+	}, {
+		"buddies": [{
+			"name": "Richard",
+			"status": {
+				"id": "available"
+			}
+		}]
+	}],
+	"School": [{
+		"buddies": [{
+			"name": "Eion",
+			"status": {
+				"id": "available",
+				"message": "Writing crazy patches!"
+			}
+		}]
+	}, {
+		"buddies": [{
+			"name": "Markus",
+			"status": {
+				"id": "extended_away",
+				"message": "Running all the things in valgrind..."
+			}
+		}]
+	}],
+	"Nymphs": [{
+		"buddies": [{
+			"name": "Echo",
+			"status": {
+				"id": "available",
+				"message": "Cursed to speak the last words spoken to me"
+			}
+		}]
+	}]
+}

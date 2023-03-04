@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <enum id="im.pidgin.GPlugin.plugin.SettingsPlugin.Enum">
+    <value nick="Foo" value="0"/>
+    <value nick="Bar" value="1"/>
+    <value nick="Baz" value="2"/>
+  </enum>
+
+  <flags id="im.pidgin.GPlugin.plugin.SettingsPlugin.Flags">
+    <value nick="flag1" value="1"/>
+    <value nick="flag2" value="2"/>
+    <value nick="flag3" value="4"/>
+  </flags>
+
+  <schema path="/im/pidgin/gplugin/plugins/settings/" id="im.pidgin.GPlugin.plugin.SettingsPlugin">
+    <!-- Special (but still simple) types -->
+    <key name="enum" enum="im.pidgin.GPlugin.plugin.SettingsPlugin.Enum">
+      <default>"Foo"</default>
+      <summary>Enum setting</summary>
+      <description>
+        A setting that is an enumeration.
+      </description>
+    </key>
+
+    <key name="flags" flags="im.pidgin.GPlugin.plugin.SettingsPlugin.Flags">
+      <default>["flag1"]</default>
+      <summary>Flags setting</summary>
+      <description>
+        A setting that is a bitflag.
+      </description>
+    </key>
+
+    <!-- Basic types -->
+    <key name="boolean" type="b">
+      <default>true</default>
+      <summary>Bool setting</summary>
+      <description>
+        A setting that is a boolean.
+      </description>
+    </key>
+
+    <key name="double" type="d">
+      <default>1234.56789</default>
+      <summary>Double setting</summary>
+      <description>
+        A setting that is a 64-bit floating-point number.
+      </description>
+    </key>
+
+    <key name="text" type="s">
+      <default>"information"</default>
+      <summary>Text setting</summary>
+      <description>
+        A setting that is a string.
+      </description>
+    </key>
+
+    <!-- All integral basic types -->
+    <key name="uint8" type="y">
+      <default>123</default>
+      <summary>UInt8 setting</summary>
+      <description>
+        A setting that is an 8-bit unsigned integer.
+      </description>
+    </key>
+
+    <key name="int16" type="n">
+      <default>-1234</default>
+      <summary>Int16 setting</summary>
+      <description>
+        A setting that is a 16-bit signed integer.
+      </description>
+    </key>
+
+    <key name="uint16" type="q">
+      <default>12345</default>
+      <summary>UInt16 setting</summary>
+      <description>
+        A setting that is a 16-bit unsigned integer.
+      </description>
+    </key>
+
+    <key name="int32" type="i">
+      <default>-123456</default>
+      <summary>Int32 setting</summary>
+      <description>
+        A setting that is a 32-bit signed integer.
+      </description>
+    </key>
+
+    <key name="uint32" type="u">
+      <default>1234567</default>
+      <summary>UInt32 setting</summary>
+      <description>
+        A setting that is a 32-bit unsigned integer.
+      </description>
+    </key>
+
+    <key name="int64" type="x">
+      <default>-12345678901</default>
+      <summary>Int64 setting</summary>
+      <description>
+        A setting that is a 64-bit signed integer.
+      </description>
+    </key>
+
+    <key name="uint64" type="t">
+      <default>123456789012</default>
+      <summary>UInt64 setting</summary>
+      <description>
+        A setting that is a 64-bit unsigned integer.
+      </description>
+    </key>
+
+    <!-- Ranged versions of basic numeric types -->
+    <key name="double-range" type="d">
+      <default>0.5</default>
+      <range min="0.2" max="1.0"/>
+      <summary>Ranged double setting</summary>
+      <description>
+        A setting that is a 64-bit floating-point number with a limited range.
+      </description>
+    </key>
+
+    <key name="uint8-range" type="y">
+      <default>12</default>
+      <range min="2" max="32"/>
+      <summary>Ranged UInt8 setting</summary>
+      <description>
+        A setting that is an 8-bit unsigned integer with a limited range.
+      </description>
+    </key>
+
+    <key name="int16-range" type="n">
+      <default>-290</default>
+      <range min="-300" max="-256"/>
+      <summary>Ranged Int16 setting</summary>
+      <description>
+        A setting that is a 16-bit signed integer with a limited range.
+      </description>
+    </key>
+
+    <key name="uint16-range" type="q">
+      <default>16390</default>
+      <range min="16384" max="16400"/>
+      <summary>Ranged UInt16 setting</summary>
+      <description>
+        A setting that is a 16-bit unsigned integer with a limited range.
+      </description>
+    </key>
+
+    <key name="int32-range" type="i">
+      <default>-65572</default>
+      <range min="-65600" max="-65536"/>
+      <summary>Int32 setting</summary>
+      <description>
+        A setting that is a 32-bit signed integer with a limited range.
+      </description>
+    </key>
+
+    <key name="uint32-range" type="u">
+      <default>2147483686</default>
+      <range min="2147483649" max="2147483700"/>
+      <summary>UInt32 setting</summary>
+      <description>
+        A setting that is a 32-bit unsigned integer with a limited range.
+      </description>
+    </key>
+
+    <key name="int64-range" type="x">
+      <default>-2147483686</default>
+      <range min="-2147483700" max="-2147483649"/>
+      <summary>Int64 setting</summary>
+      <description>
+        A setting that is a 64-bit signed integer with a limited range.
+      </description>
+    </key>
+
+    <key name="uint64-range" type="t">
+      <default>9223372036854775848</default>
+      <range min="9223372036854775808" max="9223372036854775900"/>
+      <summary>UInt64 setting</summary>
+      <description>
+        A setting that is a 64-bit unsigned integer with a limited range.
+      </description>
+    </key>
+
+  </schema>
+</schemalist>

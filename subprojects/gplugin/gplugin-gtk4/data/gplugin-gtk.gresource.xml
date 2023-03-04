@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/imfreedom/keep/gplugin/gplugin-gtk/">
+    <file compressed="true" preprocess="xml-stripblanks">plugin-page.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">plugin-row.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">plugin-settings-list.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">view.ui</file>
+  </gresource>
+</gresources>

@@ -1,0 +1,21 @@
+syntax: glob
+.*.swp
+*.debhelper
+*.orig
+*.pyc
+*.ui~
+\#*.ui\#
+
+syntax: regexp
+^build.*\/
+^packaging\/debian\/tmp\/
+^packaging\/debian\/(.+\.)?(substvars|debhelper\.log)$
+^packaging\/debian\/build.*\/
+^packaging\/debian\/libgplugin0?(-.+)?\/
+^packaging\/debian\/gir1.2-gplugin-0.0\/
+^packaging\/debian\/files$
+^po\/.*\.pot$
+^obj-x86_64-linux-gnu\/
+^debian\/?$
+^subprojects\/.+\/
+

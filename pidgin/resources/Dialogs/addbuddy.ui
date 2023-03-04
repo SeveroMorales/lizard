@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginAddBuddyDialog" parent="GtkDialog">
+    <property name="title" translatable="1">Add Buddy</property>
+    <property name="resizable">0</property>
+    <signal name="response" handler="pidgin_add_buddy_dialog_response_cb" swapped="no"/>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="margin-bottom">24</property>
+        <property name="margin-end">24</property>
+        <property name="margin-start">24</property>
+        <property name="margin-top">24</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">24</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="css-classes">title-1</property>
+            <property name="label" translatable="1">Add a buddy</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="label" translatable="1">A_ccount:</property>
+                <property name="use-underline">1</property>
+                <property name="mnemonic-widget">account</property>
+                <property name="xalign">0</property>
+              </object>
+            </child>
+            <child>
+              <object class="PidginAccountChooser" id="account">
+                <property name="hexpand">1</property>
+                <property name="filter">
+                  <object class="GtkEveryFilter">
+                    <child>
+                      <object class="GtkCustomFilter" id="filter"/>
+                    </child>
+                    <child>
+                      <object class="PidginAccountFilterConnected"/>
+                    </child>
+                  </object>
+                </property>
+                <signal name="notify::account" handler="pidgin_add_buddy_dialog_account_changed_cb" swapped="no"/>
+                <accessibility>
+                  <relation name="labelled-by">label1</relation>
+                </accessibility>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="1">Buddy information</property>
+            <child>
+              <object class="AdwEntryRow" id="username">
+                <property name="title" translatable="1">Buddy&apos;s _username</property>
+                <property name="use-underline">1</property>
+                <property name="activates-default">1</property>
+                <signal name="changed" handler="pidgin_add_buddy_dialog_username_changed_cb" object="PidginAddBuddyDialog" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="AdwEntryRow" id="alias">
+                <property name="title" translatable="1">(Optional) A_lias</property>
+                <property name="use-underline">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwEntryRow" id="message">
+                <property name="title" translatable="1">(Optional) _Invite message</property>
+                <property name="use-underline">1</property>
+                <property name="sensitive">0</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="activatable-widget">group</property>
+                <property name="focusable">0</property>
+                <property name="title" translatable="1">Add buddy to _group</property>
+                <property name="use-underline">1</property>
+                <child>
+                  <object class="GtkComboBoxText" id="group">
+                    <property name="hexpand">1</property>
+                    <property name="has-entry">1</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="cancel">button1</action-widget>
+      <action-widget response="ok">button2</action-widget>
+    </action-widgets>
+    <child type="action">
+      <object class="GtkButton" id="button1">
+        <property name="label" translatable="1">_Cancel</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button2">
+        <property name="css-classes">suggested-action</property>
+        <property name="focusable">1</property>
+        <property name="label" translatable="1">_Add</property>
+        <property name="receives-default">1</property>
+        <property name="sensitive">0</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+  </template>
+</interface>

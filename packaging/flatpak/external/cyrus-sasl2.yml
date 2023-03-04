@@ -1,0 +1,27 @@
+---
+name: cyrus-sasl2
+config-opts:
+  - --with-dblib=berkeley
+  - --without-pam
+  - --without-opie
+  - --without-des
+  - --disable-gssapi
+  - --enable-cram
+  - --enable-scram
+  - --enable-digest
+  - --enable-otp
+  - --enable-plain
+  - --enable-login
+  - --with-plugindir=/app/lib/sasl2
+no-parallel-make: true
+sources:
+  - type: archive
+    url: https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
+    sha256: 26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /lib/*.la
+  - /lib/sasl2/*.la
+  - /sbin
+  - /share/man

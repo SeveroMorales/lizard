@@ -1,0 +1,18 @@
+0.2.0: 2023/02/23
+  * Fix the release path in the scp command (RR 1700) (Gary Kramlich)
+  * Remove the packaging files (RR 1781) (Gary Kramlich)
+  * Add preprocessing attributes to GtkBuilder files (RR 1902) (Gary Kramlich)
+  * Fix deprecation warning with GLib 2.74 (RR 2013) (Elliott Sales de Andrade)
+  * Bump minimum Meson to 0.58 (RR 2029) (Elliott Sales de Andrade)
+  * Modernize and simplify Meson files (RR 2038) (Elliott Sales de Andrade)
+  * Fix URL targets in markdown buffers (RR 2190) (Elliott Sales de Andrade)
+  * Bump our C standard to C17 and set the global warning level to 2 (RR 2250)
+    (Gary Kramlich)
+  * Simplify the buffers by making everything work on a TalkatuBuffer (RR 2224)
+    (Gary Kramlich)
+  * Fixed most compiler warnings introduced by higher warning level (RR 2257)
+    (Markus Fischer)
+  * Fixed some compiler warnings in the demo window (RR 2265) (Gary Kramlich)
+
+0.1.0: 2022/08/29
+  * Initial release

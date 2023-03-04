@@ -1,0 +1,11 @@
+---
+name: libnice
+sources:
+  - type: archive
+    url: https://nice.freedesktop.org/releases/libnice-0.1.17.tar.gz
+    sha512: 177ee47712233af379f422cbe24befaa1b744444241723a6575f17db30f7032aa8a34b1c6e160f6f406545fc42c1e7e3ca36c274bea5adb169b02434712c908e
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /lib/*.a
+  - /lib/*.la

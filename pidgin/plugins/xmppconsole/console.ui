@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <object class="GtkTextBuffer" id="entry_buffer">
+    <signal name="changed" handler="entry_changed_cb" object="PidginXmppConsole" swapped="no"/>
+    <property name="tag-table">
+      <object class="GtkTextTagTable">
+        <child type="tag">
+          <object class="GtkTextTag">
+            <property name="name">invalid</property>
+            <property name="underline">PANGO_UNDERLINE_ERROR</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <object class="GtkTextBuffer" id="buffer">
+    <property name="tag-table">
+      <object class="GtkTextTagTable">
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.info">
+            <property name="foreground-rgba">rgb(119,119,119)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.incoming">
+            <property name="paragraph-background-rgba">rgb(255,206,206)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.outgoing">
+            <property name="paragraph-background-rgba">rgb(220,236,196)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.bracket">
+            <property name="foreground-rgba">rgb(148,15,140)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.tag">
+            <property name="foreground-rgba">rgb(139,29,171)</property>
+            <property name="weight">700</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.attr">
+            <property name="foreground-rgba">rgb(160,41,97)</property>
+            <property name="weight">700</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.value">
+            <property name="foreground-rgba">rgb(50,74,164)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.xmlns">
+            <property name="foreground-rgba">rgb(44,177,47)</property>
+            <property name="weight">700</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <template parent="GtkWindow" class="PidginXmppConsole">
+    <property name="title" translatable="1">XMPP Console</property>
+    <property name="default-width">580</property>
+    <property name="default-height">400</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="margin-start">6</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="1">Account:</property>
+              </object>
+            </child>
+            <child>
+              <object class="PidginAccountChooser" id="account_chooser">
+                <property name="filter">
+                  <object class="GtkEveryFilter">
+                    <child>
+                      <object class="PidginAccountFilterProtocol">
+                        <property name="protocol-id">prpl-jabber</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="PidginAccountFilterConnected"/>
+                    </child>
+                  </object>
+                </property>
+                <property name="hexpand">1</property>
+                <signal name="notify::account" handler="dropdown_changed_cb" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">1</property>
+            <property name="focusable">1</property>
+            <property name="child">
+              <object class="GtkTextView">
+                <property name="focusable">1</property>
+                <property name="editable">0</property>
+                <property name="wrap-mode">word</property>
+                <property name="buffer">buffer</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="css-classes">toolbar</property>
+            <child>
+              <object class="GtkMenuButton" id="iq.button">
+                <property name="label">&lt;iq/&gt;</property>
+                <property name="popover">
+                  <object class="GtkPopover">
+                    <property name="position">right</property>
+                    <property name="child">
+                      <object class="GtkGrid">
+                        <property name="column-spacing">6</property>
+                        <property name="row-spacing">6</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">To:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Type:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="iq.to">
+                            <property name="focusable">1</property>
+                            <property name="activates-default">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkDropDown" id="iq.type">
+                            <property name="selected">0</property>
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item>get</item>
+                                  <item>set</item>
+                                  <item>result</item>
+                                  <item>error</item>
+                                </items>
+                              </object>
+                            </property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="label" translatable="1">Insert</property>
+                            <property name="focusable">1</property>
+                            <property name="receives-default">1</property>
+                            <property name="css-classes">suggested-action</property>
+                            <signal name="clicked" handler="iq_clicked_cb" swapped="no"/>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">2</property>
+                              <property name="column-span">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuButton" id="presence.button">
+                <property name="label">&lt;presence/&gt;</property>
+                <property name="popover">
+                  <object class="GtkPopover">
+                    <property name="position">right</property>
+                    <property name="child">
+                      <object class="GtkGrid">
+                        <property name="column-spacing">6</property>
+                        <property name="row-spacing">6</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">To:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Type:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Show:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Status:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">3</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Priority:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">4</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="presence.to">
+                            <property name="focusable">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkDropDown" id="presence.type">
+                            <property name="selected">0</property>
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item>default</item>
+                                  <item>unavailable</item>
+                                  <item>subscribe</item>
+                                  <item>unsubscribe</item>
+                                  <item>subscribed</item>
+                                  <item>unsubscribed</item>
+                                  <item>probe</item>
+                                  <item>error</item>
+                                </items>
+                              </object>
+                            </property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkDropDown" id="presence.show">
+                            <property name="selected">0</property>
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item>default</item>
+                                  <item>away</item>
+                                  <item>dnd</item>
+                                  <item>xa</item>
+                                  <item>chat</item>
+                                </items>
+                              </object>
+                            </property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="presence.status">
+                            <property name="focusable">1</property>
+                            <property name="activates-default">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">3</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSpinButton" id="presence.priority">
+                            <property name="focusable">1</property>
+                            <property name="adjustment">
+                              <object class="GtkAdjustment">
+                                <property name="lower">-128</property>
+                                <property name="upper">127</property>
+                                <property name="step-increment">1</property>
+                                <property name="page-increment">10</property>
+                              </object>
+                            </property>
+                            <property name="numeric">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">4</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="label" translatable="1">Insert</property>
+                            <property name="focusable">1</property>
+                            <property name="receives-default">1</property>
+                            <property name="css-classes">suggested-action</property>
+                            <signal name="clicked" handler="presence_clicked_cb" swapped="no"/>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">5</property>
+                              <property name="column-span">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuButton" id="message.button">
+                <property name="label">&lt;message/&gt;</property>
+                <property name="popover">
+                  <object class="GtkPopover">
+                    <property name="position">right</property>
+                    <property name="child">
+                      <object class="GtkGrid">
+                        <property name="column-spacing">6</property>
+                        <property name="row-spacing">6</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">To:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Type:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Body:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Subject:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">3</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="1">Thread:</property>
+                            <property name="xalign">0</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">4</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="message.to">
+                            <property name="focusable">1</property>
+                            <property name="activates-default">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="message.body">
+                            <property name="focusable">1</property>
+                            <property name="activates-default">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="message.subject">
+                            <property name="focusable">1</property>
+                            <property name="activates-default">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">3</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="message.thread">
+                            <property name="focusable">1</property>
+                            <property name="activates-default">1</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">4</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="label" translatable="1">Insert</property>
+                            <property name="focusable">1</property>
+                            <property name="receives-default">1</property>
+                            <property name="css-classes">suggested-action</property>
+                            <signal name="clicked" handler="message_clicked_cb" swapped="no"/>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">5</property>
+                              <property name="column-span">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkDropDown" id="message.type">
+                            <property name="selected">0</property>
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item>chat</item>
+                                  <item>headline</item>
+                                  <item>groupchat</item>
+                                  <item>normal</item>
+                                  <item>error</item>
+                                </items>
+                              </object>
+                            </property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="sw">
+            <property name="focusable">1</property>
+            <property name="child">
+              <object class="GtkTextView" id="entry">
+                <property name="focusable">1</property>
+                <property name="wrap-mode">word</property>
+                <property name="buffer">entry_buffer</property>
+                <child>
+                  <object class="GtkEventControllerKey">
+                    <signal name="key-pressed" handler="message_send_cb" object="PidginXmppConsole" swapped="no"/>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

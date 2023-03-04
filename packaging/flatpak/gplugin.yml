@@ -1,0 +1,16 @@
+---
+name: gplugin
+buildsystem: meson
+config-opts:
+  - -Ddoc=false
+  - -Dlua=false
+  - -Dperl=false
+sources:
+  - type: archive
+    url: https://keep.imfreedom.org/gplugin/gplugin/archive/ed8e701cc2b1.tar.gz
+    sha256: ad7968d0d5d93ba39c2d6676f612cfd2f353260b9e4d260d0dac17c52f833f8d
+cleanup:
+  - /bin
+  - /include
+  - /lib/pkgconfig
+  - /share/man

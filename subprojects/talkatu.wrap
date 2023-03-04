@@ -1,0 +1,4 @@
+[wrap-hg]
+directory = talkatu
+url = https://keep.imfreedom.org/talkatu/talkatu
+revision = v0.2.0

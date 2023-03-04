@@ -1,0 +1,12 @@
+---
+name: farstream
+sources:
+  - type: archive
+    url: https://freedesktop.org/software/farstream/releases/farstream/farstream-0.2.9.tar.gz
+    sha256: cb7d112433cf7c2e37a8ec918fb24f0ea5cb293cfa1002488e431de26482f47b
+modules:
+  - libnice.yml
+cleanup:
+  - /include
+  - /lib/*.la
+  - /lib/farstream-0.2/*.la

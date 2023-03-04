@@ -1,0 +1,8 @@
+syntax: glob
+*.orig
+
+syntax: regexp
+^build.*\/
+^po\/.*\.pot$
+^subprojects\/.+\/
+

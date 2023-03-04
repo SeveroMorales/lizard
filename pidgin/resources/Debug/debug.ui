@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+-->
+<!--
+                               ▀
+▄     ▄  ▄▄▄    ▄ ▄▄  ▄ ▄▄   ▄▄▄    ▄ ▄▄    ▄▄▄▄
+▀▄ ▄ ▄▀ ▀   █   █▀  ▀ █▀  █    █    █▀  █  █▀ ▀█
+ █▄█▄█  ▄▀▀▀█   █     █   █    █    █   █  █   █
+  █ █   ▀▄▄▀█   █     █   █  ▄▄█▄▄  █   █  ▀█▄▀█
+                                            ▄  █
+                                             ▀▀
+
+Glade 3.38.2 has issues with this file. Currently there are two issues.
+
+First, the filtered_visible tag is getting a property removed. This property
+has a invisible-set friend property which Glade does not let us set. Therefore,
+Glade thinks that the property is at a default value and thus ignore it.
+However, this tag is used to make text visible in a block of invisible text, so
+we need to explicitly set both the invisible and invisible-set properties.
+
+Replace this:
+
+    <child type="tag">
+      <object class="GtkTextTag" id="tags.filtered_visible"/>
+    </child>
+
+With this:
+
+    <child type="tag">
+      <object class="GtkTextTag" id="tags.filtered_visible">
+        <property name="invisible">0</property>
+        <property name="invisible-set">1</property>
+      </object>
+    </child>
+
+Glade is also messing up the GtkSearchEntry with an id of expression. It is
+removing the properties for primary-icon-activatable and
+primary-icon-sensitive. These properties default to TRUE according to gtk-doc,
+but if you remove them and then check in the insepector, they're both set to
+FALSE. So we explicitly set them. I haven't found the cause for this as the
+GtkEntry code in 3.24.0 says they default to TRUE, but regardless something
+funky is going on. The raw text is below for pasting.
+
+                    <property name="primary-icon-activatable">True</property>
+                    <property name="primary-icon-sensitive">True</property>
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <object class="GtkTextBuffer" id="buffer">
+    <property name="tag-table">
+      <object class="GtkTextTagTable">
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.level[0]">
+            <property name="foreground">rgb(0,0,0)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.level[1]">
+            <property name="foreground">rgb(102,102,102)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.level[2]">
+            <property name="foreground">rgb(0,0,0)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.level[3]">
+            <property name="foreground">rgb(102,0,0)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.level[4]">
+            <property name="foreground">rgb(255,0,0)</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.level[5]">
+            <property name="foreground">rgb(255,0,0)</property>
+            <property name="weight">700</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.category">
+            <property name="weight">700</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.filtered_invisible">
+            <property name="invisible">1</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.filtered_visible">
+            <property name="invisible">0</property>
+            <property name="invisible-set">1</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.match">
+            <property name="background">rgb(255,175,175)</property>
+            <property name="weight">700</property>
+          </object>
+        </child>
+        <child type="tag">
+          <object class="GtkTextTag" id="tags.paused">
+            <property name="invisible">1</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+  <template class="PidginDebugWindow" parent="GtkWindow">
+    <property name="title" translatable="1">Debug Window</property>
+    <property name="default-height">600</property>
+    <property name="default-width">250</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="css-classes">toolbar</property>
+            <child>
+              <object class="GtkButton">
+                <property name="tooltip-text" translatable="1">Save</property>
+                <property name="label" translatable="1">_Save...</property>
+                <property name="use-underline">1</property>
+                <property name="icon-name">document-save</property>
+                <signal name="clicked" handler="save_cb" object="PidginDebugWindow" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="tooltip-text" translatable="1">Clear</property>
+                <property name="label" translatable="1">_Clear</property>
+                <property name="use-underline">1</property>
+                <property name="icon-name">edit-clear</property>
+                <signal name="clicked" handler="clear_cb" object="PidginDebugWindow" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="orientation">vertical</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton">
+                <property name="tooltip-text" translatable="1">Pause</property>
+                <property name="label" translatable="1">_Pause</property>
+                <property name="use-underline">1</property>
+                <property name="icon-name">media-playback-pause</property>
+                <signal name="toggled" handler="pause_cb" object="PidginDebugWindow" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="orientation">vertical</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="filter">
+                <property name="tooltip-text" translatable="1">Filter</property>
+                <property name="label" translatable="1">_Filter</property>
+                <property name="use-underline">1</property>
+                <property name="icon-name">edit-find</property>
+                <signal name="toggled" handler="regex_filter_toggled_cb" object="PidginDebugWindow" swapped="no"/>
+                <child>
+                  <object class="GtkGestureClick">
+                    <property name="button">3</property>
+                    <signal name="pressed" handler="regex_popup_cb" object="PidginDebugWindow" swapped="no"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSearchEntry" id="expression">
+                <child>
+                  <object class="GtkEventControllerKey">
+                    <signal name="key-released" handler="regex_key_released_cb" object="PidginDebugWindow" swapped="no"/>
+                  </object>
+                </child>
+                <property name="focusable">1</property>
+                <signal name="search-changed" handler="regex_changed_cb" object="PidginDebugWindow" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="orientation">vertical</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="filterlevel-label">
+                <property name="label" translatable="1">Level </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkDropDown" id="filterlevel">
+                <property name="tooltip-text" translatable="1">Select the debug filter level.</property>
+                <property name="selected">0</property>
+                <property name="model">
+                  <object class="GtkStringList">
+                    <items>
+                      <item translatable="yes">All</item>
+                      <item translatable="yes">Misc</item>
+                      <item translatable="yes">Info</item>
+                      <item translatable="yes">Warning</item>
+                      <item translatable="yes">Error</item>
+                      <item translatable="yes">Fatal Error</item>
+                    </items>
+                  </object>
+                </property>
+                <signal name="notify::selected" handler="filter_level_changed_cb" object="PidginDebugWindow" swapped="no"/>
+                <accessibility>
+                  <relation name="labelled-by">filterlevel-label</relation>
+                </accessibility>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">1</property>
+            <property name="focusable">1</property>
+            <property name="child">
+              <object class="GtkTextView" id="textview">
+                <property name="focusable">1</property>
+                <property name="editable">0</property>
+                <property name="wrap-mode">word</property>
+                <property name="buffer">buffer</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <object class="GtkPopover" id="popover">
+    <property name="position">bottom</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkCheckButton" id="popover_invert">
+            <property name="label" translatable="1">Invert</property>
+            <property name="focusable">1</property>
+            <signal name="toggled" handler="regex_menu_cb" object="PidginDebugWindow" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="popover_highlight">
+            <property name="label" translatable="1">Highlight matches</property>
+            <property name="focusable">1</property>
+            <signal name="toggled" handler="regex_menu_cb" object="PidginDebugWindow" swapped="no"/>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+</interface>

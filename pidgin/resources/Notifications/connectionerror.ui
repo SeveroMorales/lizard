@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginNotificationConnectionError" parent="AdwActionRow">
+    <property name="focusable">1</property>
+    <property name="activatable">0</property>
+    <property name="subtitle-lines">3</property>
+    <child>
+      <object class="GtkButton" id="reconnect">
+        <property name="label" translatable="1">Reconnect</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="action-name">app.connect-account</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="reenable">
+        <property name="label" translatable="1">Re-enable</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="action-name">app.enable-account</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="modify">
+        <property name="label" translatable="1">Modify Account</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="action-name">app.edit-account</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="remove">
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <signal name="clicked" handler="pidgin_notification_connection_error_remove_cb" object="PidginNotificationConnectionError" swapped="no"/>
+        <style>
+          <class name="flat"/>
+        </style>
+        <child>
+          <object class="GtkImage">
+            <property name="icon-name">edit-delete-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

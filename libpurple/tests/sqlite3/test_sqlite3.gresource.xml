@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/im/pidgin/libpurple/tests/sqlite3/">
+    <file compressed="true">initial.sql</file>
+    <file compressed="true">secondary.sql</file>
+    <file compressed="true">malformed.sql</file>
+  </gresource>
+</gresources>

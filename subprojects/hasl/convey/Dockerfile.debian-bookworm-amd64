@@ -1,0 +1,25 @@
+FROM docker.io/debian:bookworm-slim
+
+RUN set -ex && \
+	apt-get update && \
+	apt-get install -y --no-install-recommends \
+		build-essential \
+		gettext \
+		git \
+		gobject-introspection \
+		libgirepository1.0-dev \
+		libglib2.0-dev \
+		mercurial \
+		meson \
+		python3-jinja2 \
+		python3-packaging \
+		python3-pygments \
+		python3-toml \
+		python3-typogrify \
+	&& \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists
+
+COPY meson-build.sh /build.sh
+
+CMD ["/build.sh"]

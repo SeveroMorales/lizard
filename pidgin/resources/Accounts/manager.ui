@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginAccountManager" parent="GtkDialog">
+    <property name="title" translatable="1">Accounts</property>
+    <property name="default-width">640</property>
+    <property name="default-height">480</property>
+    <signal name="response" handler="pidgin_account_manager_response_cb" swapped="no"/>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">1</property>
+            <property name="child">
+              <object class="AdwClamp">
+                <property name="margin-bottom">24</property>
+                <property name="margin-end">24</property>
+                <property name="margin-start">24</property>
+                <property name="margin-top">24</property>
+                <property name="orientation">horizontal</property>
+                <child>
+                  <object class="GtkListBox" id="list_box">
+                    <property name="css-classes">boxed-list
+rich-list</property>
+                    <property name="selection-mode">none</property>
+                    <property name="show-separators">1</property>
+                    <signal name="row-activated" handler="pidgin_account_manager_row_activated_cb" swapped="no"/>
+                    <child type="placeholder">
+                      <object class="GtkBox">
+                        <property name="margin-bottom">48</property>
+                        <property name="margin-top">48</property>
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">12</property>
+                        <property name="valign">center</property>
+                        <property name="vexpand">1</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="css-classes">dim-label</property>
+                            <property name="icon-name">view-list-symbolic</property>
+                            <property name="pixel-size">128</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="css-classes">title-1</property>
+                            <property name="label" translatable="1">No Accounts</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="css-classes">pill
+suggested-action</property>
+                            <property name="halign">center</property>
+                            <signal name="clicked" handler="pidgin_account_manager_create_account" swapped="yes"/>
+                            <property name="child">
+                              <object class="AdwButtonContent">
+                                <property name="icon-name">list-add-symbolic</property>
+                                <property name="label" translatable="1">_Add…</property>
+                                <property name="use-underline">1</property>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="add">
+        <property name="css-classes">suggested-action</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="child">
+          <object class="AdwButtonContent">
+            <property name="icon-name">list-add-symbolic</property>
+            <property name="label" translatable="1">_Add…</property>
+            <property name="use-underline">1</property>
+          </object>
+        </property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button2">
+        <property name="label" translatable="1">_Close</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">add</action-widget>
+      <action-widget response="close">button2</action-widget>
+    </action-widgets>
+  </template>
+</interface>

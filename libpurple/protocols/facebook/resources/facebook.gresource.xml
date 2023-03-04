@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/im/pidgin/libpurple/facebook">
+    <file>icons/16x16/apps/im-facebook.png</file>
+    <file>icons/22x22/apps/im-facebook.png</file>
+    <file>icons/48x48/apps/im-facebook.png</file>
+  </gresource>
+</gresources>

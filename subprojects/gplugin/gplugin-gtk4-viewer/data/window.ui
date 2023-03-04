@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="gplugin-gtk" version="0.35"/>
+  <template class="GPluginGtkViewerWindow" parent="GtkApplicationWindow">
+    <property name="title" translatable="yes">GPlugin Viewer</property>
+    <property name="default-width">600</property>
+    <property name="default-height">400</property>
+    <child>
+      <object class="GPluginGtkView" id="view"/>
+    </child>
+  </template>
+</interface>

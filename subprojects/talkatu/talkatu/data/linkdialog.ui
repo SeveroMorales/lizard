@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1
+
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Talkatu -->
+  <!-- interface-description GTK widgets for chat applications -->
+  <!-- interface-copyright Gary Kramlich <grim@reaperworld.com> -->
+  <template class="TalkatuLinkDialog" parent="GtkDialog">
+    <property name="title" translatable="yes">Insert Link</property>
+    <property name="resizable">0</property>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">4</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">&lt;span font-size=&quot;large&quot; font-weight=&quot;bold&quot;&gt;Insert Link&lt;/span&gt;</property>
+                <property name="use_markup">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Please enter the URL and optional display text you would like to insert.</property>
+                <property name="wrap">1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkLabel" id="url_label">
+                    <property name="name">url_label</property>
+                    <property name="label" translatable="yes">URL:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="url">
+                    <property name="hexpand">1</property>
+                    <property name="name">url</property>
+                    <property name="focusable">1</property>
+                    <property name="input_purpose">url</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">2</property>
+                <child>
+                  <object class="GtkLabel" id="display_label">
+                    <property name="name">display_label</property>
+                    <property name="label" translatable="yes">Display Text:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="display">
+                    <property name="hexpand">1</property>
+                    <property name="name">display</property>
+                    <property name="focusable">1</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="-6">cancel</action-widget>
+      <action-widget response="-3">insert</action-widget>
+    </action-widgets>
+    <child type="action">
+      <object class="GtkButton" id="cancel">
+        <property name="label" translatable="yes">Cancel</property>
+        <property name="name">cancel</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="insert">
+        <property name="label" translatable="yes">Insert</property>
+        <property name="name">insert</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+      </object>
+    </child>
+  </template>
+  <object class="GtkSizeGroup">
+    <widgets>
+      <widget name="url_label"/>
+      <widget name="display_label"/>
+    </widgets>
+  </object>
+</interface>

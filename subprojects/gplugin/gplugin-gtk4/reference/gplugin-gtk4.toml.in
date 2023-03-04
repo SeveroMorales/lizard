@@ -1,0 +1,48 @@
+[library]
+version = "@GPLUGIN_VERSION@"
+browse_url = "https://keep.imfreedom.org/gplugin/gplugin/"
+repository_url = "https://keep.imfreedom.org/gplugin/gplugin/"
+website_url = "https://keep.imfreedom.org/gplugin/gplugin/"
+authors = "GPlugin Developers"
+logo_url = ""
+license = "LGPL-2.1-or-later"
+description = "GPlugin Gtk Library"
+dependencies = [ "GLib-2.0", "GObject-2.0", "GPlugin-1.0", "Gtk-4.0" ]
+devhelp = true
+search_index = true
+
+  [dependencies."GLib-2.0"]
+  name = "GLib"
+  description = "General-purpose, portable utility library."
+  docs_url = "https://docs.gtk.org/glib/"
+
+  [dependencies."GObject-2.0"]
+  name = "GObject"
+  description = "The base type system library"
+  docs_url = "https://docs.gtk.org/gobject/"
+
+  [dependencies."GPlugin-1.0"]
+  name = "GPlugin"
+  description = "Plugin library"
+  docs_url = "https://docs.imfreedom.org/gplugin/"
+
+  [dependencies."Gtk-4.0"]
+  name = "Gtk4"
+  description = "GTK Widget Toolkit"
+  docs_url = "https://docs.gtk.org/gtk4/"
+
+[theme]
+name = "basic"
+show_index_summary = true
+show_class_hierarchy = true
+
+[source-location]
+base_url = "https://keep.imfreedom.org/gplugin/gplugin/file/default/"
+
+[extra]
+# The same order will be used when generating the index
+content_files = [
+]
+content_images = [
+]
+urlmap_file = "urlmap.js"

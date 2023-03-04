@@ -1,0 +1,65 @@
+option(
+	'doc',
+	type : 'boolean', value : true, yield : true,
+	description : 'build documentation with gtk-doc'
+)
+
+option(
+	'introspection',
+	type : 'boolean', value : true, yield : true,
+	description : 'Whether or not to build a GObject Introspection type library'
+)
+
+option(
+	'devenv-config-dir',
+	type : 'string',
+	description : 'config directory for running a devenv (defaults to a subdirectory of buildroot)'
+)
+
+option(
+	'gtk4',
+	type : 'feature',
+	description : 'Whether or not to build the GTK4 library'
+)
+
+option(
+	'help2man',
+	type : 'boolean', value : true,
+	description : 'Whether or not to build man pages from --help output'
+)
+
+option(
+	'install-gplugin-gtk4-viewer',
+	type : 'boolean', value : true,
+	description : 'Whether or not to install the GTK4 viewer application'
+)
+
+option(
+	'install-gplugin-query',
+	type : 'boolean', value : true,
+	description : 'Whether or not to install the query application'
+)
+
+option(
+	'lua',
+	type : 'boolean', value : true,
+	description : 'Whether or not to build the Lua plugin loader'
+)
+
+option(
+	'nls',
+	type : 'boolean', value : true,
+	description : 'Install translation files'
+)
+
+option(
+	'python3',
+	type : 'boolean', value : true,
+	description : 'Whether or not to build the Python 3.x plugin loader'
+)
+
+option(
+	'vapi',
+	type : 'boolean', value : true,
+	description : 'Whether or not to build vapi files for gplugin'
+)

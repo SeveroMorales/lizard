@@ -1,0 +1,118 @@
+---
+environment:
+  - BUILD_NUMBER
+  - REPOSITORY=pidgin/builders
+  - REGISTRY=docker.io
+  - DOCS_BUILD_IMAGE=${REGISTRY}/${REPOSITORY}:debian-bookworm-amd64
+
+tasks:
+  import:
+    type: docker/import
+    files: .:.
+
+  build:
+    type: docker/run
+    image: ${REGISTRY}/${REPOSITORY}:${TARGET}
+
+  clean:
+    type: convey/clean
+    files:
+      - appimage-x86_64
+      - clang
+      - debian-bookworm-amd64
+      - fedora-36-amd64
+      - fedora-37-amd64
+      - scanbuild
+      - ubuntu-kinetic-amd64
+
+  docs-clean:
+    type: convey/clean
+    files:
+      - facebook3-docs
+      - finch3-docs
+      - pidgin3-docs
+      - purple3-docs
+
+  docs-build:
+    type: docker/run
+    image: ${DOCS_BUILD_IMAGE}
+    workdir: ${CONVEY_WORKSPACE}
+    script:
+      - set -ex
+      - meson -Ddoc=true build-docs
+      - ninja -C build-docs doc
+
+  docs-export:
+    type: docker/export
+    files:
+      - build-docs/doc/reference/finch/finch/:finch3-docs
+      - build-docs/doc/reference/libpurple/libpurple/:purple3-docs
+      - build-docs/doc/reference/pidgin/pidgin/:pidgin3-docs
+      - build-docs/doc/reference/protocols/facebook/facebook/:facebook3-docs
+
+  export:
+    type: docker/export
+    files: build-${TARGET}:${TARGET}
+
+  bare-export:
+    type: docker/export
+    files: ${TARGET}:${TARGET}
+
+plans:
+  pidgin3-appimage-x86_64:
+    environment:
+      - TARGET=appimage-x86_64
+      - RECIPE=Pidgin3
+      - CONFIGURE_ARGS=-Dconsoleui=False
+    stages:
+      - tasks: [import, build, bare-export]
+
+  clang:
+    environment: [TARGET=clang]
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  clean:
+    stages:
+      - tasks: [clean, docs-clean]
+
+  debian-bookworm-amd64:
+    environment: [TARGET=debian-bookworm-amd64]
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  docs:
+    stages:
+      - tasks: [docs-clean, import, docs-build, docs-export]
+
+  fedora-36-amd64:
+    environment: [TARGET=fedora-36-amd64]
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  fedora-37-amd64:
+    environment: [TARGET=fedora-37-amd64]
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  scanbuild:
+    environment: [TARGET=scanbuild]
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  ubuntu-kinetic-amd64:
+    environment: [TARGET=ubuntu-kinetic-amd64]
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/im/pidgin/purple/demo">
+    <file compressed="true" preprocess="json-stripblanks">contacts.json</file>
+    <file>icons/16x16/apps/im-purple-demo.png</file>
+    <file>icons/22x22/apps/im-purple-demo.png</file>
+    <file>icons/48x48/apps/im-purple-demo.png</file>
+    <file>icons/scalable/apps/im-purple-demo.svg</file>
+    <file>buddy_icons/Echo.png</file>
+    <file>buddy_icons/Eion.png</file>
+    <file>buddy_icons/Elliott.png</file>
+    <file>buddy_icons/Gary.png</file>
+    <file>buddy_icons/John.png</file>
+    <file>buddy_icons/Markus.png</file>
+    <file>buddy_icons/Richard.png</file>
+  </gresource>
+</gresources>

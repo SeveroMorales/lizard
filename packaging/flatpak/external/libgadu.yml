@@ -1,0 +1,11 @@
+---
+name: libgadu
+sources:
+  - type: archive
+    url: https://github.com/wojtekka/libgadu/releases/download/1.12.2/libgadu-1.12.2.tar.gz
+    sha512: de1d54ddbd7ab093596da9ac6d69235d1f9cb92851954b63e776977bd9396369a2e73b648b10b2f0e820a45c0e036bd3f8b46373621d3bc34d68621b4539b406
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /lib/*.a
+  - /lib/*.la

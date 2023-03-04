@@ -1,0 +1,56 @@
+[library]
+version = "@PURPLE_VERSION@"
+browse_url = "https://keep.imfreedom.org/pidgin/pidgin/"
+repository_url = "https://keep.imfreedom.org/pidgin/pidgin/"
+website_url = "https://keep.imfreedom.org/pidgin/pidgin/"
+authors = "Pidgin Developers"
+logo_url = ""
+license = "GPL-2.0-or-later"
+description = "Purple Universal Chat Library"
+dependencies = [ "GLib-2.0", "GObject-2.0", "GPlugin-1.0" ]
+devhelp = true
+search_index = true
+
+  [dependencies."GLib-2.0"]
+  name = "GLib"
+  description = "General-purpose, portable utility library."
+  docs_url = "https://docs.gtk.org/glib/"
+
+  [dependencies."GObject-2.0"]
+  name = "GObject"
+  description = "The base type system library"
+  docs_url = "https://docs.gtk.org/gobject/"
+
+  [dependencies."GPlugin-1.0"]
+  name = "GPlugin"
+  description = "GPlugin Plugin Library"
+  docs_urls = "https://docs.imfreedom.org/gplugin/"
+
+[theme]
+name = "basic"
+show_index_summary = true
+show_class_hierarchy = true
+
+[source-location]
+base_url = "https://keep.imfreedom.org/pidgin/pidgin/file/default/"
+
+[extra]
+# The same order will be used when generating the index
+content_files = [
+	"contributing.md",
+	"plugin_i18n.md",
+	"plugin_ids.md",
+	"signals_account.md",
+	"signals_blist.md",
+	"signals_cmd.md",
+	"signals_connection.md",
+	"signals_conversation.md",
+	"signals_core.md",
+	"signals_jabber.md",
+	"signals_savedstatus.md",
+	"signals_xfer.md",
+	"tut_c_plugins.md",
+]
+content_images = [
+]
+urlmap_file = "urlmap.js"

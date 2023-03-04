@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/plugins/state-notify/" id="im.pidgin.Purple.plugin.StateNotify">
+    <key name="notify-away" type="b">
+      <default>true</default>
+      <summary>Notify on away</summary>
+      <description>
+        Notify when buddy goes away.
+      </description>
+    </key>
+
+    <key name="notify-idle" type="b">
+      <default>true</default>
+      <summary>Notify on idle</summary>
+      <description>
+        Notify when buddy goes idle.
+      </description>
+    </key>
+
+    <key name="notify-signon" type="b">
+      <default>true</default>
+      <summary>Notify on sign on/off</summary>
+      <description>
+        Notify when buddy signs on/off.
+      </description>
+    </key>
+  </schema>
+</schemalist>

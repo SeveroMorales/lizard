@@ -1,0 +1,40 @@
+# GPlugin Valgrind suppressions file
+#
+# This file provides a list of suppressions for all of GPlugin (including
+# GPluginGTK), for all Valgrind tools (memcheck, drd, helgrind, etc.) for the
+# false positives and deliberate one-time leaks which GPlugin causes to be
+# reported when running under Valgrind.  Some of these are actually from Glib,
+# but we handle them here because it takes time for them to filter into
+# distribution versions of glib.
+#
+# When running an application which links to GPlugin under Valgrind, you can
+# pass this suppression file to Valgrind using
+# --suppressions=/path/to/gplugin.supp.
+#
+# https://valgrind.org/docs/manual/manual-core.html#manual-core.suppress
+#
+# Note that there is currently no way for Valgrind to load this automatically
+# (https://bugs.kde.org/show_bug.cgi?id=160905), so the best GPlugin can
+# currently do is to install this file as part of its development package.
+#
+# This file should be updated if GPlugin introduces a new deliberate one-time
+# leak, or another false positive in Valgrind: please file bugs at:
+# https://issues.imfreedom.org/issues/GPLUGIN
+
+{
+   g-test-add
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:g_test_add_vtable
+}
+
+
+{
+   gplugin-register-plugin-state
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:gplugin_plugin_state_get_type
+}
+

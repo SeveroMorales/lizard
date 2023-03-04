@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Pidgin
+GenericName=Internet Messenger
+Comment=Chat over IM.  Supports Jabber/XMPP, and more
+Exec=purple3-url-handler %u
+TryExec=purple3-url-handler
+Icon=pidgin
+StartupNotify=false
+Terminal=false
+NoDisplay=true
+Type=Application
+Categories=Network;InstantMessaging;RemoteAccess;ConsoleOnly;
+MimeType=x-scheme-handler/gg;x-scheme-handler/irc;x-scheme-handler/sip;x-scheme-handler/xmpp;
+@USES_MM_CHAT_SECTION@

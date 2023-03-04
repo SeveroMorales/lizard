@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1
+
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Talkatu -->
+  <!-- interface-description GTK widgets for chat applications -->
+  <!-- interface-copyright Gary Kramlich <grim@reaperworld.com> -->
+  <template class="TalkatuAttachmentPreview" parent="GtkWidget">
+    <child>
+      <object class="GtkInfoBar">
+        <property name="hexpand">1</property>
+        <signal name="response" handler="talkatu_attachment_preview_download_cb" object="TalkatuAttachmentPreview" swapped="no"/>
+        <child type="action">
+          <object class="GtkButton" id="download_button">
+            <child>
+              <object class="GtkImage">
+                <property name="icon_name">document-save-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <action-widgets>
+          <action-widget response="0">download_button</action-widget>
+        </action-widgets>
+        <child>
+          <object class="GtkBox">
+            <property name="can_focus">0</property>
+            <property name="spacing">16</property>
+            <child>
+              <object class="GtkImage" id="preview">
+                <property name="can_focus">0</property>
+                <property name="icon_name">text-x-generic</property>
+                <property name="icon_size">large</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="hexpand">1</property>
+                <property name="can_focus">0</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="filename">
+                    <property name="can_focus">0</property>
+                    <property name="label" translatable="yes">unknown</property>
+                    <property name="xalign">0</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="filesize">
+                    <property name="can_focus">0</property>
+                    <property name="xalign">0</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

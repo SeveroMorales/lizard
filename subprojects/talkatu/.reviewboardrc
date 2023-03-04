@@ -1,0 +1,6 @@
+REVIEWBOARD_URL = "https://reviews.imfreedom.org/"
+REPOSITORY = "talkatu/talkatu"
+REPOSITORY_TYPE = "mercurial"
+BRANCH = "default"
+LAND_DEST_BRANCH = "default"
+LAND_PUSH = False

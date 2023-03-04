@@ -1,0 +1,58 @@
+libgnt
+
+This file is intended to be a comprehensive list of contributors to
+this project.  If you have contributed to this project then you deserve
+to be on this list.  Contact us and we'll add you.
+
+Many open source projects list contributor names at the top of each
+source file containing their contribution.  However, we've found
+that it is difficult to keep this list accurate, especially when old
+code is removed or existing code is moved to a different file.  So
+instead we chose to list a generic message at the top of each source
+file that points here.
+
+If concerns are raised as to the copyright holder of a particular
+piece of code, then that code should be traced through our version
+control system to see from where it came and who has modified it.
+
+Copyright (C) 1998-2019 by the following:
+
+Ankit Vani <a@nevitus.org>
+Brad Smith <brad@comstyle.com>
+Christopher O'Brien <siege@pidgin.im>
+Daniel Atallah <datallah@pidgin.im>
+Daniel Kamil Kozar <dkk089@gmail.com>
+dx <dx@dxzone.com.ar>
+Ed Catmur <ed@catmur.co.uk>
+Elliott Sales de Andrade <quantum.analyst@gmail.com> <qulogic@pidgin.im>
+Eric Polino <aluink@pidgin.im>
+Ethan Blanton <elb@pidgin.im>
+Evan Schoenberg <evands@pidgin.im>
+Gabriel Schulhof <nix@go-nix.ca>
+Gary Kramlich <grim@reaperworld.com>
+James Geboski <jgeboski@gmail.com>
+Jochen Kemnade <jochenkemnade@web.de>
+John Bailey <rekkanoryo@rekkanoryo.org>
+Jorge Villaseñor <salinasv@pidgin.im>
+Ka-Hing Cheung <khc@pidgin.im>
+kdex <kdex@kdex.de>
+Luke Schierer <lschiere@pidgin.im>
+Marcus Lundblad <malu@pidgin.im>
+Mark Doliner <markdoliner@pidgin.im>
+Mark Schneider <queueram@gmail.com>
+Michael McConville <mmcconville@mykolab.com>
+Michael Ruprecht <maiku@pidgin.im> <cmaiku@gmail.com>
+Olaf Hering <olaf@aepfle.de>
+Paul Aurich <darkrain42@pidgin.im>
+Petteri Pitkänen <petepitk@gmail.com>
+Richard Laager <rlaager@pidgin.im>
+Richard Nelson <wabz@pidgin.im>
+Sadrul Habib Chowdhury <sadrul@pidgin.im>
+Saleem Abdulrasool <compnerd@compnerd.org>
+Sean Egan <seanegan@pidgin.im>
+Shawn Napora <shawn@napora.me>
+Stu Tomlinson <nosnilmot@pidgin.im>
+Tomasz Mon <desowin@gmail.com>
+Tomasz Wasilczyk <tomkiewicz@cpw.pidgin.im> <twasilczyk@pidgin.im>
+Will Thompson <resiak@pidgin.im>
+

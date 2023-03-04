@@ -1,0 +1,72 @@
+environment:
+  - BUILD_NUMBER
+  - REPOSITORY=rwgrim/hasl-builders
+  - REGISTRY=docker.io
+  - REGISTRY_USERNAME
+  - REGISTRY_PASSWORD
+  - DOCS_BUILD_IMAGE=${REGISTRY}/${REPOSITORY}:debian-bookworm-amd64
+
+tasks:
+  clean:
+    type: convey/clean
+    files:
+      - debian-bookworm-amd64
+
+  import:
+    type: docker/import
+    files: .:.
+
+  build:
+    type: docker/run
+    image: ${REGISTRY}/${REPOSITORY}:${TARGET}
+
+  export:
+    type: docker/export
+    files: ${TARGET}
+
+  login:
+    type: docker/login
+    server: ${REGISTRY}
+    username: ${REGISTRY_USERNAME}
+    password: ${REGISTRY_PASSWORD}
+
+  logout:
+    type: docker/logout
+    server: ${REGISTRY}
+
+  docs-clean:
+    type: convey/clean
+    files:
+      - hasl-docs
+  docs-build:
+    type: docker/run
+    image: ${DOCS_BUILD_IMAGE}
+    workdir: ${CONVEY_WORKSPACE}
+    script:
+      - set -ex
+      - rm -rf build-docs
+      - meson setup build-docs -Ddoc=true
+      - ninja -C build-docs doc
+  docs-export:
+    type: docker/export
+    files:
+      - build-docs/hasl/reference/hasl:hasl-docs
+
+plans:
+  clean:
+    stages:
+      - tasks:
+          - clean
+          - docs-clean
+
+  debian-bookworm-amd64:
+    environment: TARGET=debian-bookworm-amd64
+    stages:
+      - tasks: [import, build]
+      - tasks: [export]
+        run: always
+
+  docs:
+    stages:
+      - tasks: [docs-clean, import, docs-build, docs-export]
+

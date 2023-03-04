@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="Talkatu" version="0.0"/>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Talkatu -->
+  <!-- interface-description GTK widgets for chat applications -->
+  <!-- interface-copyright Gary Kramlich <grim@reaperworld.com> -->
+  <template class="TalkatuDemoWindow" parent="GtkApplicationWindow">
+    <property name="child">
+      <object class="GtkPaned">
+        <property name="shrink-end-child">0</property>
+        <property name="shrink-start-child">0</property>
+        <property name="orientation">vertical</property>
+        <property name="wide-handle">1</property>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vadjustment">
+              <object class="TalkatuAutoScroller" id="auto_scroller"/>
+            </property>
+            <child>
+              <object class="TalkatuHistory" id="history">
+                <property name="name">history</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox">
+                <style>
+                  <class name="toolbar"/>
+                </style>
+                <property name="can-focus">0</property>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_plain">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Use a TalkatuBuffer</property>
+                    <property name="label" translatable="yes">Plain</property>
+                    <property name="use-underline">1</property>
+                    <property name="icon-name">text-x-generic</property>
+                    <property name="active">1</property>
+                    <signal name="toggled" handler="talkatu_demo_window_buffer_changed_cb"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_whole">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Use a TalkatuWholeBuffer</property>
+                    <property name="label" translatable="yes">Whole</property>
+                    <property name="use-underline">1</property>
+                    <property name="icon-name">ascii</property>
+                    <property name="group">toggle_plain</property>
+                    <signal name="toggled" handler="talkatu_demo_window_buffer_changed_cb"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_html">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Use a TalkatuHTMLBuffer</property>
+                    <property name="label" translatable="yes">HTML</property>
+                    <property name="use-underline">1</property>
+                    <property name="icon-name">text-html</property>
+                    <property name="group">toggle_plain</property>
+                    <signal name="toggled" handler="talkatu_demo_window_buffer_changed_cb"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_markdown">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Use a TalkatuMarkdownBuffer</property>
+                    <property name="label" translatable="yes">Markdown</property>
+                    <property name="use-underline">1</property>
+                    <property name="icon-name">text-x-generic-template</property>
+                    <property name="group">toggle_plain</property>
+                    <signal name="toggled" handler="talkatu_demo_window_buffer_changed_cb"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="orientation">vertical</property>
+                    <property name="can-focus">0</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Insert HTML from a file</property>
+                    <property name="label" translatable="yes">Insert HTML</property>
+                    <property name="use-underline">1</property>
+                    <property name="icon-name">text-html</property>
+                    <signal name="clicked" handler="talkatu_demo_window_insert_html_cb"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Insert Markdown from a file</property>
+                    <property name="label" translatable="yes">Insert Markdown</property>
+                    <property name="use-underline">1</property>
+                    <property name="icon-name">text-x-generic</property>
+                    <signal name="clicked" handler="talkatu_demo_window_insert_markdown_cb"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="orientation">vertical</property>
+                    <property name="can-focus">0</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="author_button">
+                    <property name="can-focus">0</property>
+                    <property name="icon-name">system-users</property>
+                    <property name="label" translatable="yes">Author</property>
+                    <property name="menu-model">author_menu</property>
+                    <property name="use-underline">1</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="author_name_color_button">
+                    <property name="can-focus">0</property>
+                    <property name="icon-name">color-select-symbolic</property>
+                    <property name="label" translatable="yes">Color</property>
+                    <property name="menu-model">author_name_color_menu</property>
+                    <property name="use-underline">1</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="orientation">vertical</property>
+                    <property name="can-focus">0</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_toolbar">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Toggle toolbar visibility</property>
+                    <property name="label" translatable="yes">Toolbar</property>
+                    <property name="use-underline">1</property>
+                    <property name="active" bind-source="editor" bind-property="show-toolbar" bind-flags="bidirectional|sync-create"></property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_send_button">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Toggle send button visibility</property>
+                    <property name="label" translatable="yes">Send Button</property>
+                    <property name="use-underline">1</property>
+                    <property name="active" bind-source="editor" bind-property="show-send-button" bind-flags="bidirectional|sync-create"></property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="toggle_edited">
+                    <style>
+                      <class name="flat"/>
+                    </style>
+                    <property name="can-focus">0</property>
+                    <property name="tooltip-text" translatable="yes">Toggle whether the message is edited</property>
+                    <property name="label" translatable="yes">Edited</property>
+                    <property name="use-underline">1</property>
+                    <property name="active" bind-source="input" bind-property="edited" bind-flags="bidirectional|sync-create"></property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="TalkatuEditor" id="editor">
+                <property name="vexpand">1</property>
+                <property name="orientation">vertical</property>
+                <child internal-child="input">
+                  <object class="TalkatuInput" id="input">
+                    <property name="buffer">buffer_plain</property>
+                    <property name="author">Alice</property>
+                    <property name="author-name-color">black</property>
+                    <property name="send-binding">return</property>
+                    <signal name="open-url" handler="talkatu_demo_window_view_open_url_cb"/>
+                    <signal name="send-message" handler="talkatu_demo_window_view_send_message_cb"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="TalkatuTypingLabel" id="typing"/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <menu id="author_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Alice</attribute>
+        <attribute name="action">win.author-name</attribute>
+        <attribute name="target" translatable="yes">Alice</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Bob</attribute>
+        <attribute name="action">win.author-name</attribute>
+        <attribute name="target" translatable="yes">Bob</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Carol</attribute>
+        <attribute name="action">win.author-name</attribute>
+        <attribute name="target" translatable="yes">Carol</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">David</attribute>
+        <attribute name="action">win.author-name</attribute>
+        <attribute name="target" translatable="yes">David</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Eve</attribute>
+        <attribute name="action">win.author-name</attribute>
+        <attribute name="target" translatable="yes">Eve</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Mallory</attribute>
+        <attribute name="action">win.author-name</attribute>
+        <attribute name="target" translatable="yes">Mallory</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="author_name_color_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Black</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">black</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">White</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">white</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Red</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">red</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Green</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">green</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Blue</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">blue</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Yellow</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">yellow</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Purple</attribute>
+        <attribute name="action">win.author-name-color</attribute>
+        <attribute name="target">purple</attribute>
+      </item>
+    </section>
+  </menu>
+  <object class="TalkatuBuffer" id="buffer_html">
+    <property name="action-group">
+      <object class="TalkatuActionGroup">
+        <property name="format">html</property>
+        <property name="buffer">buffer_html</property>
+      </object>
+    </property>
+    <signal name="changed" handler="talkatu_demo_window_buffer_modified_cb"/>
+  </object>
+  <object class="TalkatuBuffer" id="buffer_markdown">
+    <property name="action-group">
+      <object class="TalkatuActionGroup">
+        <property name="format">markdown</property>
+        <property name="buffer">buffer_markdown</property>
+      </object>
+    </property>
+    <signal name="changed" handler="talkatu_demo_window_buffer_modified_cb"/>
+  </object>
+  <object class="TalkatuBuffer" id="buffer_plain">
+    <property name="action-group">
+      <object class="TalkatuActionGroup">
+        <property name="buffer">buffer_plain</property>
+      </object>
+    </property>
+    <signal name="changed" handler="talkatu_demo_window_buffer_modified_cb"/>
+  </object>
+  <object class="TalkatuBuffer" id="buffer_whole">
+    <property name="style">whole</property>
+    <property name="action-group">
+      <object class="TalkatuActionGroup">
+        <property name="format">html</property>
+        <property name="buffer">buffer_whole</property>
+      </object>
+    </property>
+    <signal name="changed" handler="talkatu_demo_window_buffer_modified_cb"/>
+  </object>
+</interface>

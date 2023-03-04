@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/im/pidgin/libpurple/bonjour">
+    <file>icons/16x16/apps/im-bonjour.png</file>
+    <file>icons/16x16/apps/scalable/im-bonjour.svg</file>
+    <file>icons/22x22/apps/im-bonjour.png</file>
+    <file>icons/22x22/apps/scalable/im-bonjour.svg</file>
+    <file>icons/48x48/apps/im-bonjour.png</file>
+    <file>icons/scalable/apps/im-bonjour.svg</file>
+  </gresource>
+</gresources>

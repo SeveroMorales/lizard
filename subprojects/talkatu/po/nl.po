@@ -1,0 +1,239 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the talkatu package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Gideon van Melle <translations@gvmelle.com>, 2020
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: talkatu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-19 13:19-0500\n"
+"PO-Revision-Date: 2019-07-19 18:19+0000\n"
+"Last-Translator: Gideon van Melle <translations@gvmelle.com>, 2020\n"
+"Language-Team: Dutch (https://www.transifex.com/pidgin/teams/6323/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: demo/data/demo.ui:13
+msgid "Alice"
+msgstr "Alice"
+
+#: demo/data/demo.ui:24
+msgid "Bob"
+msgstr "Bob"
+
+#: demo/data/demo.ui:35
+msgid "Carlos"
+msgstr "Karel"
+
+#: demo/data/demo.ui:46
+msgid "Eve"
+msgstr "Eva"
+
+#: demo/data/demo.ui:57
+msgid "David"
+msgstr "David"
+
+#: demo/data/demo.ui:68
+msgid "Mallory"
+msgstr "Mallory"
+
+#: demo/data/demo.ui:141
+msgid "Use a TalkatuBuffer"
+msgstr "Gebruik een TalkatuBuffer"
+
+#: demo/data/demo.ui:142
+msgid "Plain"
+msgstr "Zonder opmaak"
+
+#: demo/data/demo.ui:157
+msgid "Use a TalkatuWholeBuffer"
+msgstr "Gebruik een TalkatuWholeBuffer"
+
+#: demo/data/demo.ui:158
+msgid "Whole"
+msgstr "Hele"
+
+#: demo/data/demo.ui:173
+msgid "Use a TalkatuHTMLBuffer"
+msgstr "Gebruik een TalkatuHTMLBuffer"
+
+#: demo/data/demo.ui:174
+msgid "HTML"
+msgstr "HTML"
+
+#: demo/data/demo.ui:189
+msgid "Use a TalkatuMarkdownBuffer"
+msgstr "Gebruik een TalkatuMarkdownBuffer"
+
+#: demo/data/demo.ui:190
+msgid "Markdown"
+msgstr "Markdown"
+
+#: demo/data/demo.ui:215
+msgid "Insert HTML from a file"
+msgstr "HTML invoegen vanuit een bestand"
+
+#: demo/data/demo.ui:216
+msgid "Insert HTML"
+msgstr "HTML invoegen"
+
+#: demo/data/demo.ui:230
+msgid "Insert Markdown from a file"
+msgstr "Markdown invoegen vanuit een bestand"
+
+#: demo/data/demo.ui:231
+msgid "Insert Markdown"
+msgstr "Markdown invoegen"
+
+#: demo/data/demo.ui:255
+msgid "Author"
+msgstr "Auteur"
+
+#: demo/data/demo.ui:278
+msgid "Toogle toolbar visibility"
+msgstr "Zichtbaarheid van de werkbalk Toogle"
+
+#: demo/data/demo.ui:279
+msgid "Toolbar"
+msgstr "Werkbalk"
+
+#: demo/data/demo.ui:291
+msgid "Toggle send button visibility"
+msgstr "Zichtbaarheid van de knop Verzenden in- en uitschakelen"
+
+#: demo/data/demo.ui:292
+msgid "Send Button"
+msgstr "Knop Verzenden"
+
+#: demo/talkatudemo.c:57
+msgid "Talkatu Demo"
+msgstr "Talkatu Demo"
+
+#: demo/talkatudemowindow.c:60
+msgid "insert html..."
+msgstr "html invoegen..."
+
+#: demo/talkatudemowindow.c:103
+msgid "insert markdown..."
+msgstr "markdown invoegen..."
+
+#: talkatu/data/editor.ui:55
+msgid "Send"
+msgstr "Verzenden"
+
+#: talkatu/data/linkdialog.ui:7 talkatu/data/toolbar.ui:148
+msgid "Insert Link"
+msgstr "Link invoegen"
+
+#: talkatu/data/linkdialog.ui:24
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: talkatu/data/linkdialog.ui:38
+msgid "Insert"
+msgstr "Invoegen"
+
+#: talkatu/data/linkdialog.ui:69
+msgid "<span font-size=\"large\" font-weight=\"bold\">Insert Link</span>"
+msgstr "<span font-size=\"large\" font-weight=\"bold\">Koppeling invoegen</span>"
+
+#: talkatu/data/linkdialog.ui:82
+msgid ""
+"Please enter the URL and optional display text you would like to insert."
+msgstr "Voer de URL en de optionele weergavetekst in die u wilt invoegen."
+
+#: talkatu/data/linkdialog.ui:101
+msgid "URL:"
+msgstr "URL:"
+
+#: talkatu/data/linkdialog.ui:140
+msgid "Display Text:"
+msgstr "Tekst weergeven:"
+
+#: talkatu/data/toolbar.ui:13
+msgid "Bold"
+msgstr "Vet"
+
+#: talkatu/data/toolbar.ui:26
+msgid "Italic"
+msgstr "Cursief"
+
+#: talkatu/data/toolbar.ui:39
+msgid "Underline"
+msgstr "Onderstreept"
+
+#: talkatu/data/toolbar.ui:52
+msgid "Strikethrough"
+msgstr "Doorhalen"
+
+#: talkatu/data/toolbar.ui:75
+msgid "Increase Font Size"
+msgstr "Tekengrootte vergroten"
+
+#: talkatu/data/toolbar.ui:88
+msgid "Decrease Font Size"
+msgstr "Tekengrootte verkleinen"
+
+#: talkatu/data/toolbar.ui:111
+msgid "Clear Formatting"
+msgstr "Opmaak wissen"
+
+#: talkatu/data/toolbar.ui:134
+msgid "Insert Image"
+msgstr "Afbeelding invoegen"
+
+#: talkatu/data/toolbar.ui:162
+msgid "Insert File"
+msgstr "Bestand invoegen"
+
+#: talkatu/data/toolbar.ui:175
+msgid "Insert Code"
+msgstr "Code invoegen"
+
+#: talkatu/data/toolbar.ui:189
+msgid "Insert Emoji"
+msgstr "Emoji invoegen"
+
+#: talkatu/data/toolbar.ui:213
+msgid "Get Attention"
+msgstr "Vraag aandacht"
+
+#: talkatu/talkatuactiongroup.c:182
+#, c-format
+msgid "activating action %s"
+msgstr "actie  %s activeren"
+
+#: talkatu/talkatuactiongroup.c:193
+#, c-format
+msgid "toggling action %s"
+msgstr "actie %s omschakelen"
+
+#: talkatu/talkatubuffer.c:143
+#, c-format
+msgid "failed to find action for tag %s"
+msgstr "geen actie voor tag %s gevonden"
+
+#: talkatu/talkatubuffer.c:154
+#, c-format
+msgid "failed to find action %s"
+msgstr "geen actie %s gevonden"
+
+#: talkatu/talkatuview.c:180
+msgid "Open Link"
+msgstr "Koppeling openen"
+
+#: talkatu/talkatuview.c:204
+msgid "Copy Link"
+msgstr "Link kopiëren"
+
+#: talkatu/talkatuview.c:329
+msgid "Send message"
+msgstr "Verstuur bericht"

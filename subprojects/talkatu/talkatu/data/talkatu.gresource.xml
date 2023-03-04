@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/imfreedom/keep/talkatu/talkatu/ui">
+    <file compressed="true" preprocess="xml-stripblanks">attachmentdialog.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">attachmentpreview.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">editor.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">history.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">historyrow.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">input.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">linkdialog.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">toolbar.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">typinglabel.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">view.ui</file>
+  </gresource>
+</gresources>

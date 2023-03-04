@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/finch/plugins/tinyurl/" id="im.pidgin.Finch.plugin.TinyURL">
+    <key name="length" type="i">
+      <default>30</default>
+      <summary>Minimum conversion length</summary>
+      <description>
+        Only create TinyURL for URLs of this length or greater.
+      </description>
+    </key>
+
+    <key name="url" type="s">
+      <default>"http://tinyurl.com/api-create.php?url="</default>
+      <summary>URL generator prefix</summary>
+      <description>
+        TinyURL (or other) address prefix.
+      </description>
+    </key>
+  </schema>
+</schemalist>

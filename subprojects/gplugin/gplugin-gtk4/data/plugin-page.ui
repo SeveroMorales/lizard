@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="GPluginGtkPluginPage" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">12</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">horizontal</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="css-classes">title-1</property>
+                <property name="hexpand">1</property>
+                <binding name="label">
+                  <closure type="gchararray" function="gplugin_gtk_lookup_plugin_name">
+                    <lookup name="info" type="GPluginPlugin">
+                      <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                    </lookup>
+                    <lookup name="filename" type="GPluginPlugin">
+                      <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                    </lookup>
+                  </closure>
+                </binding>
+                <property name="wrap">1</property>
+                <property name="wrap-mode">word-char</property>
+                <property name="xalign">0</property>
+                <property name="yalign">0</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSwitch">
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+                <binding name="sensitive">
+                  <closure type="gboolean" function="gplugin_gtk_lookup_plugin_state_sensitivity">
+                    <lookup name="state" type="GPluginPlugin">
+                      <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                    </lookup>
+                  </closure>
+                </binding>
+                <binding name="state">
+                  <closure type="gboolean" function="gplugin_gtk_lookup_plugin_state">
+                    <lookup name="state" type="GPluginPlugin">
+                      <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                    </lookup>
+                  </closure>
+                </binding>
+                <signal name="state-set" handler="gplugin_gtk_plugin_page_enable_state_set_cb"/>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">horizontal</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="css-classes">dim-label</property>
+                <property name="halign">start</property>
+                <property name="hexpand">1</property>
+                <binding name="label">
+                  <lookup name="summary" type="GPluginPluginInfo">
+                    <lookup name="info" type="GPluginPlugin">
+                      <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                    </lookup>
+                  </lookup>
+                </binding>
+                <property name="wrap">1</property>
+                <property name="wrap-mode">word-char</property>
+                <property name="ellipsize">end</property>
+                <property name="xalign">0</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="css-classes">dim-label</property>
+                <property name="halign">end</property>
+                <binding name="label">
+                  <lookup name="version" type="GPluginPluginInfo">
+                    <lookup name="info" type="GPluginPlugin">
+                      <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                    </lookup>
+                  </lookup>
+                </binding>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="description">
+        <binding name="label">
+          <lookup name="description" type="GPluginPluginInfo">
+            <lookup name="info" type="GPluginPlugin">
+              <lookup name="plugin">GPluginGtkPluginPage</lookup>
+            </lookup>
+          </lookup>
+        </binding>
+        <property name="wrap">1</property>
+        <property name="xalign">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkFrame">
+        <property name="child">
+          <object class="GtkListBox">
+            <property name="css-classes">rich-list</property>
+            <property name="selection-mode">none</property>
+            <property name="show-separators">1</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="authors-label">
+                        <property name="label" translatable="1">Authors</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <binding name="label">
+                          <closure type="gchararray" function="gplugin_gtk_plugin_page_newline_strjoinv_cb">
+                            <lookup name="authors" type="GPluginPluginInfo">
+                              <lookup name="info" type="GPluginPlugin">
+                                <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                              </lookup>
+                            </lookup>
+                          </closure>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">authors-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="website-label">
+                        <property name="label" translatable="1">Website</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="use-markup">1</property>
+                        <binding name="label">
+                          <closure type="gchararray" function="gplugin_gtk_plugin_page_lookup_website_cb">
+                            <lookup name="website" type="GPluginPluginInfo">
+                              <lookup name="info" type="GPluginPlugin">
+                                <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                              </lookup>
+                            </lookup>
+                          </closure>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">website-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="dependencies-label">
+                        <property name="label" translatable="1">Dependencies</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <binding name="label">
+                          <closure type="gchararray" function="gplugin_gtk_plugin_page_newline_strjoinv_cb">
+                            <lookup name="dependencies" type="GPluginPluginInfo">
+                              <lookup name="info" type="GPluginPlugin">
+                                <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                              </lookup>
+                            </lookup>
+                          </closure>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">dependencies-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="error-label">
+                        <property name="label" translatable="1">Error</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <property name="wrap">1</property>
+                        <binding name="label">
+                          <closure type="gchararray" function="gplugin_gtk_plugin_page_lookup_error_cb">
+                            <lookup name="error" type="GPluginPlugin">
+                              <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                            </lookup>
+                          </closure>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">error-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="id-label">
+                        <property name="label" translatable="1">ID</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <binding name="label">
+                          <lookup name="id" type="GPluginPluginInfo">
+                            <lookup name="info" type="GPluginPlugin">
+                              <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                            </lookup>
+                          </lookup>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">id-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="filename-label">
+                        <property name="label" translatable="1">Filename</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <property name="ellipsize">start</property>
+                        <binding name="label">
+                          <lookup name="filename" type="GPluginPlugin">
+                            <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                          </lookup>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">filename-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="abi-version-label">
+                        <property name="label" translatable="1">ABI Version</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <binding name="label">
+                          <closure type="gchararray" function="gplugin_gtk_plugin_page_lookup_abi_version_cb">
+                            <lookup name="abi-version" type="GPluginPluginInfo">
+                              <lookup name="info" type="GPluginPlugin">
+                                <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                              </lookup>
+                            </lookup>
+                          </closure>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">abi-version-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="loader-label">
+                        <property name="label" translatable="1">Loader</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="selectable">1</property>
+                        <binding name="label">
+                          <closure type="gchararray" function="gplugin_gtk_plugin_page_lookup_loader_cb">
+                            <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                          </closure>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">loader-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="internal-label">
+                        <property name="label" translatable="1">Internal</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">object-select-symbolic</property>
+                        <binding name="visible">
+                          <lookup name="internal" type="GPluginPluginInfo">
+                            <lookup name="info" type="GPluginPlugin">
+                              <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                            </lookup>
+                          </lookup>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">internal-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">0</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="spacing">12</property>
+                    <child>
+                      <object class="GtkLabel" id="load-on-query-label">
+                        <property name="label" translatable="1">Load on Query</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">object-select-symbolic</property>
+                        <binding name="visible">
+                          <lookup name="load-on-query" type="GPluginPluginInfo">
+                            <lookup name="info" type="GPluginPlugin">
+                              <lookup name="plugin">GPluginGtkPluginPage</lookup>
+                            </lookup>
+                          </lookup>
+                        </binding>
+                        <accessibility>
+                          <relation name="labelled-by">load-on-query-label</relation>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </child>
+    <child>
+      <object class="GPluginGtkPluginSettingsList" id="settings">
+      </object>
+    </child>
+  </template>
+  <object class="GtkSizeGroup">
+    <property name="mode">horizontal</property>
+    <widgets>
+      <widget name="authors-label"/>
+      <widget name="website-label"/>
+      <widget name="dependencies-label"/>
+      <widget name="error-label"/>
+      <widget name="id-label"/>
+      <widget name="filename-label"/>
+      <widget name="abi-version-label"/>
+      <widget name="loader-label"/>
+      <widget name="internal-label"/>
+      <widget name="load-on-query-label"/>
+    </widgets>
+  </object>
+</interface>

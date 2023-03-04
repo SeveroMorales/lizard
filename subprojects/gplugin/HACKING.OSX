@@ -1,0 +1,42 @@
+There are a few notes about building on OSX.
+
+First off, building has *ONLY* been tested against homebrew.  If you want to
+support fink or macports, please let me know and I will merge your pull
+request.
+
+## Lua
+
+For the Lua loader to work, you need to install `lgi` from luarocks either
+systemwide for lua 5.1 as `lgi` does not currently work with lua 5.4 which is
+the default in homebrew.
+
+To make this work, you'll need to install both `lua@5.1` and `luarocks` via
+`brew install lua@5.1 luarocks`.  Once those are installed, you'll need to
+create `/usr/local/etc/luarocks/config-5.1.lua` with the following contents.
+
+```
+-- LuaRocks configuration
+
+rocks_trees = {
+   { name = "user", root = home .. "/.luarocks" };
+   { name = "system", root = "/usr/local" };
+}
+lua_interpreter = "lua5.1";
+variables = {
+   LUA_DIR = "/usr/local/opt/lua@5.1";
+   LUA_BINDIR = "/usr/local/opt/lua@5.1/bin";
+   CFLAGS = "-I/usr/local/opt/libffi/include/";
+}
+```
+
+Once that is done, you can then finally install `lgi` with the following
+command.
+
+```
+luarocks --lua-version=5.1 install lgi
+```
+
+## Python3
+
+If you're using homebrew, you need to install `pygobject3`.
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="GPluginGtkPluginSettingsList" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
+    <child>
+      <object class="GtkLabel">
+        <property name="css-classes">title-2</property>
+        <property name="label" translatable="1">Settings</property>
+        <property name="xalign">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkFrame">
+        <child>
+          <object class="GtkListBox" id="list_box">
+            <property name="css-classes">rich-list</property>
+            <property name="selection-mode">none</property>
+            <property name="show-separators">1</property>
+            <child type="placeholder">
+              <object class="GtkLabel">
+                <property name="css-classes">large-title</property>
+                <property name="label" translatable="1">No settings available</property>
+                <property name="margin-bottom">24</property>
+                <property name="margin-end">24</property>
+                <property name="margin-start">24</property>
+                <property name="margin-top">24</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

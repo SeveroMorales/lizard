@@ -1,0 +1,23 @@
+---
+id: im.pidgin.Finch3
+runtime: org.gnome.Platform
+runtime-version: '3.36'
+sdk: org.gnome.Sdk
+command: finch3
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --share=network
+  - --talk-name=org.freedesktop.Notifications
+  - --system-talk-name=org.freedesktop.Avahi
+modules:
+  - packaging/flatpak/libpurple-common.yml
+  - packaging/flatpak/libgnt.yml
+  - name: finch3
+    buildsystem: meson
+    config-opts:
+      - -Dgtkui=false
+      - -Ddoc=false
+    sources:
+      - type: dir
+        path: '.'

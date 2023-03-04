@@ -1,0 +1,501 @@
+0.40.0: 2023/02/24:
+  * Add a settings property to GPluginGtkView and GPluginGtkPage (RR 2128)
+    (Elliott Sales de Andrade)
+  * Add a settings list to GPluginGtkPage (RR 2129) (Elliott Sales de Andrade)
+  * Set a non-persistent settings backend in GPluginGtkViewer (RR 2147)
+    (Elliott Sales de Andrade)
+  * Add option in viewer to directly show a plugin page (RR 2148) (Elliott
+    Sales de Andrade)
+  * Add a plugin with all basic setting types (RR 2149) (Elliott Sales de
+    Andrade)
+  * Add more ranged settings to the previously mentioned test plugin (RR 2152)
+    (Elliott Sales de Andrade)
+  * Simplify hash tables used as sets (RR 2178) (Elliott Sales de Andrade)
+  * Implement widgets for settings that use basic types (RR 2150) (Elliott
+    Sales de Andrade)
+  * Fix memory leaks in gplugin_file_source (RR 2255) (Markus Fischer)
+  * Bump our required C standard to C17 (RR 2249) (Gary Kramlich)
+  * Move the gi-docgen subproject from git to a release (RR 2271) (Gary
+    Kramlich)
+
+0.39.1: 2022/11/23:
+  * Fix deprecation warning with GLib 2.74 (RR 2012) (Elliott Sales de Andrade)
+  * Modernize and simplify Meson files (RR 2035) (Elliott Sales de Andrade)
+  * Use new Python initialization method (RR 2084) (Elliott Sales de Andrade)
+
+0.39.0: 2022/10/27:
+  * Better document the example plugins and cover the shutdown parameter to
+    unload. (RR 1694) (Gary Kramlich)
+  * Add the missing shutdown parameter to the vala example. (RR 1701) (Gary
+    Kramlich)
+  * De-privatize GPluginManager. (RR 1744) (Elliott Sales de Andrade)
+  * Add a settings schema property to plugin info. (RR 1745) (Elliott Sales de
+    Andrade)
+  * Set the preset for i18n to glib. (RR 1766) (Gary Kramlich)
+  * Remove GTK3 support. (RR 1709, 1779) (Gary Kramlich)
+  * Implement GPluginSource. (RR 1778) (Gary Kramlich)
+  * Remove the packaging files. (RR 1780) (Gary Kramlich)
+  * Add signals for loader registration. (RR 1783) (Gary Kramlich)
+  * Clean up the manager's signals by using g_signal_new_class_handler and
+    using the correct types. (RR 1784) (Gary Kramlich)
+  * Remove Perl5 support. (RR 1793) (Gary Kramlich)
+  * Simplify UI files. (RR 1833) (Elliott Sales de Andrade)
+  * Install and notify plugin row widget's properties. (RR 1834) (Elliott Sales
+    de Andrade)
+  * Use expression lookups to populate plugin row widgets. (RR 1835) (Elliott
+    Sales de Andrade)
+  * Add more details to basic test plugin names. (RR 1837) (Elliott Sales de
+    Andrade)
+  * Move the existing refresh code to GPluginFileSource. (RR 1788) (Gary
+    Kramlich)
+  * Add a missing property doc and `Since` tags to the plugin row widget.
+    (RR 1841) (Elliott Sales de Andrade)
+  * Split the plugin details widget into a separate page. (RR 1840) (Elliott
+    Sales de Andrade)
+  * Update HACKING.OSX to detail how to get lgi to compile. (RR 1844) (Gary
+    Kramlich)
+  * Rename the strangely named load-on-query property to the much more obvious
+    auto-load. (RR 1094) (Gary Kramlich)
+  * Add some additional error checking to gplugin_native_loader_query. (RR
+    1848) (Gary Kramlich)
+  * Add preprocessing for all of the resources that GResource can do
+    preprocessing on. (RR 1903) (Gary Kramlich)
+  * Clean up meson files including flattening them and using the dependency
+    object in summaries which shows the version as well. (RR 1943) (Elliott
+    Sales de Andrade)
+  * Remove the TCC loader. While this was nifty idea, the lack of ability to
+    specify additional CFLAGS/LIBS has kept it disabled by default so we
+    finally decided to throw in the towel. (RR 1910) (Gary Kramlich)
+  * Add support for Python 3.11. (RR 1980) (Gary Kramlich)
+
+0.38.1: 2022/08/29:
+  * Move to g_queue_clear_full as we've required glib >= 2.60.0 for awhile.
+    (RR 1351) (Gary Kramlich)
+  * Require Meson 0.61.0 and clean up some warnings. (RR 1350) (Gary Kramlich)
+  * Fix some issues with the GTK3 and GTK4 includes when not used in a
+    subproject. (GPLUGIN-145) (RR 1469) (Gray Kramlich)
+  * Use G_TEST_OPTION_ISOLATE_DIRS for all unittests. (RR 1588) (Gary Kramlich)
+
+0.38.0: 2022/03/14:
+  * Add gplugin-gtk4-viewer and accompanying GTK4 widgets (RR 1134) (Elliott
+    Sales de Andrade)
+  * Fix cross references in gplugin-gtk4-viewer (RR 1150) (Elliott Sales de
+    Andrade)
+  * Update the Perl5 loader's name to match the format of the other loaders
+    (RR 1151) (Gary Kramlich)
+  * Move the generated version code out to its own file (RR 1154) (Gary
+    Kramlich)
+  * Implement enable switch in GTK4 viewer (RR 1193) (Elliott Sales de
+    Andrade)
+  * Bump the GLib requirement to 2.70 (1199) (Gary Kramlich)
+  * Add GPlugin.Plugin::desired-state property (RR 1200) (Gary Kramlich)
+  * Remove support for Python 3.6 (RR 1231) (Gary Kramlich)
+  * Fix unit tests on Window (RR 1229) (ivanhoe)
+  * Remove GModule from the GIR file (RR 1252) (Gary Kramlich)
+
+0.37.0: 2021/11/11:
+  * Add convenience functions gplugin_manager_append_paths_from_environment and
+    gplugin_manager_prepend_paths. (RR 997) (Paul Jimenez)
+  * Add gplugin-gtk4-view to the rpm specfile. (RR 1097) (Gary Kramlich)
+  * Fix some gi-docgen annotations that were causing the build to fail. (RR
+    1131) (Gary Kramlich)
+
+0.36.0: 2021/10/14:
+  * Update POTFILES for the gtk -> gtk3 rename. (RR 967) (Gary Kramlich)
+  * Add namespaces to all of the Vala and Genie plugins. (RR 984) (Gary
+    Kramlich)
+  * Random meson cleanups. (RR 987) (Elliott Sales de Andrade)
+  * Setup meson devenv. (RR 988) (Gary Kramlich)
+  * Turn on extra warnings and clean them up. (RR 989) (Gary Kramlich)
+  * Add Lua 5.4 to our lists of accepted version. (RR 990) (Gary Kramlich)
+  * Random Perl5 cleanups. (RR 986) (Gary Kramlich)
+  * Add scaffolding for GTK 4 Widgets. (RR 991) (Elliott Sales de Andrade)
+  * Remove empty vfuncs in gplugin-gtk3. (RR 996) (Elliott Sales de Andrade)
+  * Fix cross references in the GPlugin documentation. (RR 999) (Elliott Sales
+    de Andrade)
+  * Fix namespace for get_id_normalized (RR 1000) (Elliott Sales de Andrade)
+  * Fix cross references in the GPlugin-Gtk3 documentation. (RR 1002) (Elliott
+    Sales de Andrade)
+  * Silence some new Meson warnings (RR 1007) (Elliott Sales de Andrade)
+  * Fix some leaks in GTK3 plugin viewer (RR 1009) (Elliott Sales de Andrade)
+  * Make property registration consistent (RR 1010) (Elliott Sales de Andrade)
+  * Fix several typos (RR 1011) (Elliott Sales de Andrade)
+  * Add GTK4 viewer outline (RR 992) (Elliott Sales de Andrade)
+  * Remove unnecessary doc comments in gplugin (RR 1014) (Gary Kramlich)
+  * Remove unnecessary doc comments in gplugin-gtk3 (RR 1015) (Gary Kramlich)
+  * Made GPluginManager a final type. (RR 1028) (Gary Kramlich)
+  * Set all log domains to use structured logging (RR 1032) (Elliott Sales de
+    Andrade)
+  * Add GLADE_CATALOG_SEARCH_PATH to the devenv (RR 1046) (Gary Kramlich)
+
+0.35.0: 2021/09/30:
+  * Add an unloadable property to GPluginPluginInfo and add a shutdown
+    parameter to gplugin_unload. (RR 943) (Gary Kramlich)
+  * Add a mailmap for resolving committer names. (RR 948) (Gary Kramlich)
+  * Fix trailing slashes in links in the GPluginGtk docs. (RR 957) (Gary
+    Kramlich)
+  * Silence warnings from Python files and fix a bug with Unicode named Python
+    plugins. (RR 960) (Elliott Sales de Andrade)
+  * Remove the mingw-cross packaging stuff. (RR 962) (Gary Kramlich)
+  * Set the min and max allowed glib versions. (GPLUGIN-140) (RR 963) (Gary
+    Kramlich)
+  * Renamed gplugin-gtk to gplugin-gtk3. (GPLUGIN-98) (RR 961) (Gary Kramlich)
+
+0.34.1: 2021/09/26:
+  * Update the library dependency objects to include the gobject introspection
+    targets so they will automatically work with subprojects. (RR 939) (Gary
+    Kramlich)
+
+0.34.0: 2021/09/24:
+  * Add an id property to GPluginLoader. (RR 895) (Gary Kramlich)
+  * Fix memory leaks in test-versioned-dependencies and test-find-plugins.
+    (RR 896) (ivanhoe)
+  * Add a convey plan to build and export the docs. (RR 904) (Gary Kramlich)
+  * Migrate to gi-docgen. (RR 905) (Gary Kramlich)
+  * Cleaned up all the convey plans. (RR 910) (Gary Kramlich)
+  * Fix the plugin id for the Perl5 Loader plugin. (RR 934) (Gary Kramlich)
+  * Change loader registration to work on an instance rather than a GType.
+    (RR 899) (Gary Kramlich)
+  * Add a core flag to turn on logging of plugin state changes. (RR 933)
+    (Gary Kramlich)
+  * Make the name inside of the pkgconfig files match the base name of the
+    pkgconfig files. (RR 935) (Gary Kramlich)
+
+0.33.0: 2021/08/03:
+  * Fix plugin searching with Glib 2.69. (RR 856) (Elliott Sales de Andrade)
+  * Look for Perl in additional paths. (RR 851, 864) (ivanhoe)
+  * Override our dependency in meson if we have a new enough meson. (RR 837)
+    (Gary Kramlich)
+  * Converted the GPluginManager API to take an instance of a GPluginManager
+    instead of just working working on a library managed instance. (RR 862)
+    (Gary Kramlich)
+
+0.32.1: 2021/07/29
+  * Update all of the basic plugins to verify that they were called with the
+    proper arguments. (RR 817) (Gary Kramlich)
+  * Check for all known and supported Python3 pkg-config files. (RR 832) (Gary
+    Kramlich)
+  * Bump the meson minimum version to 0.56.0 and start using the summary
+    function. (RR 849) (Gary Kramlich)
+  * Move the management of plugins state from GPluginManager to GPluginLoader.
+    (RR 845) (Gary Kramlich)
+
+0.32.0: 2021/07/13
+  * Expose the GPluginManager object. This is the first step in updating the API
+    to make it match the manager objects that we've been building in libpurple
+    and Pidgin. (RR 689) (Gary Kramlich)
+  * Added provides and priority properties to GPluginPluginInfo. (RR 691) (Gary
+    Kramlich)
+
+0.31.0: 2021/05/27
+  General
+  * Added an option to install gplugin-query. (RR 159) (GPLUGIN-129) (Sorvival)
+  * Added an option to install gplugin-gtk-viewer. (RR 159) (GPLUGIN-129)
+    (Sorvival)
+
+  GPlugin
+  * Changed the symbol bind logical for native plugins to bind locally by
+    default. (RR 108) (GPLUGIN-119) (Gary Kramlich)
+  * Added a parameter of type GPluginCoreFlags to gplugin_init. (RR 110)
+    (GPLUGIN-103) (Gary Kramlich)
+  * Added gplugin_plugin_info_get_id_normalized. (RR 131) (GPLUGIN-128)
+    (Gary Kramlich)
+  * Added a macro to make it easier to implement native plugins and to future
+    proof them a bit. (RR 578) (GPLUGIN-132) (Gary Kramlich)
+
+0.30.0: 2020/09/05
+  General
+  * Changed the website to the repository on keep.imfreedom.org.
+    (Gary Kramlich)
+  * Removed an unnecessary meson version check. (Gary Kramlich)
+  * Bumped the required meson version to 0.50.0. (Gary Kramlich)
+  * Removed gplugin-version.sh.in as it was used in the cmake build system.
+    (Gary Kramlich)
+  * Fixed licenses throughout the codebase. (Richard Laager)
+
+  GPlugin
+  * Removed GPluginVersionCompareFunc and the GPluginPluginInfo::version-func
+    property as they aren't necessary with semantic versioning. (Gary Kramlich)
+  * Added new plugin state UNLOAD_FAILED.  When a plugin fails to unload, it
+    now goes to UNLOAD_FAILED instead of LOADED. (Gary Kramlich)
+  * Added gplugin_manager_foreach and GPluginManagerForeachFunc to make it
+    easier to operate on all plugins. (Gary Kramlich)
+  * Added GPluginManager::unload-plugin-failed signal that gets emitted when
+    a plugin fails to unload.
+  * Renamed the GPluginManager::load-failed signal to
+    GPluginManager::load-plugin-failed and added the error, if any, that the
+    plugin returned. (Gary Kramlich)
+  * Added gplugin_manager_find_plugin_with_newest_version. (Gary Kramlich)
+  * Added an "error" property to GPluginPlugin with a getter. (Gary Kramlich)
+  * Removed the error parameter from the "plugin-load-failed" and
+    "plugin-unload-failed" signals.  Call gplugin_plugin_get_error instead.
+    (Gary Kramlich)
+
+  GPluginGtk
+  * Updated the GPluginGtkView widget to disable entries if there are in the
+    GPLUGIN_PLUGIN_STATE_LOAD_FAILED state. (Gary Kramlich)
+  * Updated the GPluginGtkPluginInfo widget to display the "error" property if
+    it is set, or "(none)".  (Gary Kramlich)
+
+  Lua Loader
+  * Removed the moonscript support from the Lua loader. (Gary Kramlich)
+  * Add support for Lua 5.3. (Richard Laager)
+
+  Perl Loader
+  * After years of on again, off again work, the Perl loader finally works!
+    (Gary Kramlich, Richard Laager)
+
+  Python Loader
+  * Bumped the Python 3 dependency to 3.5. (Gary Kramlich)
+  * Replaced mbstowcs with Py_DecodeLocale.  (Gary Kramlich)
+  * Renamed the python loader from gplugin-python to gplugin-python3.
+    (Gary Kramlich)
+
+0.29.0: 2019/11/07
+  * Synchronize GPluginGtkStore with the plugin manager, make the enabled
+    toggle button work in GPluginGtkView, and allow developers to decide
+    whether or not to show column headers in GPlugingGtkView.  (PR #37)
+    (Gary Kramlich)
+  * Added error messages when the unload method of a plugin loader is called.
+    (PR #38) (Gary Kramlich)
+
+0.28.2: 2019/10/31
+  General
+  * Fixed a broken include in gplugin-gtk-plugin-info.h which caused build
+    failures.
+  * Fixed an issue where python3.8 no longer links to libpython.
+
+0.28.1: 2019/09/30
+  General
+  * Fix a bug that scanbuild found in test-plugin-info (Gary Kramlich)
+  * Fix an issue pvs-studio found for using g_set_error instead of
+    g_error_set_literal (PR #34) (Gary Kramlich)
+  * Clean up the rpm spec.in file (PR #29) (Gary Kramlich)
+  * Fix the build when being built as a subproject in meson (PR #28) (Gary
+    Kramlich)
+  * Fix building the Lua loader on FreeBSD (PR #25) (Gary Kramlich)
+  * Look for plugins with both .so and .dylib extensions on MacOS (PR #16)
+    (Gary Kramlich)
+  * Fix a segfault in GPluginFileTree (PR #15) (Olaf Hering)
+  * Fix valgrind and other memory issues (PR #11, PR #12) (Elliott Sales de
+    Andrade)
+  * Fix warnings from Python headers (PR #10) (Elliott Sales de Andrade)
+  * Use g_set_error (PR #6) (Elliott Sales de Andrade)
+  * Use g_clear_pointer (PR #6) (Elliott Sales de Andrade)
+  * Use g_clear_object (PR #6) (Elliott Sales de Andrade)
+  * Use g_value_dup (PR #6) (Elliott Sales de Andrade)
+  * Remove null checks from g_strdup (PR #6) (Elliott Sales de Andrade)
+  * Make sure testing asserts can't be disabled (PR #6) (Elliott Sales de
+    Andrade)
+  * Fix some potential reference counting bugs (PR #6) (Elliott Sales de
+    Andrade)
+  * Removed checks for glib < 2.40 as that's our required minimum now.  (PR #6)
+    (Elliott Sales de Andrade)
+  * Replaced GPLUGIN_UNUSED with G_GNUC_UNUSED (PR #6) (Elliott Sales de
+    Andrade)
+  * Created VAPI for Vala Bindings. (#76) (Gary Kramlich)
+  * Added docs for Vala. (#76) (Gary Kramlich)
+
+  Python Loader
+  * Use Py_CLEAR and Py_XINCREF on private attributes (PR #6) (Elliott Sales de
+    Andrade)
+
+  Perl Loader
+  * Made it compile again (still incomplete) (PR #7) (Elliott Sales de Andrade)
+
+  TCC Loader
+  * Made it compile again, disabled by default (PR #7) (Elliott Sales de
+    Andrade)
+
+0.28.0: 2019/01/22
+  * Fixed building on OSX with homebrew
+  * Added an RPM spec file
+  * Changed the build system to meson.  See INSTALL for instructions.
+  * Added gplugin_plugin_get_dependent_plugins. (fixes #8)
+  * Remove ability to disable unit testing.
+  * Bumped the glib requirement to 2.40.0
+  * Added gtk-doc
+  * Added a Glade catalog for gplugin-gtk
+  * Added GPluginGtk-0.0.gir
+
+0.27.0: 2016/04/18
+  * Bumped the glib requirement to 2.34.0
+  * Fix some error reporting with the native loader
+
+0.26.0: 2016/03/03
+  * Added a load-failed signal which is emitted when a plugin fails to load
+  * Removed pre glib 2.32.0 code
+
+0.25.0: 2016/02/06
+  * Fix a regression where the GIR file did not have a predictable name.
+  * Fix the glib requirement.  It was set at 2.20, but we require 2.32.
+
+0.24.1: 2016/01/28
+  * Fixed the version numbering finally
+  * Updated the version in CMakeLists.txt
+
+0.0.24: 2016/01/28
+  * Really fixed the debian package this time
+  * Made help2man optional
+  * Don't try to build the pot files if NLS is disabled
+
+0.0.23: 2016/01/06
+  * Made the moonscript tests option work
+  * Added Debian.md to explain how to use the Debian repository
+  * Install man pages in the correct directory on BSD
+
+0.0.22: 2015/06/30
+  * Made the moonscripts tests not interfer with the lua tests unless they're
+    explicitly turned on
+  * Set the -ggdb cflag if we're being compiled by gcc
+
+0.0.21: 2015/06/29
+  * Use the GNUInstallDirs cmake module to install everything to the correct
+    locations. - Elliott Sales de Andrade
+  * Added -L, --list option to gplugin-query to show the search paths it is
+    using.
+  * Added an option to toggle whether or not the moonscript tests are run.
+    Defaults to no.
+
+0.0.20: 2015/05/07
+  * Fixed the lua dependency checks for Fedora 20
+  * Fixed the build on cmake<3.0.0
+
+0.0.19: 2015/05/06
+  * Add debug packages to the Debian packaging
+  * Add libgplugin-loaders package to the Debian packaging
+  * Removed the Seed JavaScript loader (issue #63)
+  * Removed the GNOME JavaScript loader (issue #64)
+  * Fixed crash in gplugin-gtk-viewer (issue #25)
+
+0.0.18: 2015/02/22
+  * Add a dist target to build and sign source archives
+
+0.0.17: 2014/12/12
+  * Finished the gjs loader.
+  * Relicensed to LGPL2.
+  * Created the Debian packaging.
+  * Add an option to disable unit testing
+
+0.0.16: 2014/05/05
+  * Added luajit as the first Lua library to try to use.
+  * Added moonscript support to the Lua loader.
+  * Added a help field to GPluginPluginInfo.
+
+0.0.15: 2014/03/15
+  * Added support to build against lua 5.2 (Elliott Sales de Andrade)
+  * Fixed issue #45 (Elliott Sales de Andrade)
+  * Updated some unit tests for deprecation in Glib 2.38 (Elliott Sales de
+    Andrade)
+  * Fixed issue #46 (John Bailey)
+  * Moved the Python loader to Python3 only (Elliott Sales de Andrade)
+  * Added the typelib and gir files as dependencies for all loaders that
+    require if (Elliott Sales de Andrade)
+
+0.0.14: 2014/01/25
+  * Added the Seed JavaScript loader.
+
+0.0.13: 2014/01/23
+  * Removed the gplugin-native API from the gobject-introspection repository.
+  * Added support for versions in plugin dependencies as well as OR's.
+
+0.0.12: 2014/01/08
+  * Added a static library to make it easier to test loaders.
+  * Moved the native loader to the loader-testing static library
+  * Overhauled the native loader tests
+  * Fixed a bug where in certain conditions a load-on-query plugin that failed
+    to load, would get its info tracked twice.
+
+0.0.11: 2013/12/02
+  * Added gplugin_get_option_group which implements options for adding paths
+    as well as not adding the default paths.
+  * Fixed an issue with dependencies in native plugins.
+  * Fixed some use count issues in native plugins.
+  * GPluginManager now manages the the states for plugins so the loaders don't
+    have to.
+
+0.0.10: 2013/11/01
+  * Got the gplugin-gtk stuff working for the most part
+  * Implemented the Lua loader
+  * Renamed the external methods for native plugins to remove the redundant
+    _plugin in their names
+  * Renamed the external methods for python plugins to remove the redundant
+    _plugin in their names
+
+0.0.9: 2013/10/13
+  * Renamed GPluginPluginLoader to GPluginLoader
+  * Renamed GPluginPluginManager to GPluginManager
+  * Updated the gplugin_manager_* API to use a singleton that has signals for
+    loading, loaded, unloading, and unloaded.  Use gplugin_manager_get_instance
+    to get the instance to use in g_signal_connect.  Signals are
+    "loading-plugin", "loaded-plugin", "unloading-plugin", and "loaded-plugin".
+    See the documentation for the prototype expected for the callbacks.
+  * Various internal cleanups
+
+0.0.8: 2013/09/22
+  * Fixed some issues with loading Python plugins (#16)
+  * Removed the flags property and replaced it with an internal and
+    load-on-query properties.  Both of which default to FALSE.  Closes #15
+  * Various fixes for gplugin_native_plugin_(un)?use from Ankit
+
+0.0.7: 2013/09/01
+  * Cleaned up the output of gplugin-query considerably
+  * Fixed the load on query flag so that it actually works
+  * Finding and fixed an issue with type registration
+  * Fixed GObjectIntrospection.cmake to correctly handle CMAKE_INSTALL_PREFIX
+  * Added internationalization support
+  * Got the Python loader working
+
+0.0.6: 2013/08/25
+  * Added GPluginPluginInfo:version-func which can hold a
+    GPluginVersionCompareFunc that's used to compare versions of the plugin.
+  * Fixed the multiple id crash issue
+
+0.0.5 2013/08/16:
+  * Added a "category" property to GPluginPluginInfo
+  * Changed GPluginPluginInfo:dependencies from a GSList to a gchar *
+  * Implemented gplugin_plugin_info_new (again) this time with id and
+    abi_version required
+  * Renamed GPluginPluginInfo:author to GPluginPluginInfo:authors
+  * Changed GPluginPluginInfo:authors and GPluginPluginInfo:dependencies from
+    gchar * to gchar **.  See the unittest plugins for an example of how they
+    work.
+  * Some more updates for gplugin-query.  This needs to be much easier to
+    maintain, but it's working a bit better.
+  * Changed GPluginPluginInfo:license to GPluginPluginInfo:license-id
+
+0.0.4: 2013/08/10
+  * Added the install path as a default for gplugin-query
+  * Added an option to gplugin-query to not use the default paths
+  * Fixed a bug in gplugin_plugin_manager_remove_path
+  * Made some changes to the python loader, still far from working
+  * Fixed gplugin_plugin_manager_add_app_paths to use g_build_filename instead
+    of g_build_path.
+  * Fixed some leaks involving GPluginPluginInfo
+  * Avoid a crash if no paths are added
+  * Don't show internal plugins by default in gplugin-query, use -i to see them
+  * Removed gplugin_plugin_info_new for now (this may make a comeback)
+  * Set GPluginInfoClass's parent to GInitiallyUnownedClass
+  * Updated the target names in GObjectIntrospection.cmake to be the filenames
+    that are produced.
+  * Added license_text and license_url to GPluginPluginInfo
+  * Lots of documentation updates, more to go yet
+  * Added a -D option to gplugin-query to not use the default paths
+  * Updated the query, load, and unload functions of native plugins to take
+    a GError.
+
+0.0.3: 2013/07/30
+  * Added gplugin_plugin_manager_add_app_paths
+  * Moved GPluginPluginInfo from a boxed type to a GObject
+  * Added gplugin_[gs]et_plugin_info_type to allow applications to specify
+    a GPluginPluginInfo subclass for plugins to create.
+
+0.0.2: 2012/04/29
+  * Fixed the broken pkg-config file...
+  * Added gplugin_plugin_manager_list_plugins
+  * Added gplugin-query to query the plugins that gplugin knows about
+
+0.0.1: 2012/04/29
+  * Initial release
+  * Basic native plugin loading/unloading supported with dependencies
+

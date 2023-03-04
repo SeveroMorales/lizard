@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginAccountRow" parent="GtkListBoxRow">
+    <property name="selectable">0</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkSwitch" id="enabled">
+            <binding name="active">
+              <lookup name="enabled" type="PurpleAccount">
+                <lookup name="account">PidginAccountRow</lookup>
+              </lookup>
+            </binding>
+            <property name="valign">center</property>
+            <signal name="state-set" handler="pidgin_account_row_enable_state_set_cb" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="AdwAvatar" id="avatar">
+            <property name="size">48</property>
+            <binding name="text">
+              <lookup name="name-for-display" type="PurpleContactInfo">
+                <lookup name="account">PidginAccountRow</lookup>
+              </lookup>
+            </binding>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="hexpand">1</property>
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel" id="name">
+                <property name="xalign">0</property>
+                <binding name="label">
+                  <lookup name="name-for-display" type="PurpleContactInfo">
+                    <lookup name="account">PidginAccountRow</lookup>
+                  </lookup>
+                </binding>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="status">
+                <property name="css-classes">dim-label</property>
+                <property name="wrap">1</property>
+                <property name="xalign">0</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkImage">
+                <binding name="icon-name">
+                  <closure type="gchararray" function="pidgin_account_row_protocol_icon_cb">
+                    <lookup name="account">PidginAccountRow</lookup>
+                  </closure>
+                </binding>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <binding name="label">
+                  <closure type="gchararray" function="pidgin_account_row_protocol_name_cb">
+                    <lookup name="account">PidginAccountRow</lookup>
+                  </closure>
+                </binding>
+                <property name="css-classes">dim-label</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <!-- This button is not really an error, but the destructive-action styling is far too bold to use in a list box. -->
+            <property name="css-classes">circular
+error</property>
+            <property name="icon-name">list-remove-symbolic</property>
+            <property name="valign">center</property>
+            <signal name="clicked" handler="pidgin_account_row_remove_cb" swapped="no"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage">
+            <property name="icon-name">go-next-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

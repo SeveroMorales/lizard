@@ -1,0 +1,49 @@
+[library]
+version = "@GPLUGIN_VERSION@"
+browse_url = "https://keep.imfreedom.org/gplugin/gplugin/"
+repository_url = "https://keep.imfreedom.org/gplugin/gplugin/"
+website_url = "https://keep.imfreedom.org/gplugin/gplugin/"
+authors = "GPlugin Developers"
+logo_url = ""
+license = "LGPL-2.1-or-later"
+description = "GPlugin Plugin Library"
+dependencies = [ "GLib-2.0", "GObject-2.0", "GModule-2.0" ]
+devhelp = true
+search_index = true
+
+  [dependencies."GLib-2.0"]
+  name = "GLib"
+  description = "General-purpose, portable utility library."
+  docs_url = "https://docs.gtk.org/glib/"
+
+  [dependencies."GObject-2.0"]
+  name = "GObject"
+  description = "The base type system library"
+  docs_url = "https://docs.gtk.org/gobject/"
+
+  [dependencies."GModule-2.0"]
+  name = "GModule"
+  description = "Portable API for dynamically loading modules"
+  docs_url = "https://docs.gtk.org/gmodule/"
+
+[theme]
+name = "basic"
+show_index_summary = true
+show_class_hierarchy = true
+
+[source-location]
+base_url = "https://keep.imfreedom.org/gplugin/gplugin/file/default/"
+
+[extra]
+# The same order will be used when generating the index
+content_files = [
+  "embedding.md",
+  "genie.md",
+  "lua.md",
+  "native-plugins.md",
+  "python3.md",
+  "vala.md",
+]
+content_images = [
+]
+urlmap_file = "urlmap.js"

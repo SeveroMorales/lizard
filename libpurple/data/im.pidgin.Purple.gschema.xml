@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/" id="im.pidgin.Purple">
+    <child name="credentials" schema="im.pidgin.Purple.Credentials"/>
+  </schema>
+
+  <schema path="/purple/conversations/" id="im.pidgin.Purple.Conversations">
+    <key name="send-typing-notifications" type="b">
+      <default>true</default>
+      <summary>Send typing notifications</summary>
+      <description>
+        Send a notification when you are typing to any conversation that
+        supports it.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/credentials/" id="im.pidgin.Purple.Credentials">
+    <key name="active-provider" type="s">
+      <default>"noop-provider"</default>
+      <summary>Active credential provider</summary>
+      <description>
+        The credential provider that will be used to save credentials, i.e.,
+        passwords, tokens, etc.
+      </description>
+    </key>
+  </schema>
+
+  <enum id="im.pidgin.Purple.Idle.Method">
+    <value nick="Never" value="0"/>
+    <value nick="Purple" value="1"/>
+    <value nick="System" value="2"/>
+  </enum>
+  <schema path="/purple/idle/" id="im.pidgin.Purple.Idle">
+    <key name="method" enum="im.pidgin.Purple.Idle.Method">
+      <default>"System"</default>
+      <summary>Idle reporting method</summary>
+      <description>
+        The method to use to report idle time.
+      </description>
+    </key>
+
+    <key name="duration" type="i">
+      <default>10</default>
+      <summary>Number of minutes before being marked idle</summary>
+      <description>
+        The time in minutes, that must pass before the user will be marked as
+        idle.
+      </description>
+    </key>
+
+    <key name="change-status" type="b">
+      <default>false</default>
+      <summary>Change status when idle</summary>
+      <description>
+        When going idle switch statuses.
+      </description>
+    </key>
+
+    <key name="status" type="s">
+      <default>""</default>
+      <summary>The status to use when idle</summary>
+      <description>
+        The ID of the status to use when the user has gone idle.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/network/" id="im.pidgin.Purple.Network.IP">
+    <key name="autodetect" type="b">
+      <default>true</default>
+      <summary>Auto-detect public IP address</summary>
+      <description>
+        Use the enabled network discovery methods to determine the external IP
+        address.
+      </description>
+    </key>
+
+    <key name="address" type="s">
+      <default>""</default>
+      <summary>The external IP address</summary>
+      <description>
+        The auto-detected IP address if auto-detection is enabled, or a manually
+        specified external IP address if auto-detection is disabled.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/network/" id="im.pidgin.Purple.Network.Discovery">
+    <key name="upnp" type="b">
+      <default>true</default>
+      <summary>Use UPnP for discovery</summary>
+      <description>
+        Allow the use of Universal Plugin and Play for network discovery.
+      </description>
+    </key>
+
+    <key name="nat-pmp" type="b">
+      <default>true</default>
+      <summary>Use NAT-PMP for discovery</summary>
+      <description>
+        Allow the use of NAT-PMP for network discovery.
+      </description>
+    </key>
+
+    <key name="stun" type="b">
+      <default>true</default>
+      <summary>Use STUN for discovery</summary>
+      <description>
+        Allow the use of STUN for network discovery.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/network/ports/" id="im.pidgin.Purple.Network.Ports">
+    <key name="use-discovery" type="b">
+      <default>true</default>
+      <summary>Use network discovery to open ports</summary>
+      <description>
+        Use the network discovery protocols like NAT-PMP, STUN, and UPnP to open
+        ports.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/network/ports/manual/" id="im.pidgin.Purple.Network.Ports.Manual">
+    <key name="enabled" type="b">
+      <default>false</default>
+      <summary>Manually specify open ports</summary>
+      <description>
+        Manually specify a range of open ports to use.
+      </description>
+    </key>
+
+    <key name="start" type="q">
+      <default>1024</default>
+      <summary>The first port of the range</summary>
+      <description>
+        The first port in the range of open ports.
+      </description>
+    </key>
+
+    <key name="end" type="q">
+      <default>2048</default>
+      <summary>The last port of the range</summary>
+      <description>
+        The last port in the range of open ports.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/network/stun/" id="im.pidgin.Purple.Network.Stun">
+    <key name="server" type="s">
+      <default>""</default>
+      <summary>The STUN server to use</summary>
+      <description>
+        The hostname or IP address of the STUN server to use
+      </description>
+    </key>
+
+    <key name="use-udp" type="b">
+      <default>true</default>
+      <summary>Use UDP for STUN connections</summary>
+      <description>
+        Attempt to use UDP to connect to the STUN server.
+      </description>
+    </key>
+
+    <key name="udp-port" type="q">
+      <default>3478</default>
+      <summary>The UDP port number</summary>
+      <description>
+        The UDP port number to use when connecting to the STUN server. Defaults
+        to 3478.
+      </description>
+    </key>
+
+    <key name="use-tls" type="b">
+      <default>false</default>
+      <summary>Use TLS for TCP connections</summary>
+      <description>
+        Use TLS for connections over the TCP port.
+      </description>
+    </key>
+
+    <key name="tcp-port" type="q">
+      <default>3478</default>
+      <summary>The TCP port number</summary>
+      <description>
+        The TCP port number to use when connection to the STUN server. Defaults
+        to 3478.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/network/turn/" id="im.pidgin.Purple.Network.Turn">
+    <key name="server" type="s">
+      <default>""</default>
+      <summary>The TURN server to use</summary>
+      <description>
+        The hostname or IP address of the TURN server to use.
+      </description>
+    </key>
+
+    <key name="udp-port" type="q">
+      <default>3478</default>
+      <summary>The UDP port of the server</summary>
+      <description>
+        The UDP port of the TURN server. Defaults to 3478.
+      </description>
+    </key>
+
+    <key name="tcp-port" type="q">
+      <default>3478</default>
+      <summary>The TCP port of the server</summary>
+      <description>
+        The TCP port of the TURN server. Defaults to 3478.
+      </description>
+    </key>
+
+    <key name="username" type="s">
+      <default>""</default>
+      <summary>The username</summary>
+      <description>
+        If the TURN server requires authentication, this field represents the
+        username.
+      </description>
+    </key>
+
+    <key name="password" type="s">
+      <default>""</default>
+      <summary>The password</summary>
+      <description>
+        If the TURN server requires authentication, this field represents the
+        password.
+      </description>
+    </key>
+  </schema>
+
+  <enum id="im.pidgin.Purple.Proxy.Type">
+    <value nick="No Proxy" value="0"/>
+    <value nick="HTTP" value="1"/>
+    <value nick="SOCKS4" value="2"/>
+    <value nick="SOCKS5" value="3"/>
+    <value nick="Use Environmental Settings" value="4"/>
+    <value nick="TOR" value="5"/>
+  </enum>
+  <schema path="/purple/proxy/" id="im.pidgin.Purple.Proxy">
+    <key name="type" enum="im.pidgin.Purple.Proxy.Type">
+      <default>"No Proxy"</default>
+      <summary>The proxy type</summary>
+      <description>
+        The proxy type to use.
+      </description>
+    </key>
+    <key name="host" type="s">
+      <default>""</default>
+      <summary>The hostname of the proxy server</summary>
+      <description>
+        The hostname or IP address of the proxy server.
+      </description>
+    </key>
+
+    <key name="port" type="q">
+      <default>8080</default>
+      <summary>The port to use</summary>
+      <description>
+        The port that the proxy server is running on.
+      </description>
+    </key>
+
+    <key name="username" type="s">
+      <default>""</default>
+      <summary>The username</summary>
+      <description>
+        If the proxy server requires authentication, this field represents the username.
+      </description>
+    </key>
+
+    <key name="password" type="s">
+      <default>""</default>
+      <summary>The password</summary>
+      <description>
+        If the proxy server requires authentication, this field represents the password.
+      </description>
+    </key>
+  </schema>
+
+  <schema path="/purple/status/" id="im.pidgin.Purple.Status">
+    <key name="recents" type="as">
+      <default>[]</default>
+      <summary>The list of recent statuses</summary>
+      <description>
+        The list of recent statuses sorted with the most recently used statuses
+        at the top.
+      </description>
+    </key>
+  </schema>
+</schemalist>

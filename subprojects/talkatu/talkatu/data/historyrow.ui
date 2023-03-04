@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Talkatu -->
+  <!-- interface-description GTK widgets for chat applications -->
+  <!-- interface-copyright Gary Kramlich <grim@reaperworld.com> -->
+  <template class="TalkatuHistoryRow" parent="GtkListBoxRow">
+    <property name="can-focus">0</property>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="can-focus">0</property>
+        <child>
+          <object class="GtkImage" id="avatar_image">
+            <property name="can-focus">0</property>
+            <property name="icon-name">image-missing</property>
+            <property name="visible">0</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="hexpand">1</property>
+            <property name="can-focus">0</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox">
+                <property name="can-focus">0</property>
+                <property name="spacing">8</property>
+                <child>
+                  <object class="GtkLabel" id="author">
+                    <property name="can-focus">0</property>
+                    <property name="label" translatable="yes">Author</property>
+                    <property name="use-markup">1</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="timestamp">
+                    <property name="can-focus">0</property>
+                    <property name="label" translatable="yes">12:34PM</property>
+                    <property name="use-markup">1</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="edited">
+                    <property name="visible">0</property>
+                    <property name="can-focus">0</property>
+                    <property name="label" translatable="yes">(edited)</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="content">
+                <property name="can-focus">0</property>
+                <property name="wrap">1</property>
+                <property name="wrap-mode">word-char</property>
+                <property name="xalign">0</property>
+                <property name="yalign">0</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

@@ -1,0 +1,36 @@
+[library]
+version = "@HASL_VERSION@"
+browse_url = "https://keep.imfreedom.org/hasl/hasl/"
+repository_url = "https://keep.imfreedom.org/hasl/hasl/"
+website_url = "https://keep.imfreedom.org/hasl/hasl/"
+authors = "Hasl Developers"
+logo_url = ""
+license = "LGPL-2.1-or-later"
+description = "Hassle-free Authentication and Security Layer client library"
+dependencies = [ "GLib-2.0", "GObject-2.0" ]
+devhelp = true
+search_index = true
+
+  [dependencies."GLib-2.0"]
+  name = "GLib"
+  description = "General-purpose, portable utility library."
+  docs_url = "https://docs.gtk.org/glib/"
+
+  [dependencies."GObject-2.0"]
+  name = "GObject"
+  description = "The base type system library"
+  docs_url = "https://docs.gtk.org/gobject/"
+
+[theme]
+name = "basic"
+show_index_summary = true
+show_class_hierarchy = true
+
+[source-location]
+base_url = "https://keep.imfreedom.org/hasl/hasl/file/default/"
+
+[extra]
+# The same order will be used when generating the index
+content_files = []
+content_images = []
+urlmap_file = "urlmap.js"

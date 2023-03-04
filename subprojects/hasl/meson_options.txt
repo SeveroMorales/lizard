@@ -1,0 +1,11 @@
+option(
+  'doc',
+  type : 'boolean', value : true, yield : true,
+  description : 'build documentation with gi-docgen'
+)
+
+option(
+  'introspection',
+  type : 'boolean', value : true, yield : true,
+  description : 'Whether or not to build a GObject Introspection type library'
+)

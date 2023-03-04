@@ -1,0 +1,58 @@
+##############################################################################
+# General Options
+
+option('devenv-config-dir', type : 'string',
+       description : 'config directory for running a devenv (defaults to a subdirectory of buildroot)')
+
+option('doc', type : 'boolean', value : false,
+       description : 'build documentation with gtk-doc')
+
+option('extraversion', type : 'string',
+       description : 'extra version number to be displayed in Help->About and --help (for packagers)')
+
+option('introspection', type : 'boolean', value : true,
+       description : 'build introspection data')
+
+option('build-dependencies', type : 'boolean', value : false,
+       description : 'enable the use of subprojects to build missing dependencies.')
+
+##############################################################################
+# Libpurple Options
+
+option('kwallet', type : 'feature',
+       description : 'enable KWallet support')
+
+option('libsecret', type : 'feature',
+       description : 'enable libsecret support')
+
+##############################################################################
+# Protocol Plugins
+
+option('avahi', type : 'feature',
+       description : 'compile with avahi (required for Bonjour support)')
+
+option('dynamic-prpls', type : 'string', value: 'all',
+       description : 'specify which protocols to build dynamically')
+
+option('libgadu', type : 'feature',
+       description : 'compile with libgadu (required for GaduGadu support)')
+
+##############################################################################
+# Pidgin Options
+
+option('console-logging', type : 'boolean', value : false,
+       description : 'compile with console logging support')
+
+option('gtkui', type : 'boolean', value : true,
+       description : 'compile with GTK+ user interface')
+
+option('unity-integration', type : 'feature',
+       description : 'compile with support for unity integration plugin')
+
+##############################################################################
+# Finch Options
+
+option('consoleui', type : 'boolean', value : true,
+       description : 'compile with console user interface')
+
+option('x', type : 'boolean', value : true)

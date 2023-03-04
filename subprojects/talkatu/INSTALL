@@ -1,0 +1,21 @@
+# Building
+
+Talkatu uses [meson](https://mesonbuild.com) as it's build system.
+
+Meson requires you to build in a directory other than the source directory.
+
+To compile you can use the following commands:
+
+```
+meson build
+cd build
+```
+
+To test Talkatu without installing, you can run the following command from the
+build directory.
+
+```
+meson devenv talkatu-demo
+```
+
+To install you can use `ninja install` from the build directory.

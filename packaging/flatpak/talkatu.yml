@@ -1,0 +1,19 @@
+---
+name: talkatu
+buildsystem: meson
+config-opts:
+  - -Ddoc=false
+  - -Dtests=false
+cleanup:
+  - /bin
+  - /include
+  - /lib/pkgconfig
+  - /share/man
+sources:
+  - type: archive
+    url: https://keep.imfreedom.org/talkatu/talkatu/archive/8fc3991a77d0.tar.gz
+    sha256: cff53b8127613691ddd7bb87284ae2944977ab7a8cc2be85f0aee10b274d0fbe
+modules:
+  - external/cmark.yml
+  - external/gspell-1.yml
+  - external/gumbo.yml

@@ -1,0 +1,71 @@
+# Purple, Pidgin and Finch
+
+libpurple is a library intended to be used by programmers seeking to write an
+IM client that connects to many IM networks. It comes with support for Bonjour,
+IRC, and XMPP, among others and there are many more networks supported via
+[third party plugins](https://pidgin.im/plugins/).
+
+Pidgin is a graphical IM client written in C, which uses the GTK toolkit.
+
+Finch is a text-based IM client written in C, which uses
+[libgnt](https://keep.imfreedom.org/libgnt/libgnt).
+
+These programs are not endorsed by, nor affiliated with, any proprietary
+instant messaging company in any way.
+
+## Contributors
+
+See AUTHORS and COPYRIGHT for the list of contributors.
+
+## Building
+
+Pidgin uses [Meson](https://mesonbuild.com) as its build system. There is a
+long list of dependencies that is not currently documented here due to
+differences in package names across operating systems. We plan to fix this
+soon, if you have any suggestions on how to handle this, please let us know.
+
+You can quickly build Pidgin with the following commands:
+
+```
+meson setup build
+cd build
+ninja
+ninja install
+```
+
+There are quite a few options for the build that you can view by running
+`meson configure` in your build directory. You can specify the options when
+running meson like the following:
+
+```
+meson setup -Ddebug=true build
+```
+
+If you have already run `meson setup` you can use `meson configure`:
+
+```
+cd build
+meson configure -Ddebug=true
+```
+
+## Running
+
+Currently Pidgin can not be run from a build directory, which means you must
+install it first. Once you've done that, you only need to run `pidgin3` or
+`finch3`. If it fails to launch you may need to run `ldconfig` as root.
+
+To get started, simply add a new account.
+
+If you come across a bug, please report it at:
+[issues.imfreedom.org/issues/PIDGIN](https://issues.imfreedom.org/issues/PIDGIN)
+
+## Plugins
+
+libpurple, Pidgin, and Finch ship with a number of plugins, but you can find
+additional third party plugins at
+[pidgin.im/plugins](https://pidgin.im/plugins).
+
+## Developing
+
+You can find more information about Pidgin development in the
+[development section](https://pidgin.im/development/) of our website.

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1
+
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2020 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Talkatu -->
+  <!-- interface-description GTK widgets for chat applications -->
+  <!-- interface-copyright Gary Kramlich <grim@reaperworld.com> -->
+  <template class="TalkatuToolbar" parent="GtkBox">
+    <style>
+      <class name="toolbar"/>
+    </style>
+    <property name="can_focus">0</property>
+    <child>
+      <object class="GtkToggleButton" id="format_bold">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-bold</property>
+        <property name="label" translatable="yes">Bold</property>
+        <property name="icon_name">format-text-bold</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkToggleButton" id="format_italic">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-italic</property>
+        <property name="label" translatable="yes">Italic</property>
+        <property name="icon_name">format-text-italic</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkToggleButton" id="format_underline">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-underline</property>
+        <property name="label" translatable="yes">Underline</property>
+        <property name="icon_name">format-text-underline</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkToggleButton" id="format_strikethrough">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-strikethrough</property>
+        <property name="label" translatable="yes">Strikethrough</property>
+        <property name="icon_name">format-text-strikethrough</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparator">
+        <property name="orientation">vertical</property>
+        <property name="can_focus">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="format_larger">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-grow</property>
+        <property name="label" translatable="yes">Increase Font Size</property>
+        <property name="icon_name">zoom-in</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="format_smaller">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-shrink</property>
+        <property name="label" translatable="yes">Decrease Font Size</property>
+        <property name="icon_name">zoom-out</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparator">
+        <property name="orientation">vertical</property>
+        <property name="can_focus">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="format_reset">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.format-reset</property>
+        <property name="label" translatable="yes">Clear Formatting</property>
+        <property name="icon_name">edit-clear</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparator">
+        <property name="orientation">vertical</property>
+        <property name="can_focus">0</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkToggleButton" id="insert_link">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.insert-link</property>
+        <property name="label" translatable="yes">Insert Link</property>
+        <property name="use_underline">1</property>
+        <property name="icon_name">insert-link</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="insert_file">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.attach-file</property>
+        <property name="label" translatable="yes">Attach File</property>
+        <property name="icon_name">insert-object</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="insert_code">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.insert-code</property>
+        <property name="label" translatable="yes">Insert Code</property>
+        <property name="use_underline">1</property>
+        <property name="icon_name">insert-text</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="insert_emoji">
+        <property name="can_focus">0</property>
+        <property name="action_name">talkatu.insert-emoji</property>
+        <property name="label" translatable="yes">Insert Emoji</property>
+        <property name="use_underline">1</property>
+        <property name="icon_name">face-smile-big</property>
+      </object>
+    </child>
+  </template>
+</interface>

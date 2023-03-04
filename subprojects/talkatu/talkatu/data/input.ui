@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Talkatu - GTK widgets for chat applications
+Copyright (C) 2017-2022 Gary Kramlich <grim@reaperworld.com>
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <menu id="model">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Send Message</attribute>
+        <attribute name="action">message.send</attribute>
+      </item>
+    </section>
+  </menu>
+  <template class="TalkatuInput" parent="TalkatuView">
+    <property name="extra-menu">model</property>
+    <signal name="notify::buffer" handler="talkatu_input_buffer_set_cb"/>
+    <child>
+      <object class="GtkEventControllerKey">
+        <signal name="key-pressed" handler="talkatu_input_key_pressed_cb" object="TalkatuInput" swapped="no"/>
+      </object>
+    </child>
+  </template>
+</interface>
