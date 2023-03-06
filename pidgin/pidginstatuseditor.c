@@ -20,7 +20,7 @@
  * along with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <talkatu/talkatu.h>
+#include <talkatu.h>
 
 #include "pidginstatuseditor.h"
 

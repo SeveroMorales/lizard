@@ -39,7 +39,7 @@
 
 /* Translators may want to transliterate the name.
  It is not to be translated. */
-#define PIDGIN_NAME _("Pidgin")
+#define PIDGIN_NAME _("Lounge Lizard")
 
 /**
  * PIDGIN_ALERT_TITLE:

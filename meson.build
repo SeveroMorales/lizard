@@ -521,6 +521,7 @@ subdir('libpurple')
 subdir('purple-history')
 subdir('finch')
 subdir('pidgin')
+#subdir('lizard')
 subdir('doc')
 subdir('po')
 
