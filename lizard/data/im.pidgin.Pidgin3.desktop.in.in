@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Pidgin 3
+GenericName=Internet Messenger
+X-GNOME-FullName=Pidgin Internet Messenger
+Comment=Chat over IM.  Supports XMPP, IRC, and more
+# TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=chat;talk;im;message;bonjour;gadu-gadu;irc;groupwise;jabber;sametime;simple;xmpp
+Exec=pidgin3 %U
+Icon=im.pidgin.Pidgin3
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GTK;Network;InstantMessaging;
+MimeType=x-scheme-handler/gg;x-scheme-handler/irc;x-scheme-handler/sip;x-scheme-handler/xmpp;
+@USES_MM_CHAT_SECTION@

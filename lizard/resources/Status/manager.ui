@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginStatusManager" parent="GtkDialog">
+    <property name="title" translatable="1">Saved Statuses</property>
+    <property name="default-width">550</property>
+    <property name="default-height">250</property>
+    <signal name="response" handler="pidgin_status_manager_response_cb" swapped="no"/>
+    <child internal-child="content_area">
+      <object class="GtkScrolledWindow">
+        <property name="vexpand">1</property>
+        <property name="focusable">1</property>
+        <child>
+          <object class="GtkColumnView" id="columnview">
+            <property name="focusable">1</property>
+            <property name="model">
+              <object class="GtkSingleSelection" id="selection">
+                <property name="model">
+                  <object class="GtkSortListModel">
+                    <property name="model">
+                      <object class="GListStore" id="model">
+                        <property name="item-type">GObject</property>
+                      </object>
+                    </property>
+                    <binding name="sorter">
+                      <lookup name="sorter">columnview</lookup>
+                    </binding>
+                  </object>
+                </property>
+                <signal name="notify::selected" handler="pidgin_status_manager_selection_changed_cb" swapped="no"/>
+              </object>
+            </property>
+            <property name="vexpand">1</property>
+            <signal name="activate" handler="pidgin_status_manager_row_activated_cb" swapped="no"/>
+            <child>
+              <object class="GtkColumnViewColumn">
+                <property name="resizable">1</property>
+                <property name="title" translatable="1">Title</property>
+                <property name="factory">
+                  <object class="GtkBuilderListItemFactory">
+                    <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkLabel">
+        <property name="ellipsize">end</property>
+        <property name="xalign">0</property>
+        <binding name="label">
+          <closure type="gchararray" function="pidgin_status_manager_lookup_text_data_cb">
+            <lookup name="item">GtkListItem</lookup>
+            <constant type="gchararray">title</constant>
+          </closure>
+        </binding>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+                    </property>
+                  </object>
+                </property>
+                <property name="sorter">
+                  <object class="GtkStringSorter">
+                    <property name="expression">
+                      <closure type="gchararray" function="pidgin_status_manager_sort_data_cb">
+                        <constant type="gchararray">title</constant>
+                      </closure>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkColumnViewColumn">
+                <property name="resizable">1</property>
+                <property name="title" translatable="1">Type</property>
+                <property name="factory">
+                  <object class="GtkBuilderListItemFactory">
+                    <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <child>
+          <object class="GtkImage">
+            <binding name="icon-name">
+              <closure type="gchararray" function="pidgin_status_manager_lookup_text_data_cb">
+                <lookup name="item">GtkListItem</lookup>
+                <constant type="gchararray">icon-name</constant>
+              </closure>
+            </binding>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <binding name="label">
+              <closure type="gchararray" function="pidgin_status_manager_lookup_text_data_cb">
+                <lookup name="item">GtkListItem</lookup>
+                <constant type="gchararray">type</constant>
+              </closure>
+            </binding>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+                    </property>
+                  </object>
+                </property>
+                <property name="sorter">
+                  <object class="GtkStringSorter">
+                    <property name="expression">
+                      <closure type="gchararray" function="pidgin_status_manager_sort_data_cb">
+                        <constant type="gchararray">type</constant>
+                      </closure>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkColumnViewColumn">
+                <property name="expand">1</property>
+                <property name="resizable">1</property>
+                <property name="title" translatable="1">Message</property>
+                <property name="factory">
+                  <object class="GtkBuilderListItemFactory">
+                    <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkLabel">
+        <property name="xalign">0</property>
+        <property name="ellipsize">end</property>
+        <binding name="label">
+          <closure type="gchararray" function="pidgin_status_manager_lookup_text_data_cb">
+            <lookup name="item">GtkListItem</lookup>
+            <constant type="gchararray">message</constant>
+          </closure>
+        </binding>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+                    </property>
+                  </object>
+                </property>
+                <property name="sorter">
+                  <object class="GtkStringSorter">
+                    <property name="expression">
+                      <closure type="gchararray" function="pidgin_status_manager_sort_data_cb">
+                        <constant type="gchararray">message</constant>
+                      </closure>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="use_button">
+        <property name="label" translatable="1">_Use</property>
+        <property name="sensitive">0</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button1">
+        <property name="label" translatable="1">_Add</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="modify_button">
+        <property name="label" translatable="1">_Modify</property>
+        <property name="sensitive">0</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="remove_button">
+        <property name="label" translatable="1">_Remove</property>
+        <property name="sensitive">0</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button2">
+        <property name="label" translatable="1">_Close</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">use_button</action-widget>
+      <action-widget response="1">button1</action-widget>
+      <action-widget response="2">modify_button</action-widget>
+      <action-widget response="3">remove_button</action-widget>
+      <action-widget response="close">button2</action-widget>
+    </action-widgets>
+  </template>
+</interface>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginDiscoDialog" parent="GtkDialog">
+    <property name="title" translatable="1">Service Discovery</property>
+    <signal name="destroy" handler="destroy_win_cb" swapped="no"/>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="vexpand">1</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="1">_Account:</property>
+                <property name="use_underline">1</property>
+                <property name="xalign">0</property>
+              </object>
+            </child>
+            <child>
+              <object class="PidginAccountChooser" id="account_chooser">
+                <property name="filter">
+                  <object class="GtkEveryFilter">
+                    <child>
+                      <object class="PidginAccountFilterProtocol">
+                        <property name="protocol_id">prpl-jabber</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="PidginAccountFilterConnected"/>
+                    </child>
+                  </object>
+                </property>
+                <signal name="notify::account" handler="dialog_select_account_cb" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">1</property>
+            <property name="focusable">1</property>
+            <property name="hscrollbar_policy">always</property>
+            <property name="vscrollbar_policy">always</property>
+            <property name="min_content_height">250</property>
+            <property name="child">
+              <object class="GtkColumnView" id="columnview">
+                <property name="focusable">1</property>
+                <property name="model">
+                  <object class="GtkSingleSelection">
+                    <property name="model">
+                      <object class="GtkSortListModel" id="sorter">
+                        <property name="sorter">
+                          <object class="GtkTreeListRowSorter">
+                            <binding name="sorter">
+                              <lookup name="sorter">columnview</lookup>
+                            </binding>
+                          </object>
+                        </property>
+                      </object>
+                    </property>
+                    <signal name="selection-changed" handler="selection_changed_cb"/>
+                  </object>
+                </property>
+                <signal name="activate" handler="row_activated_cb"/>
+                <child>
+                  <object class="GtkColumnViewColumn">
+                    <property name="resizable">1</property>
+                    <property name="title" translatable="1">Name</property>
+                    <property name="factory">
+                      <object class="GtkBuilderListItemFactory">
+                        <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkTreeExpander">
+        <property name="child">
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkImage">
+                <binding name="icon-name">
+                  <lookup name="icon-name" type="XmppDiscoService">
+                    <lookup name="item" type="GtkTreeListRow">
+                      <lookup name="item">GtkListItem</lookup>
+                    </lookup>
+                  </lookup>
+                </binding>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="ellipsize">end</property>
+                <property name="xalign">0</property>
+                <binding name="label">
+                  <lookup name="name" type="XmppDiscoService">
+                    <lookup name="item" type="GtkTreeListRow">
+                      <lookup name="item">GtkListItem</lookup>
+                    </lookup>
+                  </lookup>
+                </binding>
+              </object>
+            </child>
+          </object>
+        </property>
+        <binding name="list-row">
+          <lookup name="item">GtkListItem</lookup>
+        </binding>
+        <signal name="notify::list-row" handler="list_row_notify_cb"/>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+                        </property>
+                      </object>
+                    </property>
+                    <property name="sorter">
+                      <object class="GtkStringSorter">
+                        <property name="expression">
+                          <lookup name="name" type="XmppDiscoService"></lookup>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkColumnViewColumn">
+                    <property name="expand">1</property>
+                    <property name="resizable">1</property>
+                    <property name="title" translatable="1">Description</property>
+                    <property name="factory">
+                      <object class="GtkBuilderListItemFactory">
+                        <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkLabel">
+        <property name="ellipsize">end</property>
+        <property name="xalign">0</property>
+        <binding name="label">
+          <lookup name="description" type="XmppDiscoService">
+            <lookup name="item" type="GtkTreeListRow">
+              <lookup name="item">GtkListItem</lookup>
+            </lookup>
+          </lookup>
+        </binding>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+                        </property>
+                      </object>
+                    </property>
+                    <property name="sorter">
+                      <object class="GtkStringSorter">
+                        <property name="expression">
+                          <lookup name="description" type="XmppDiscoService"></lookup>
+                        </property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkProgressBar" id="progress">
+            <property name="valign">center</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="stop_button">
+        <property name="label" translatable="1">_Stop</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+        <property name="use_underline">1</property>
+        <property name="action-name">disco.stop</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="browse_button">
+        <property name="label" translatable="1">_Browse</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+        <property name="use_underline">1</property>
+        <property name="action-name">disco.browse</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="register_button">
+        <property name="label" translatable="1">Register</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+        <property name="action-name">disco.register</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="add_button">
+        <property name="label" translatable="1">_Add</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+        <property name="use_underline">1</property>
+        <property name="action-name">disco.add</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="close_button">
+        <property name="label" translatable="1">_Close</property>
+        <property name="focusable">1</property>
+        <property name="receives_default">1</property>
+        <property name="use_underline">1</property>
+        <signal name="clicked" handler="gtk_window_destroy" object="PidginDiscoDialog" swapped="yes"/>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">stop_button</action-widget>
+      <action-widget response="1">browse_button</action-widget>
+      <action-widget response="2">register_button</action-widget>
+      <action-widget response="3">add_button</action-widget>
+      <action-widget response="close">close_button</action-widget>
+    </action-widgets>
+  </template>
+</interface>

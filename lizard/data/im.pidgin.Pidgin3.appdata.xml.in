@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014 Richard Hughes <richard@hughsie.com> -->
+<!-- Copyright 2014-2022 Pidgin Developers <devel@pidgin.im> -->
+
+<component type="desktop-application">
+  <id>im.pidgin.Pidgin3.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Pidgin</name>
+  <summary>Instant Messaging Client</summary>
+  <description>
+    <p>
+      Pidgin is a chat program which lets you log into accounts on multiple
+      chat networks simultaneously.
+    </p>
+    <p>
+      This means that you can be chatting with friends on XMPP and sitting in
+      an IRC channel at the same time.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">im.pidgin.Pidgin3.desktop</launchable>
+  <provides>
+    <id>pidgin3.desktop</id>
+  </provides>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://old.pidgin.im/shared/img/contact_window.png</image>
+      <caption>Buddy list showing friends on different networks</caption>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://pidgin.im/</url>
+  <url type="bugtracker">https://issues.imfreedom.org/issues/PIDGIN</url>
+  <url type="faq">https://pidgin.im/development/faq/</url>
+  <url type="help">https://pidgin.im/help/</url>
+
+  <update_contact>devel@pidgin.im</update_contact>
+
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">intense</content_attribute>
+    <content_attribute id="social-info">mild</content_attribute>
+    <content_attribute id="social-audio">intense</content_attribute>
+    <content_attribute id="social-contacts">intense</content_attribute>
+  </content_rating>
+</component>

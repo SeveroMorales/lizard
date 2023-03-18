@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <object class="GtkAdjustment" id="minimum_entry_lines.adjustment">
+    <property name="lower">1</property>
+    <property name="upper">8</property>
+    <property name="value">2</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+  </object>
+  <object class="GtkSizeGroup" id="iface.sg"/>
+  <template class="PidginConversationPrefs" parent="AdwPreferencesPage">
+    <child>
+      <object class="AdwPreferencesGroup">
+        <property name="title" translatable="1">Conversations</property>
+        <child>
+          <object class="AdwActionRow">
+            <property name="activatable-widget">show_incoming_formatting</property>
+            <property name="title" translatable="1">Show _formatting on incoming messages</property>
+            <property name="use-underline">1</property>
+            <child>
+              <object class="GtkSwitch" id="show_incoming_formatting">
+                <property name="focusable">1</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="activatable-widget">im.send_typing</property>
+            <property name="title" translatable="1">_Notify buddies that you are typing to them</property>
+            <property name="use-underline">1</property>
+            <child>
+              <object class="GtkSwitch" id="im.send_typing">
+                <property name="focusable">1</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow" id="win32.blink_im_row">
+            <property name="activatable-widget">win32.blink_im</property>
+            <property name="title" translatable="1">F_lash window when IMs are received</property>
+            <property name="use-underline">1</property>
+            <child>
+              <object class="GtkSwitch" id="win32.blink_im">
+                <property name="focusable">1</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwActionRow">
+            <property name="activatable-widget">minimum_entry_lines</property>
+            <property name="title" translatable="1">Minimum input area height in lines</property>
+            <property name="use-underline">1</property>
+            <child>
+              <object class="GtkSpinButton" id="minimum_entry_lines">
+                <property name="focusable">1</property>
+                <property name="adjustment">minimum_entry_lines.adjustment</property>
+                <property name="numeric">1</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

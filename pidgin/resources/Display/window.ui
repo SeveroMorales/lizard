@@ -75,8 +75,27 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
   </object>
   <template class="PidginDisplayWindow" parent="GtkApplicationWindow">
     <property name="show-menubar">1</property>
-    <property name="default-height">450</property>
-    <property name="default-width">950</property>
+    <property name="default-height">800</property>
+    <property name="default-width">900</property>
+        <child type="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <child>
+          <object class="GtkButton" id="toggle_button_stack">
+            <property name="icon-name">format-justify-fill</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="toggle_button_search">
+            <property name="icon-name">edit-find-symbolic</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="toggle_button_faq">
+            <property name="icon-name">help-faq</property>
+          </object>
+        </child>
+      </object>
+    </child>
     <child>
       <object class="GtkEventControllerKey">
         <property name="propagation-phase">capture</property>

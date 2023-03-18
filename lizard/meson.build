@@ -155,6 +155,34 @@ libpidgin_SOURCES += pidgin_resource
 pidgin_filebase = 'pidgin-3'
 pidgin_include_base = pidgin_filebase / 'pidgin'
 
+if IS_WIN32
+	libpidgin_SOURCES += [
+		'pidgin.c',
+		'win32/gtkwin32dep.c',
+	]
+
+	pidgin_dll_rc = configure_file(
+	    input : 'win32/pidgin_dll_rc.rc.in',
+	    output : 'pidgin_dll_rc.rc',
+	    configuration : version_conf)
+	libpidgin_SOURCES += windows.compile_resources(pidgin_dll_rc,
+	    include_directories : include_directories('win32')
+	)
+
+	pidgin_exe_rc = configure_file(
+	    input : 'win32/pidgin_exe_rc.rc.in',
+	    output : 'pidgin_exe_rc.rc',
+	    configuration : version_conf)
+
+	pidgin_WIN32_RESOURCES = windows.compile_resources(pidgin_exe_rc,
+		include_directories : include_directories('win32'))
+
+	pidgin_SOURCES = [
+		'win32/winpidgin.c',
+		pidgin_WIN32_RESOURCES,
+	]
+endif
+
 PIDGIN_H_INCLUDES = []
 foreach header : libpidgin_headers + libpidgin_prefs_headers
 	PIDGIN_H_INCLUDES += f'#include <pidgin/@header@>'
@@ -212,7 +240,7 @@ pidgin = executable('pidgin3',
     win_subsystem : 'windows',
     install : true)
 
-meson.override_dependency(pidgin_filebase, libpidgin_dep)
+#meson.override_dependency(pidgin_filebase, libpidgin_dep)
 
 pkgconfig.generate(
     libpidgin,
@@ -263,6 +291,6 @@ if enable_introspection
 		extra_args : ['-DPIDGIN_COMPILATION', '--quiet'])
 endif
 
-#subdir('data')
-#subdir('pixmaps')
-#subdir('plugins')
+subdir('data')
+subdir('pixmaps')
+subdir('plugins')

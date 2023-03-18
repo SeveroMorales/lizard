@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+-->
+<interface domain="pidgin">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginContactList" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkSearchBar" id="search_bar">
+        <property name="key-capture-widget">PidginContactList</property>
+        <property name="show-close-button">1</property>
+        <child>
+          <object class="GtkSearchEntry" id="search_entry">
+            <signal name="search-changed" handler="pidgin_contact_list_search_changed_cb"/>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkListView" id="view">
+        <property name="hexpand">1</property>
+        <property name="vexpand">1</property>
+        <property name="factory">
+          <object class="GtkBuilderListItemFactory">
+            <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">6</property>
+        <child>
+          <!-- switch to a PidginAvatar when that can take a PurpleAvatar -->
+          <object class="GtkImage" id="avatar">
+            <property name="icon-size">large</property>
+            <binding name="paintable">
+              <closure type="GdkTexture" function="pidgin_contact_list_avatar_cb">
+                <lookup name="item">GtkListItem</lookup>
+              </closure>
+            </binding>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="hexpand">1</property>
+            <property name="orientation">vertical</property>
+            <property name="vexpand">1</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="xalign">0</property>
+                <property name="use-markup">1</property>
+                <binding name="label">
+                  <lookup name="name-for-display" type="PurplePerson">
+                    <lookup name="item">GtkListItem</lookup>
+                  </lookup>
+                </binding>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="status_message">
+                <style>
+                  <class name="dim-label"/>
+                </style>
+                <property name="xalign">0</property>
+                <property name="ellipsize">end</property>
+                <binding name="label">
+                  <lookup name="message" type="PurplePresence">
+                    <lookup name="presence" type="PurpleContactInfo">
+                      <lookup name="priority-contact-info" type="PurplePerson">
+                        <lookup name="item">GtkListItem</lookup>
+                      </lookup>
+                    </lookup>
+                  </lookup>
+                </binding>
+                <binding name="visible">
+                  <closure type="gboolean" function="pidgin_contact_list_message_visible_cb">
+                    <lookup name="message" type="PurplePresence">
+                      <lookup name="presence" type="PurpleContactInfo">
+                        <lookup name="priority-contact-info" type="PurplePerson">
+                          <lookup name="item">GtkListItem</lookup>
+                        </lookup>
+                      </lookup>
+                    </lookup>
+                  </closure>
+                </binding>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+            </property>
+          </object>
+        </property>
+        <property name="model">
+          <object class="GtkSingleSelection">
+            <property name="autoselect">1</property>
+            <property name="model">
+              <object class="GtkFilterListModel" id="filter_model">
+                <property name="incremental">0</property>
+                <property name="filter">
+                  <object class="GtkCustomFilter" id="search_filter"/>
+                </property>
+              </object>
+            </property>
+          </object>
+        </property>
+        <signal name="activate" handler="pidgin_contact_list_activate_cb"/>
+      </object>
+    </child>
+  </template>
+</interface>

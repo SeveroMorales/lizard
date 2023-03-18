@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginWhiteboard" parent="GtkWindow">
+    <property name="title" translatable="yes">Pidgin Whiteboard</property>
+    <property name="resizable">0</property>
+    <signal name="destroy" handler="whiteboard_destroy_cb" swapped="no"/>
+    <property name="child">
+      <object class="GtkBox">
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkDrawingArea" id="drawing_area">
+            <property name="hexpand">1</property>
+            <property name="width-request">300</property>
+            <property name="height-request">250</property>
+            <signal name="resize" handler="pidgin_whiteboard_resize" object="PidginWhiteboard" swapped="no"/>
+            <child>
+              <object class="GtkGestureDrag">
+                <property name="button">1</property>
+                <signal name="drag-begin">pidgin_whiteboard_brush_down</signal>
+                <signal name="drag-end">pidgin_whiteboard_brush_up</signal>
+                <signal name="drag-update">pidgin_whiteboard_brush_motion</signal>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="halign">center</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkButton">
+                <property name="valign">center</property>
+                <property name="label" translatable="yes">_Clear</property>
+                <property name="focusable">1</property>
+                <property name="receives-default">1</property>
+                <property name="use-underline">1</property>
+                <signal name="clicked" handler="pidgin_whiteboard_button_clear_press" object="PidginWhiteboard" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="valign">center</property>
+                <property name="label" translatable="yes">_Save</property>
+                <property name="focusable">1</property>
+                <property name="receives-default">1</property>
+                <property name="use-underline">1</property>
+                <signal name="clicked" handler="pidgin_whiteboard_button_save_press" object="PidginWhiteboard" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkColorButton" id="color_button">
+                <property name="valign">center</property>
+                <property name="focusable">1</property>
+                <property name="receives-default">1</property>
+                <signal name="color-set" handler="color_selected" object="PidginWhiteboard" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

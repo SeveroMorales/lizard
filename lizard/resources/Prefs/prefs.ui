@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+-->
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginPrefsWindow" parent="GtkDialog">
+    <property name="title" translatable="1">Preferences</property>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="vexpand">1</property>
+        <property name="orientation">horizontal</property>
+        <child>
+          <object class="GtkStackSidebar">
+            <property name="stack">stack</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="stack">
+            <signal name="notify::visible-child" handler="vv_test_switch_page_cb" object="vv" swapped="no"/>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">conversations</property>
+                <property name="title" translatable="1">Conversations</property>
+                <property name="child">
+                  <object class="PidginConversationPrefs"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">network</property>
+                <property name="title" translatable="1">Network</property>
+                <property name="child">
+                  <object class="PidginNetworkPrefs"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">proxy</property>
+                <property name="title" translatable="1">Proxy</property>
+                <property name="child">
+                  <object class="PidginProxyPrefs"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">away</property>
+                <property name="title" translatable="1">Status / Idle</property>
+                <property name="child">
+                  <object class="PidginAwayPrefs"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">credentials</property>
+                <property name="title" translatable="1">Credentials</property>
+                <property name="child">
+                  <object class="PidginCredentialPrefs"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">vv</property>
+                <property name="title" translatable="1">Voice/Video</property>
+                <property name="child">
+                  <object class="PidginVVPrefs" id="vv"/>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton">
+        <property name="label" translatable="1">_Close</property>
+        <property name="focusable">1</property>
+        <property name="receives-default">1</property>
+        <property name="use-underline">1</property>
+        <signal name="clicked" handler="gtk_window_destroy" object="PidginPrefsWindow" swapped="yes"/>
+      </object>
+    </child>
+  </template>
+</interface>

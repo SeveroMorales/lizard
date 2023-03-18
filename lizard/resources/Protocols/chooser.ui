@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Pidgin - Internet Messenger
+Copyright (C) Pidgin Developers <devel@pidgin.im>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this library; if not, see <https://www.gnu.org/licenses/>.
+-->
+<interface domain="pidgin">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <requires lib="pidgin" version="3.0"/>
+  <!-- interface-license-type gplv2 -->
+  <!-- interface-name Pidgin -->
+  <!-- interface-description Internet Messenger -->
+  <!-- interface-copyright Pidgin Developers <devel@pidgin.im> -->
+  <template class="PidginProtocolChooser" parent="AdwComboRow">
+    <property name="factory">
+      <object class="GtkBuilderListItemFactory">
+        <property name="bytes">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkImage">
+            <binding name="icon-name">
+              <lookup name="icon-name" type="PurpleProtocol">
+                <lookup name="item">GtkListItem</lookup>
+              </lookup>
+            </binding>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="xalign">0</property>
+            <binding name="label">
+              <lookup name="name" type="PurpleProtocol">
+                <lookup name="item">GtkListItem</lookup>
+              </lookup>
+            </binding>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>
+]]>
+        </property>
+      </object>
+    </property>
+    <property name="list-factory">
+      <object class="GtkBuilderListItemFactory">
+        <property name="resource">/im/pidgin/Pidgin3/Protocols/detailed-view.ui</property>
+      </object>
+    </property>
+    <property name="model">
+      <object class="GtkSortListModel" id="sort">
+        <property name="sorter">
+          <object class="GtkStringSorter">
+            <property name="expression">
+              <lookup name="name" type="PurpleProtocol"/>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+    <signal name="notify::selected" handler="dropdown_changed_cb" object="PidginProtocolChooser" swapped="no"/>
+  </template>
+</interface>
