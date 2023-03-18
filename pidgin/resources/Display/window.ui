@@ -104,7 +104,21 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
     </child>
     <child>
       <object class="GtkBox" id="vbox">
-        <property name="orientation">vertical</property>
+        <property name="orientation">horizontal</property>
+           <child>
+          <object class="GtkStackSidebar" id="workspaces">
+            <!--TODO: Set stack
+            <property name="stack">channels</property>-->
+            <property name="width_request">100</property>
+            <child>
+              <object class="GtkLabel">
+                <property name ="margin_top">10</property>
+                <property name ="valign">start</property>
+                <property name ="label">Workspaces</property>
+              </object>
+            </child>
+          </object>
+        </child>
         <child>
           <object class="GtkPaned" id="paned">
             <property name="vexpand">1</property>
