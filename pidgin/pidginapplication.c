@@ -789,7 +789,9 @@ pidgin_application_startup(GApplication *application) {
 	G_APPLICATION_CLASS(pidgin_application_parent_class)->startup(application);
 
 	adw_init();
-
+	AdwStyleManager* style_manager = adw_style_manager_get_default();
+	adw_style_manager_set_color_scheme(style_manager, ADW_COLOR_SCHEME_PREFER_DARK);
+	
 	/* set a user-specified config directory */
 	if (opt_config_dir_arg != NULL) {
 		if (g_path_is_absolute(opt_config_dir_arg)) {
