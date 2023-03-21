@@ -112,6 +112,15 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
                 <property name ="label">Workspaces</property>
               </object>
             </child>
+            <child>
+              <object class="GtkImage">
+                <binding name="icon-name">
+                  <closure type="gchararray" function="pidgin_account_row_protocol_icon_cb">
+                    <lookup name="account">PidginDisplayWindow</lookup>
+                  </closure>
+                </binding>
+              </object>
+            </child>
           </object>
         </child>
         <child>

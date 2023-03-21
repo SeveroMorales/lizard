@@ -48,6 +48,8 @@ struct _PidginDisplayWindow {
 	GListModel *selection_model;
 
 	GListStore *conversation_model;
+
+	PurpleAccount *account;
 };
 
 G_DEFINE_TYPE(PidginDisplayWindow, pidgin_display_window,
@@ -387,6 +389,25 @@ pidgin_display_window_selected_item_changed_cb(GObject *self,
 	}
 }
 
+static char *
+pidgin_account_row_protocol_icon_cb(G_GNUC_UNUSED GObject *self,
+                                    PurpleAccount *account,
+                                    G_GNUC_UNUSED gpointer data)
+{
+	g_print("Hello World!");
+	g_print("Hello World!");
+	const char *icon_name = NULL;
+
+	if(PURPLE_IS_ACCOUNT(account)) {
+		PurpleProtocol *protocol = purple_account_get_protocol(account);
+		if(PURPLE_IS_PROTOCOL(protocol)) {
+			icon_name = purple_protocol_get_icon_name(protocol);
+		}
+	}
+	g_print("Hello World!");
+	return g_strdup(icon_name);
+}
+
 /******************************************************************************
  * GObject Implementation
  *****************************************************************************/
@@ -479,6 +500,9 @@ pidgin_display_window_class_init(PidginDisplayWindowClass *klass) {
 	                                        pidgin_display_window_key_pressed_cb);
 	gtk_widget_class_bind_template_callback(widget_class,
 	                                        pidgin_display_window_selected_item_changed_cb);
+	gtk_widget_class_bind_template_callback(widget_class,
+	                                        pidgin_account_row_protocol_icon_cb);
+		
 }
 
 /******************************************************************************
