@@ -80,11 +80,6 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
         <child type="titlebar">
       <object class="GtkHeaderBar" id="headerbar">
         <child>
-          <object class="GtkButton" id="toggle_button_stack">
-            <property name="icon-name">format-justify-fill</property>
-          </object>
-        </child>
-        <child>
           <object class="GtkToggleButton" id="toggle_button_search">
             <property name="icon-name">edit-find-symbolic</property>
           </object>
