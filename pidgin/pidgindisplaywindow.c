@@ -31,6 +31,7 @@
 #include "gtkutils.h"
 #include "pidgindisplayitem.h"
 #include "pidgininvitedialog.h"
+#include "pidginaccountrow.h"
 
 enum {
 	SIG_CONVERSATION_SWITCHED,
@@ -48,8 +49,6 @@ struct _PidginDisplayWindow {
 	GListModel *selection_model;
 
 	GListStore *conversation_model;
-
-	PurpleAccount *account;
 };
 
 G_DEFINE_TYPE(PidginDisplayWindow, pidgin_display_window,
@@ -388,23 +387,25 @@ pidgin_display_window_selected_item_changed_cb(GObject *self,
 		adw_bin_set_child(ADW_BIN(window->bin), widget);
 	}
 }
-
 static char *
-pidgin_account_row_protocol_icon_cb(G_GNUC_UNUSED GObject *self,
-                                    PurpleAccount *account,
-                                    G_GNUC_UNUSED gpointer data)
+pidgin_display_accounts_icons_cb(void)
 {
-	g_print("Hello World!");
-	g_print("Hello World!");
-	const char *icon_name = NULL;
+	const char* icon_name = NULL;
 
-	if(PURPLE_IS_ACCOUNT(account)) {
-		PurpleProtocol *protocol = purple_account_get_protocol(account);
+	PurpleAccountManager *manager = NULL;
+	GList *enabled = NULL;
+	GList *curr = NULL;
+
+	manager = purple_account_manager_get_default();
+	enabled = purple_account_manager_get_enabled(manager);	
+
+	if(PURPLE_IS_ACCOUNT(enabled->data)) {
+		PurpleProtocol *protocol = purple_account_get_protocol(enabled->data);
 		if(PURPLE_IS_PROTOCOL(protocol)) {
 			icon_name = purple_protocol_get_icon_name(protocol);
 		}
 	}
-	g_print("Hello World!");
+
 	return g_strdup(icon_name);
 }
 
@@ -501,8 +502,7 @@ pidgin_display_window_class_init(PidginDisplayWindowClass *klass) {
 	gtk_widget_class_bind_template_callback(widget_class,
 	                                        pidgin_display_window_selected_item_changed_cb);
 	gtk_widget_class_bind_template_callback(widget_class,
-	                                        pidgin_account_row_protocol_icon_cb);
-		
+	                                        pidgin_display_accounts_icons_cb);
 }
 
 /******************************************************************************

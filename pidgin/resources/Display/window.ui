@@ -114,9 +114,9 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
             </child>
             <child>
               <object class="GtkImage">
+                <!--HERE-->
                 <binding name="icon-name">
-                  <closure type="gchararray" function="pidgin_account_row_protocol_icon_cb">
-                    <lookup name="account">PidginDisplayWindow</lookup>
+                  <closure type="gchararray" function="pidgin_display_accounts_icons_cb">
                   </closure>
                 </binding>
               </object>
