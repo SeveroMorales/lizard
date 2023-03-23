@@ -115,6 +115,7 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
             <child>
               <object class="GtkImage">
                 <!--HERE-->
+                <property name="pixel-size">30</property>
                 <binding name="icon-name">
                   <closure type="gchararray" function="pidgin_display_accounts_icons_cb">
                   </closure>

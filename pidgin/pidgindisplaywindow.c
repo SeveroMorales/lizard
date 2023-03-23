@@ -26,6 +26,8 @@
 
 #include "pidgindisplaywindow.h"
 
+#include "stdio.h"
+
 #include "gtkconv.h"
 #include "gtkdialogs.h"
 #include "gtkutils.h"
@@ -398,14 +400,14 @@ pidgin_display_accounts_icons_cb(void)
 
 	manager = purple_account_manager_get_default();
 	enabled = purple_account_manager_get_enabled(manager);	
-
+	
 	if(PURPLE_IS_ACCOUNT(enabled->data)) {
 		PurpleProtocol *protocol = purple_account_get_protocol(enabled->data);
 		if(PURPLE_IS_PROTOCOL(protocol)) {
 			icon_name = purple_protocol_get_icon_name(protocol);
 		}
 	}
-
+	g_print("Here is the string: %s\n", icon_name);
 	return g_strdup(icon_name);
 }
 
