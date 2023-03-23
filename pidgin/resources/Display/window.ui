@@ -97,13 +97,12 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
         <signal name="key-pressed" handler="pidgin_display_window_key_pressed_cb"/>
       </object>
     </child>
+     <!--WORKSPACE SECTION BEGIN-->
     <child>
       <object class="GtkBox" id="vbox">
         <property name="orientation">horizontal</property>
            <child>
           <object class="GtkStackSidebar" id="workspaces">
-            <!--TODO: Set stack
-            <property name="stack">channels</property>-->
             <property name="width_request">100</property>
             <child>
               <object class="GtkLabel">
@@ -113,17 +112,29 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
               </object>
             </child>
             <child>
-              <object class="GtkImage">
-                <!--HERE-->
-                <property name="pixel-size">30</property>
-                <binding name="icon-name">
-                  <closure type="gchararray" function="pidgin_display_accounts_icons_cb">
-                  </closure>
-                </binding>
+              <object class="GtkBox">
+                <property name ="margin_top">30</property>
+                <property name="width_request">50</property>
+                <property name="height_request">50</property>
+                <property name="orientation">vertical</property>
+                <property name="valign">left</property>
+                <child>
+                  <object class="GtkImage">
+                    <!--HERE-->
+                    <property name="pixel-size">30</property>
+                    <binding name="icon-name">
+                      <closure type="gchararray" function="pidgin_display_accounts_icons_cb"></closure>
+                    </binding>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSwitch"></object>
+                </child>
               </object>
             </child>
           </object>
         </child>
+        <!--WORKSPACE SECTION END-->
         <child>
           <object class="GtkPaned" id="paned">
             <property name="vexpand">1</property>
