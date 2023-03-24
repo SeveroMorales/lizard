@@ -41,7 +41,8 @@ Without closing VcXsrv, execute the following command in your WSL to open termin
  DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0 terminator &
  ```
 ### Building Lounge Lizard in Linux, or Windows 10 or 11* with a windowing system
-#### Clone the Repository:
+#### Clone and build the Repository:
+
 1. Install meson as root with the following commands:
 ```
 sudo -i
@@ -53,6 +54,8 @@ exit
 2. In your desired directory run the following commands:
 ###### **Note: These are packeges needed to build and develop in Ubuntu 22.10  
 ``` 
+git clone https://github.com/SeveroMorales/lizard.git
+cd lizard
 sudo apt-get install gettext libjson-glib-dev libgtk-3-dev libgirepository1.0-dev libgtk-4-dev mercurial libgumbo-dev libcmark-dev help2man valac libxml2-dev libgupnp-1.2-dev gupnp-igd-1.0 libgstreamer1.0- dev libgstreamer-plugins-base1.0-dev liblua5.4-dev lua-lgi liblua5.3-dev libperl-dev libglib-object-introspection-perl python-gi-dev libsasl2-dev libcanberra-dev libidn11-dev meson python3-pip libgadu-dev gmime-3.0 libkf5wallet-dev gettext libxml2-dev cmake libsecret-1-dev gi-docgen libavahi-glib-dev libavahi-client-dev sassc libadwaita-1-dev libmeanwhiledev qttools5-dev-tools libgirepository1.0-dev libgtk-4-dev libadwaita-1-dev libgumbo-dev libcmark-dev help2man valac libxml++2.6-dev libsoup-3.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-good libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-libav libidn-dev libsecret-1-dev
  ```
  3. Now run these commands:
