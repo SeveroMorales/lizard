@@ -42,23 +42,31 @@ Without closing VcXsrv, execute the following command in your WSL to open termin
  ```
 ### Building Lounge Lizard in Linux, or Windows 10 or 11* with a windowing system
 #### Clone the Repository:
-1. In your desired directory run the following commands:
+1. Install meson as root with the following commands:
+```
+sudo -i
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+python3 -m pip install meson
+exit
+```
+2. In your desired directory run the following commands:
 ###### **Note: These are packeges needed to build and develop in Ubuntu 22.10  
 ``` 
-sudo apt-get install gettext libjson-glib-dev libgtk-3-dev libgirepository1.0-dev libgtk-4-dev mercurial libgumbo-dev libcmark-dev help2man valac libxml2-dev libgupnp-1.2-dev gupnp-igd-1.0 libgstreamer1.0- dev libgstreamer-plugins-base1.0-dev liblua5.4-dev lua-lgi liblua5.3-dev libperl-dev libglib-object-introspection-perl python-gi-dev libsasl2-dev libcanberra-dev libidn11-dev meson python3-pip libgadu-dev gmime-3.0 libkf5wallet-dev gettext libxml2-dev cmake libsecret-1-dev gi-docgen libavahi-glib-dev libavahi-client-dev sassc libadwaita-1-dev libmeanwhiledev qttools5-dev-tools meson libgirepository1.0-dev libgtk-4-dev libadwaita-1-dev libgumbo-dev libcmark-dev help2man valac libxml++2.6-dev libsoup-3.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-good libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-libav libidn-dev libsecret-1-dev
+sudo apt-get install gettext libjson-glib-dev libgtk-3-dev libgirepository1.0-dev libgtk-4-dev mercurial libgumbo-dev libcmark-dev help2man valac libxml2-dev libgupnp-1.2-dev gupnp-igd-1.0 libgstreamer1.0- dev libgstreamer-plugins-base1.0-dev liblua5.4-dev lua-lgi liblua5.3-dev libperl-dev libglib-object-introspection-perl python-gi-dev libsasl2-dev libcanberra-dev libidn11-dev meson python3-pip libgadu-dev gmime-3.0 libkf5wallet-dev gettext libxml2-dev cmake libsecret-1-dev gi-docgen libavahi-glib-dev libavahi-client-dev sassc libadwaita-1-dev libmeanwhiledev qttools5-dev-tools libgirepository1.0-dev libgtk-4-dev libadwaita-1-dev libgumbo-dev libcmark-dev help2man valac libxml++2.6-dev libsoup-3.0-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-good libgstreamer-plugins-good1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-libav libidn-dev libsecret-1-dev
  ```
- 2. Now run these commands:
+ 3. Now run these commands:
  ```
  meson setup build
  cd build
  ninja
  sudo ninja install
  ```
- 3. In order to run Lounge Lizard, run the following commands:
+ 4. In order to run Lounge Lizard, run the following commands:
  ```
  cd build
  cd pidgin
  ./pidgin3
  ```
  
-4. Now you need to set up and account and use Lounge Lizard
+5. Now you need to set up and account and use Lounge Lizard
