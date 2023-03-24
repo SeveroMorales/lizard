@@ -1,4 +1,4 @@
-#Lounge Lizard
+# Lounge Lizard
 This guide serves to help install Lounge Lizard in Linux (Ubuntu 22.10) and install a Windows 10 or 11* environment to install and develop Linux GUI Apps, using a windowing system for bitmap displays. 
 ###### **The installation process has not been tested on Windows 11, but it should work on it by just following this guide, if you desired you can skip the windowing system since it's been integrated into WSL2 in Windows 11* 
 
