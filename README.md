@@ -67,8 +67,7 @@ sudo apt-get install gettext libjson-glib-dev libgtk-3-dev libgirepository1.0-de
  ```
  4. In order to run Lounge Lizard, run the following commands:
  ```
- cd build
- cd pidgin
+  cd build/pidgin/
  ./pidgin3
  ```
  
