@@ -73,3 +73,5 @@ sudo apt-get install gettext libjson-glib-dev libgtk-3-dev libgirepository1.0-de
  ```
  
 5. Now you need to set up and account and use Lounge Lizard
+
+Also the ui-testing branch is for new feature, if desired you can switch to that branch and try our new features. Just remember to run ninja again
