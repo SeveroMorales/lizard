@@ -1,5 +1,5 @@
 # Lounge Lizard
-This guide serves to help install Lounge Lizard in Linux (Ubuntu 22.10) and install a Windows 10 or 11* environment to install and develop Linux GUI Apps, using a windowing system for bitmap displays. 
+This guide serves to help install Lounge Lizard in Linux (Ubuntu 22.10) and install a Windows 10 or 11* environment to develop and use Linux GUI Apps, using a windowing system for bitmap displays. 
 ###### **Note:The installation process has not been tested on Windows 11, but it should work on it by just following this guide, if you desired you can skip the windowing system since it's been integrated into WSL2 in Windows 11* 
 
 ### Prerequisites
@@ -8,10 +8,10 @@ This guide serves to help install Lounge Lizard in Linux (Ubuntu 22.10) and inst
 - A Windowing system (Preferably VcXsrv, you can download it [HERE](https://sourceforge.net/projects/vcxsrv/))
 - PowerShell with root privileges
 #### For Linux
-- Packages names can have different names for different Linux distros, if there is any package that is not available in your distro please use [pkgs.org](https://pkgs.org/) to find the package name for your distro
+- Packages names can have different names for different Linux distros, if there is any package that is not available in your distro please use [pkgs.org](https://pkgs.org/) to find them
 ### Setting up a Windowing system for Windows 10
 We will use VcXsrv for our windowing system, but you are free to use any alternative. 
-Install VcXsrv there is no special instruction needed to reach the final. After installation, create a new desktop shortcut, and use the following command. Add the following command in the properties → shortcut →target
+Install VcXsrv. create a new desktop shortcut, and use the following command. Add the following command in the properties → shortcut →target
 ```
 "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
 ```
@@ -51,7 +51,7 @@ python3 get-pip.py
 python3 -m pip install meson
 exit
 ```
-2. In your desired directory run the following commands:
+2. In your directory run the following commands:
 ###### **Note: These are packeges needed to build and develop in Ubuntu 22.10  
 ``` 
 git clone https://github.com/SeveroMorales/lizard.git
@@ -73,4 +73,4 @@ sudo apt-get install gettext libjson-glib-dev libgtk-3-dev libgirepository1.0-de
  
 5. Now you need to set up and account and use Lounge Lizard
 
-Also the ui-testing branch is for new feature, if desired you can switch to that branch and try our new features. Just remember to run ninja again
+Also the ui-testing branch is for new feature, if you can switch to that branch and try our new features. Just remember to run ninja again
