@@ -396,9 +396,13 @@ pidgin_display_accounts_icons_cb(void)
 
 	PurpleAccountManager *manager = NULL;
 	GList *enabled = NULL;
+	// 
 
 	manager = purple_account_manager_get_default();
 	enabled = purple_account_manager_get_enabled(manager);	
+	
+	if(enabled == NULL)
+		return NULL;
 	
 	if(PURPLE_IS_ACCOUNT(enabled->data)) {
 		PurpleProtocol *protocol = purple_account_get_protocol(enabled->data);
