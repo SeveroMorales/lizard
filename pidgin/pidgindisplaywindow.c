@@ -396,7 +396,6 @@ pidgin_display_accounts_icons_cb(void)
 
 	PurpleAccountManager *manager = NULL;
 	GList *enabled = NULL;
-	GList *curr = NULL;
 
 	manager = purple_account_manager_get_default();
 	enabled = purple_account_manager_get_enabled(manager);	
