@@ -51,7 +51,7 @@ python3 get-pip.py
 python3 -m pip install meson
 exit
 ```
-After installing meson, restart your WSL or Linux machine
+##### After installing meson, restart your WSL or Linux machine
 2. In your directory run the following commands:
 ###### **Note: These are packeges needed to build and develop in Ubuntu 22.10  
 ``` 
