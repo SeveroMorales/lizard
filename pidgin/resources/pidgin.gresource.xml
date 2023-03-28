@@ -58,5 +58,7 @@
     <file>icons/16x16/emblems/pidgin-status-operator.png</file>
     <file>icons/16x16/emblems/pidgin-status-voice.png</file>
     <file>logo.png</file>
+    <file>Lizard.png</file>
+    <file>Brown-Lizard.png</file>
   </gresource>
 </gresources>

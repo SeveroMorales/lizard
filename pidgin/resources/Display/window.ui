@@ -85,9 +85,9 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
           </object>
         </child>
         <child type="end">
-          <object class="GtkButton" id="toggle_button_faq">
-            <property name="icon-name">help-faq</property>
-          </object>
+          <object class="GtkPicture" id="logo">
+                <property name="file">resource:///im/pidgin/Pidgin3/Brown-Lizard.png</property>
+              </object>
         </child>
       </object>
     </child>
