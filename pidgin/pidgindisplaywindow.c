@@ -390,12 +390,12 @@ pidgin_display_window_selected_item_changed_cb(GObject *self,
 	}
 }
 static char *
-pidgin_display_accounts_icons_cb(void)
+lizard_display_accounts_icons_cb(void)
 {
 	const char* icon_name = NULL;
 
-	PurpleAccountManager *manager = NULL;
-	GList *enabled = NULL;
+	PurpleAccountManager* manager = NULL;
+	GList* enabled = NULL;
 	// 
 
 	manager = purple_account_manager_get_default();
@@ -404,14 +404,40 @@ pidgin_display_accounts_icons_cb(void)
 	if(enabled == NULL)
 		return NULL;
 	
-	if(PURPLE_IS_ACCOUNT(enabled->data)) {
-		PurpleProtocol *protocol = purple_account_get_protocol(enabled->data);
-		if(PURPLE_IS_PROTOCOL(protocol)) {
+	if(PURPLE_IS_ACCOUNT(enabled->data)) 
+	{
+		PurpleProtocol* protocol = purple_account_get_protocol(enabled->data);
+		
+		if(PURPLE_IS_PROTOCOL(protocol)) 
 			icon_name = purple_protocol_get_icon_name(protocol);
-		}
 	}
-	g_print("Here is the string: %s\n", icon_name);
 	return g_strdup(icon_name);
+}
+
+static char *
+lizard_display_accounts_name_cb(void)
+{
+	const gchar* account_name = NULL;
+	const char* protocol_name = NULL;
+	PurpleAccountManager *manager = NULL;
+	PurpleAccount* account = NULL;
+	GList* enabled = NULL;
+	// 
+	manager = purple_account_manager_get_default();
+	enabled = purple_account_manager_get_enabled(manager);	
+
+	if(enabled == NULL)
+		return NULL;
+
+	if(PURPLE_IS_ACCOUNT(enabled->data))
+	{	
+		protocol_name = purple_account_get_protocol_name(enabled->data);
+		PurpleContactInfo *info = PURPLE_CONTACT_INFO(enabled->data);
+		account_name = purple_contact_info_get_username(info);	
+	}
+	g_print("\n\nAccount information here: %s\n\nAccount protocol name: %s\n\n", account_name, protocol_name);
+	return g_strdup(account_name);
+
 }
 
 /******************************************************************************
@@ -507,7 +533,9 @@ pidgin_display_window_class_init(PidginDisplayWindowClass *klass) {
 	gtk_widget_class_bind_template_callback(widget_class,
 	                                        pidgin_display_window_selected_item_changed_cb);
 	gtk_widget_class_bind_template_callback(widget_class,
-	                                        pidgin_display_accounts_icons_cb);
+	                                        lizard_display_accounts_icons_cb);
+	gtk_widget_class_bind_template_callback(widget_class,
+											lizard_display_accounts_name_cb);											
 }
 
 /******************************************************************************

@@ -123,8 +123,16 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
                     <!--HERE-->
                     <property name="pixel-size">30</property>
                     <binding name="icon-name">
-                      <closure type="gchararray" function="pidgin_display_accounts_icons_cb"></closure>
+                      <closure type="gchararray" function="lizard_display_accounts_icons_cb"></closure>
                     </binding>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <binding name="label">
+                      <closure type="gchararray" function="lizard_display_accounts_name_cb"></closure>
+                    </binding>
+                    <property name="css-classes">dim-label</property>
                   </object>
                 </child>
                 <child>
