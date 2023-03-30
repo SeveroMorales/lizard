@@ -51,6 +51,7 @@ struct _PidginDisplayWindow {
 	GListModel *selection_model;
 
 	GListStore *conversation_model;
+	//GListBox   *accounts;
 };
 
 G_DEFINE_TYPE(PidginDisplayWindow, pidgin_display_window,
@@ -396,7 +397,6 @@ lizard_display_accounts_icons_cb(void)
 
 	PurpleAccountManager* manager = NULL;
 	GList* enabled = NULL;
-	// 
 
 	manager = purple_account_manager_get_default();
 	enabled = purple_account_manager_get_enabled(manager);	
@@ -439,6 +439,9 @@ lizard_display_accounts_name_cb(void)
 	return g_strdup(account_name);
 
 }
+
+// add_all_accounts_to_list_box()
+// 
 
 /******************************************************************************
  * GObject Implementation
