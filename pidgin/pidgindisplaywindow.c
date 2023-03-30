@@ -51,7 +51,11 @@ struct _PidginDisplayWindow {
 	GListModel *selection_model;
 
 	GListStore *conversation_model;
+
+
+	GtkSwitch *account_switch;
 	//GListBox   *accounts;
+
 };
 
 G_DEFINE_TYPE(PidginDisplayWindow, pidgin_display_window,
@@ -413,6 +417,31 @@ lizard_display_accounts_icons_cb(void)
 	}
 	return g_strdup(icon_name);
 }
+/* Disables Account */
+static void
+lizard_account_status(G_GNUC_UNUSED GtkSwitch *sw, gboolean state)
+{
+	PurpleAccountManager *manager = NULL;
+	GList *enabled = NULL;
+
+	manager = purple_account_manager_get_default();
+	enabled = purple_account_manager_get_enabled(manager);
+	if(enabled == NULL){
+		return NULL;
+	}
+	if(purple_account_get_enabled(enabled->data) == state) {
+		return;
+	}
+
+	/* The account was just enabled, so set its status. */
+	if(state) {
+		PurpleSavedStatus *status = purple_savedstatus_get_current();
+		purple_savedstatus_activate_for_account(status, enabled->data);
+	}
+
+	purple_account_set_enabled(enabled->data, state);
+
+}
 
 static char *
 lizard_display_accounts_name_cb(void)
@@ -519,7 +548,8 @@ pidgin_display_window_class_init(PidginDisplayWindowClass *klass) {
 	    widget_class,
 	    "/im/pidgin/Pidgin3/Display/window.ui"
 	);
-
+	gtk_widget_class_bind_template_child(widget_class, PidginDisplayWindow,
+	                                     account_switch);
 	gtk_widget_class_bind_template_child(widget_class, PidginDisplayWindow,
 	                                     view);
 	gtk_widget_class_bind_template_child(widget_class, PidginDisplayWindow,
@@ -530,7 +560,8 @@ pidgin_display_window_class_init(PidginDisplayWindowClass *klass) {
 	                                     selection_model);
 	gtk_widget_class_bind_template_child(widget_class, PidginDisplayWindow,
 	                                     conversation_model);
-
+	gtk_widget_class_bind_template_callback(widget_class,
+	                                        lizard_account_status);
 	gtk_widget_class_bind_template_callback(widget_class,
 	                                        pidgin_display_window_key_pressed_cb);
 	gtk_widget_class_bind_template_callback(widget_class,
