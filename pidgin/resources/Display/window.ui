@@ -137,7 +137,7 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
                 </child>
                 <child>
                     <object class="GtkSwitch" id="account_switch">
-                    <property name="valign">center</property>
+                      <property name="halign">center</property>
                     <signal name="state-set" handler="lizard_account_status" swapped="no"/>
                     </object>
                 </child>
