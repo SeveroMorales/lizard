@@ -448,7 +448,7 @@ lizard_display_accounts_name_cb(void)
 {
 	const gchar* account_name = NULL;
 	const char* protocol_name = NULL;
-	PurpleAccountManager *manager = NULL;
+	PurpleAccountManager* manager = NULL;
 	PurpleAccount* account = NULL;
 	GList* enabled = NULL;
 	// 
@@ -461,10 +461,10 @@ lizard_display_accounts_name_cb(void)
 	if(PURPLE_IS_ACCOUNT(enabled->data))
 	{	
 		protocol_name = purple_account_get_protocol_name(enabled->data);
-		PurpleContactInfo *info = PURPLE_CONTACT_INFO(enabled->data);
+		PurpleContactInfo* info = PURPLE_CONTACT_INFO(enabled->data);
 		account_name = purple_contact_info_get_username(info);	
 	}
-	g_print("\n\nAccount information here: %s\n\nAccount protocol name: %s\n\n", account_name, protocol_name);
+	g_print("\n\nAccount name: %s\n\nAccount protocol name: %s\n\n", account_name, protocol_name);
 	return g_strdup(account_name);
 
 }
