@@ -1,0 +1,110 @@
+[1mdiff --git a/pidgin/pidginaccountmanager.c b/pidgin/pidginaccountmanager.c[m
+[1mindex 4162d8a..378f719 100644[m
+[1m--- a/pidgin/pidginaccountmanager.c[m
+[1m+++ b/pidgin/pidginaccountmanager.c[m
+[36m@@ -111,7 +111,7 @@[m [mpidgin_account_manager_row_activated_cb(G_GNUC_UNUSED GtkListBox *box,[m
+ 	GtkWidget *editor = NULL;[m
+ 	PurpleAccount *account = NULL;[m
+ [m
+[31m-	account = pidgin_account_row_get_account(PIDGIN_ACCOUNT_ROW(row));[m
+[32m+[m	[32maccount = (PIDGIN_ACCOUNT_ROW(row));[m
+ 	editor = pidgin_account_editor_new(account);[m
+ 	gtk_widget_show(editor);[m
+ }[m
+[1mdiff --git a/pidgin/pidginaccountrow.c b/pidgin/pidginaccountrow.c[m
+[1mindex c976f46..f087091 100644[m
+[1m--- a/pidgin/pidginaccountrow.c[m
+[1m+++ b/pidgin/pidginaccountrow.c[m
+[36m@@ -298,7 +298,7 @@[m [mpidgin_account_row_get_property(GObject *obj, guint param_id, GValue *value,[m
+ [m
+ 	switch(param_id) {[m
+ 		case PROP_ACCOUNT:[m
+[31m-			g_value_set_object(value, pidgin_account_row_get_account(row));[m
+[32m+[m			[32mg_value_set_object(value, (row));[m
+ 			break;[m
+ 		default:[m
+ 			G_OBJECT_WARN_INVALID_PROPERTY_ID(obj, param_id, pspec);[m
+[36m@@ -400,7 +400,7 @@[m [mpidgin_account_row_new(PurpleAccount *account) {[m
+ }[m
+ [m
+ PurpleAccount *[m
+[31m-pidgin_account_row_get_account(PidginAccountRow *row) {[m
+[32m+[m[32m(PidginAccountRow *row) {[m
+ 	g_return_val_if_fail(PIDGIN_IS_ACCOUNT_ROW(row), NULL);[m
+ [m
+ 	return row->account;[m
+[1mdiff --git a/pidgin/pidgindisplaywindow.c b/pidgin/pidgindisplaywindow.c[m
+[1mindex 2b6c7ab..7ac03bf 100644[m
+[1m--- a/pidgin/pidgindisplaywindow.c[m
+[1m+++ b/pidgin/pidgindisplaywindow.c[m
+[36m@@ -31,6 +31,7 @@[m
+ #include "gtkutils.h"[m
+ #include "pidgindisplayitem.h"[m
+ #include "pidgininvitedialog.h"[m
+[32m+[m[32m#include "pidginaccountrow.h"[m
+ [m
+ enum {[m
+ 	SIG_CONVERSATION_SWITCHED,[m
+[36m@@ -48,8 +49,6 @@[m [mstruct _PidginDisplayWindow {[m
+ 	GListModel *selection_model;[m
+ [m
+ 	GListStore *conversation_model;[m
+[31m-[m
+[31m-	PurpleAccount *account;[m
+ };[m
+ [m
+ G_DEFINE_TYPE(PidginDisplayWindow, pidgin_display_window,[m
+[36m@@ -389,25 +388,6 @@[m [mpidgin_display_window_selected_item_changed_cb(GObject *self,[m
+ 	}[m
+ }[m
+ [m
+[31m-static char *[m
+[31m-pidgin_account_row_protocol_icon_cb(G_GNUC_UNUSED GObject *self,[m
+[31m-                                    PurpleAccount *account,[m
+[31m-                                    G_GNUC_UNUSED gpointer data)[m
+[31m-{[m
+[31m-	g_print("Hello World!");[m
+[31m-	g_print("Hello World!");[m
+[31m-	const char *icon_name = NULL;[m
+[31m-[m
+[31m-	if(PURPLE_IS_ACCOUNT(account)) {[m
+[31m-		PurpleProtocol *protocol = purple_account_get_protocol(account);[m
+[31m-		if(PURPLE_IS_PROTOCOL(protocol)) {[m
+[31m-			icon_name = purple_protocol_get_icon_name(protocol);[m
+[31m-		}[m
+[31m-	}[m
+[31m-	g_print("Hello World!");[m
+[31m-	return g_strdup(icon_name);[m
+[31m-}[m
+[31m-[m
+ /******************************************************************************[m
+  * GObject Implementation[m
+  *****************************************************************************/[m
+[36m@@ -500,9 +480,6 @@[m [mpidgin_display_window_class_init(PidginDisplayWindowClass *klass) {[m
+ 	                                        pidgin_display_window_key_pressed_cb);[m
+ 	gtk_widget_class_bind_template_callback(widget_class,[m
+ 	                                        pidgin_display_window_selected_item_changed_cb);[m
+[31m-	gtk_widget_class_bind_template_callback(widget_class,[m
+[31m-	                                        pidgin_account_row_protocol_icon_cb);[m
+[31m-		[m
+ }[m
+ [m
+ /******************************************************************************[m
+[1mdiff --git a/pidgin/resources/Display/window.ui b/pidgin/resources/Display/window.ui[m
+[1mindex 1645654..37708c0 100644[m
+[1m--- a/pidgin/resources/Display/window.ui[m
+[1m+++ b/pidgin/resources/Display/window.ui[m
+[36m@@ -114,11 +114,8 @@[m [malong with this library; if not, see <https://www.gnu.org/licenses/>.[m
+             </child>[m
+             <child>[m
+               <object class="GtkImage">[m
+[31m-                <binding name="icon-name">[m
+[31m-                  <closure type="gchararray" function="pidgin_account_row_protocol_icon_cb">[m
+[31m-                    <lookup name="account">PidginDisplayWindow</lookup>[m
+[31m-                  </closure>[m
+[31m-                </binding>[m
+[32m+[m[32m                <!--HERE-->[m
+[32m+[m[32m                <property name="icon-name">go-next-symbolic</property>[m
+               </object>[m
+             </child>[m
+           </object>[m

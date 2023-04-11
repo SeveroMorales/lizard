@@ -85,9 +85,9 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
           </object>
         </child>
         <child type="end">
-          <object class="GtkButton" id="toggle_button_faq">
-            <property name="icon-name">help-faq</property>
-          </object>
+          <object class="GtkPicture" id="logo">
+                <property name="file">resource:///im/pidgin/Pidgin3/Brown-Lizard.png</property>
+              </object>
         </child>
       </object>
     </child>
@@ -97,13 +97,12 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
         <signal name="key-pressed" handler="pidgin_display_window_key_pressed_cb"/>
       </object>
     </child>
+     <!--WORKSPACE SECTION BEGIN-->
     <child>
       <object class="GtkBox" id="vbox">
         <property name="orientation">horizontal</property>
            <child>
           <object class="GtkStackSidebar" id="workspaces">
-            <!--TODO: Set stack
-            <property name="stack">channels</property>-->
             <property name="width_request">100</property>
             <child>
               <object class="GtkLabel">
@@ -112,8 +111,41 @@ along with this library; if not, see <https://www.gnu.org/licenses/>.
                 <property name ="label">Workspaces</property>
               </object>
             </child>
+            <child>
+              <object class="GtkBox">
+                <property name ="margin_top">30</property>
+                <property name="width_request">50</property>
+                <property name="height_request">50</property>
+                <property name="orientation">vertical</property>
+                <property name="valign">left</property>
+                <child>
+                  <object class="GtkImage">
+                    <!--HERE-->
+                    <property name="pixel-size">30</property>
+                    <binding name="icon-name">
+                      <closure type="gchararray" function="lizard_display_accounts_icons_cb"></closure>
+                    </binding>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <binding name="label">
+                      <closure type="gchararray" function="lizard_display_accounts_name_cb"></closure>
+                    </binding>
+                    <property name="css-classes">dim-label</property>
+                  </object>
+                </child>
+                <child>
+                    <object class="GtkSwitch" id="account_switch">
+                      <property name="halign">center</property>
+                    <signal name="state-set" handler="lizard_account_status" swapped="no"/>
+                    </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
+        <!--WORKSPACE SECTION END-->
         <child>
           <object class="GtkPaned" id="paned">
             <property name="vexpand">1</property>
