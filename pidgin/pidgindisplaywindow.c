@@ -451,7 +451,7 @@ lizard_display_accounts_name_cb(void)
 	PurpleAccountManager* manager = NULL;
 	PurpleAccount* account = NULL;
 	GList* enabled = NULL;
-	// 
+	
 	manager = purple_account_manager_get_default();
 	enabled = purple_account_manager_get_enabled(manager);	
 
